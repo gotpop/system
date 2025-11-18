@@ -1,20 +1,12 @@
-name: Build and Deploy to Netlify
+name: Deploy to Netlify
 
 on:
   push:
     branches: [master]
 
-permissions:
-  contents: read
-  deployments: write
-  pull-requests: write
-
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
-    
-    env:
-      STORYBLOK_ACCESS_TOKEN: ${{ secrets.STORYBLOK_ACCESS_TOKEN }}
     
     steps:
       - name: Checkout
@@ -31,35 +23,17 @@ jobs:
 
       - name: Build system package
         run: yarn workspace @gotpop/system build
+        env:
+          STORYBLOK_ACCESS_TOKEN: ${{ secrets.STORYBLOK_ACCESS_TOKEN }}
 
       - name: Build Storybook
         run: yarn workspace storybook build
+        env:
+          STORYBLOK_ACCESS_TOKEN: ${{ secrets.STORYBLOK_ACCESS_TOKEN }}
 
-      - name: Start deployment (production)
-        id: deployment
-        if: github.ref == 'refs/heads/master' && github.event_name == 'push'
-        uses: bobheadxi/deployments@v1
-        with:
-          step: start
-          token: ${{ secrets.GITHUB_TOKEN }}
-          env: Netlify (production)
-
-      - name: Deploy to Netlify (production)
-        if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+      - name: Deploy to Netlify
         uses: netlify/actions/cli@master
         with:
           args: deploy --dir=apps/storybook/storybook-static --site=${{ secrets.NETLIFY_SITE_ID }} --prod
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-
-      - name: Update deployment status (production)
-        uses: bobheadxi/deployments@v1
-        if: always() && github.ref == 'refs/heads/master' && github.event_name == 'push' && steps.deployment.outputs.deployment_id
-        with:
-          step: finish
-          token: ${{ secrets.GITHUB_TOKEN }}
-          status: ${{ job.status }}
-          env: Netlify (production)
-          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
-          env_url: https://system.gotpop.io
