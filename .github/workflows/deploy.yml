@@ -6,6 +6,11 @@ on:
   pull_request:
     branches: [master]
 
+permissions:
+  contents: read
+  deployments: write
+  pull-requests: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -33,13 +38,13 @@ jobs:
         run: yarn workspace storybook build
 
       - name: Start deployment (Production)
-        id: deployment-prod
+        id: deployment
         if: github.ref == 'refs/heads/master' && github.event_name == 'push'
         uses: bobheadxi/deployments@v1
         with:
           step: start
           token: ${{ secrets.GITHUB_TOKEN }}
-          env: Netlify (production)
+          env: production
 
       - name: Deploy to Netlify (Production)
         if: github.ref == 'refs/heads/master' && github.event_name == 'push'
@@ -61,13 +66,13 @@ jobs:
 
       - name: Update deployment status (Production)
         uses: bobheadxi/deployments@v1
-        if: always() && github.ref == 'refs/heads/master' && github.event_name == 'push'
+        if: always() && github.ref == 'refs/heads/master' && github.event_name == 'push' && steps.deployment.outputs.deployment_id
         with:
           step: finish
           token: ${{ secrets.GITHUB_TOKEN }}
           status: ${{ job.status }}
-          env: Netlify (production)
-          deployment_id: ${{ steps.deployment-prod.outputs.deployment_id }}
+          env: production
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
           env_url: https://system.gotpop.io
 
       - name: Comment PR with deploy URL
