@@ -1,6 +1,6 @@
 {
   "name": "@gotpop/storyblok",
-  "version": "0.1.29",
+  "version": "0.1.30",
   "description": "Storyblok integration utilities and components for gotpop projects",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -40,7 +40,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/gotpop/gotpop-system.git",
+    "url": "https://github.com/gotpop/gotpop-design-system.git",
     "directory": "packages/storyblok"
   },
   "scripts": {
