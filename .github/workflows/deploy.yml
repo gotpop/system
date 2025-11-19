@@ -32,8 +32,10 @@ jobs:
           STORYBLOK_ACCESS_TOKEN: ${{ secrets.STORYBLOK_ACCESS_TOKEN }}
 
       - name: Deploy to Netlify
-        uses: netlify/actions/cli@master
-        with:
-          args: deploy --dir=apps/storybook/storybook-static --site=${{ secrets.NETLIFY_SITE_ID }} --prod
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        run: |
+          npm install -g netlify-cli
+          netlify deploy \
+            --dir=apps/storybook/storybook-static \
+            --site=${{ secrets.NETLIFY_SITE_ID }} \
+            --auth=${{ secrets.NETLIFY_AUTH_TOKEN }} \
+            --prod
