@@ -15,8 +15,9 @@
     height: max-content;
     justify-content: center;
     min-height: 2rem;
-    min-width: 4rem;
+    min-width: 6rem;
     width: max-content;
+    padding-inline: 1rem;
   }
 
   .select {

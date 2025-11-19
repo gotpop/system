@@ -10,6 +10,7 @@ interface CardsControlProps {
   onChange: (value: string) => void
   options: { value: string; label: string }[]
   className?: string
+  style?: React.CSSProperties
 }
 
 export function CardsControl({
@@ -18,11 +19,12 @@ export function CardsControl({
   onChange,
   options,
   className = "select-wrap",
+  style = undefined,
 }: CardsControlProps) {
   const selectId = useId()
 
   return (
-    <CustomElement tag="select-option" className={className}>
+    <CustomElement tag="select-option" className={className} style={style}>
       <label htmlFor={selectId} className="select-label">
         {label}:
       </label>

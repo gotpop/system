@@ -20,14 +20,14 @@ interface CustomElementProps {
   children?: ReactNode
   tag: ValidTag
   className?: string | undefined
-  style?: React.CSSProperties
+  style?: React.CSSProperties | undefined
 }
 
 export function CustomElement({
   children,
   tag,
   className = undefined,
-  style = {},
+  style = undefined,
 }: CustomElementProps) {
   const Tag = tag as ValidTag
 
