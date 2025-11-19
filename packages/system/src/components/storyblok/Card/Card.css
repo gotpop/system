@@ -24,7 +24,6 @@
     height: var(--round-up);
     justify-content: center;
     width: var(--round-up);
-    background: red !important;
   }
 
   .title-link {

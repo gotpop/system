@@ -1,6 +1,6 @@
 [build]
-base = "."
-publish = "apps/storybook/storybook-static"
+base = "../.."
+publish = "storybook-static"
 command = "yarn install --frozen-lockfile && yarn workspace @gotpop/system build && yarn workspace storybook build"
 
 [build.environment]
