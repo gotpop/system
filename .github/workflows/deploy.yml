@@ -38,4 +38,5 @@ jobs:
             --dir=apps/storybook/storybook-static \
             --site=${{ secrets.NETLIFY_SITE_ID }} \
             --auth=${{ secrets.NETLIFY_AUTH_TOKEN }} \
+            --build=false \
             --prod
