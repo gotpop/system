@@ -1,6 +1,7 @@
 "use client"
 
 import { useId } from "react"
+import { CustomElement } from "../../ui/CustomElement"
 import "./CardsControl.css"
 
 interface CardsControlProps {
@@ -9,6 +10,7 @@ interface CardsControlProps {
   onChange: (value: string) => void
   options: { value: string; label: string }[]
   className?: string
+  style?: React.CSSProperties
 }
 
 export function CardsControl({
@@ -17,11 +19,12 @@ export function CardsControl({
   onChange,
   options,
   className = "select-wrap",
+  style = undefined,
 }: CardsControlProps) {
   const selectId = useId()
 
   return (
-    <div className={className}>
+    <CustomElement tag="select-option" className={className} style={style}>
       <label htmlFor={selectId} className="select-label">
         {label}:
       </label>
@@ -37,6 +40,6 @@ export function CardsControl({
           </option>
         ))}
       </select>
-    </div>
+    </CustomElement>
   )
 }

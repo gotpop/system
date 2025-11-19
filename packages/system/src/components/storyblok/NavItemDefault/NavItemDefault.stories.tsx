@@ -3,7 +3,6 @@ import { GridMaster } from "../../ui/GridMaster/GridMaster"
 import { NavItemDefault } from "./NavItemDefault"
 import {
   mockConfig,
-  mockDisabledNavItem,
   mockExternalNavItem,
   mockIconOnlyNavItem,
   mockIconTextNavItem,

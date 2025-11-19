@@ -1,21 +1,23 @@
-@scope (box-grid) {
-  .select-wrap {
-    display: grid;
-    grid-template-columns: auto 1fr;
+@scope (select-option) {
+  & {
     align-items: center;
     background: var(--dark-500);
+    display: grid;
+    grid-column: var(--grid-column, auto);
+    grid-template-columns: auto 1fr;
     min-width: var(--round-up);
   }
 
   .select-label {
-    display: flex;
     align-items: center;
-    justify-content: center;
     color: white;
-    width: max-content;
+    display: flex;
     height: max-content;
+    justify-content: center;
     min-height: 2rem;
-    min-width: 4rem;
+    min-width: 6rem;
+    width: max-content;
+    padding-inline: 1rem;
   }
 
   .select {

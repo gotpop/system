@@ -11,7 +11,7 @@ const meta: Meta<typeof CardsControl> = {
   },
   tags: ["autodocs"],
   decorators: [
-    (Story) => (
+    (Story: React.ComponentType) => (
       <GridMaster>
         <main>
           <Story />
@@ -22,27 +22,6 @@ const meta: Meta<typeof CardsControl> = {
   args: {
     onChange: (value: string) => {
       console.log("CardsControl value changed:", value)
-    },
-  },
-  argTypes: {
-    label: {
-      description: "Label text for the control",
-      control: "text",
-    },
-    value: {
-      description: "Currently selected value",
-      control: "text",
-    },
-    onChange: {
-      description: "Callback function when value changes",
-      action: "changed",
-    },
-    options: {
-      description: "Array of options for the select dropdown",
-    },
-    className: {
-      description: "Optional CSS class name",
-      control: "text",
     },
   },
 }
@@ -63,9 +42,10 @@ export const Tablet: Story = {
     label: "Filter by Tag",
     value: "react",
     options: tagOptions,
+    style: { "--grid-column": "span 3" } as React.CSSProperties,
   },
   globals: {
-    viewport: { value: "tablet", isRotated: false },
+    viewport: { value: "tablet" },
   },
 }
 
@@ -74,8 +54,9 @@ export const Mobile: Story = {
     label: "Category",
     value: "tutorials",
     options: categoryOptions,
+    style: { "--grid-column": "1 / -1" } as React.CSSProperties,
   },
   globals: {
-    viewport: { value: "mobile2", isRotated: false },
+    viewport: { value: "mobile2" },
   },
 }
