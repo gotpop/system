@@ -926,19 +926,19 @@
   integrity sha512-N3zl+lxHCifgIlcMUP5016ESkeQjLj/959RxxNYIthIg+CQHInujFuXeWbWMgnTo4cp5XVHqFPmpyu9J65C1Yg==
 
 "@gotpop/scripts@^0.1.1", "@gotpop/scripts@file:/Users/minivan/web/sites/gotpop-design-system/packages/scripts":
-  version "0.1.1"
+  version "0.1.6"
   resolved "file:packages/scripts"
   dependencies:
     dotenv "^16.0.0"
 
 "@gotpop/storyblok@file:/Users/minivan/web/sites/gotpop-design-system/packages/storyblok":
-  version "0.1.30"
+  version "0.1.31"
   resolved "file:packages/storyblok"
   dependencies:
     "@storyblok/react" "^5.0.0"
 
 "@gotpop/system@*", "@gotpop/system@file:/Users/minivan/web/sites/gotpop-design-system/packages/system":
-  version "0.1.175"
+  version "0.1.176"
   resolved "file:packages/system"
   dependencies:
     "@next/font" "^14.2.15"

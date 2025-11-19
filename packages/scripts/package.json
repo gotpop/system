@@ -1,6 +1,6 @@
 {
   "name": "@gotpop/scripts",
-  "version": "0.1.1",
+  "version": "0.1.6",
   "description": "Shared scripts for Storyblok projects",
   "type": "module",
   "main": "src/index.js",
@@ -17,11 +17,12 @@
   },
   "scripts": {
     "test": "echo \"No tests yet\"",
-    "publish:github": "npm version patch && yarn build && npm publish"
+    "build": "tsc",
+    "publish:github": "npm version patch && npm publish"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gotpop/gotpop-system.git",
+    "url": "https://github.com/gotpop/gotpop-design-system.git",
     "directory": "packages/scripts"
   },
   "publishConfig": {
