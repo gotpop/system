@@ -925,20 +925,20 @@
   resolved "https://registry.npmjs.org/@esbuild/darwin-arm64/-/darwin-arm64-0.25.12.tgz"
   integrity sha512-N3zl+lxHCifgIlcMUP5016ESkeQjLj/959RxxNYIthIg+CQHInujFuXeWbWMgnTo4cp5XVHqFPmpyu9J65C1Yg==
 
-"@gotpop/scripts@^0.1.1", "@gotpop/scripts@file:/Users/minivan/web/sites/gotpop-design-system/packages/scripts":
-  version "0.1.6"
+"@gotpop/scripts@^0.1.1", "@gotpop/scripts@file:/Users/minivan/web/sites/platform/system/packages/scripts":
+  version "0.1.7"
   resolved "file:packages/scripts"
   dependencies:
     dotenv "^16.0.0"
 
-"@gotpop/storyblok@file:/Users/minivan/web/sites/gotpop-design-system/packages/storyblok":
-  version "0.1.31"
+"@gotpop/storyblok@file:/Users/minivan/web/sites/platform/system/packages/storyblok":
+  version "0.1.32"
   resolved "file:packages/storyblok"
   dependencies:
     "@storyblok/react" "^5.0.0"
 
-"@gotpop/system@*", "@gotpop/system@file:/Users/minivan/web/sites/gotpop-design-system/packages/system":
-  version "0.1.176"
+"@gotpop/system@*", "@gotpop/system@file:/Users/minivan/web/sites/platform/system/packages/system":
+  version "0.1.177"
   resolved "file:packages/system"
   dependencies:
     "@next/font" "^14.2.15"
@@ -4196,7 +4196,7 @@ storybook@^9.1.16:
     semver "^7.6.2"
     ws "^8.18.0"
 
-"storybook@file:/Users/minivan/web/sites/gotpop-design-system/apps/storybook":
+"storybook@file:/Users/minivan/web/sites/platform/system/apps/storybook":
   version "0.1.0"
   resolved "file:apps/storybook"
   dependencies:
