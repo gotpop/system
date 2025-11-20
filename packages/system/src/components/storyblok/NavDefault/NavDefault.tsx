@@ -15,7 +15,6 @@ interface NavDefaultProps {
 export function NavDefault({
   blok: _blok,
   blocks,
-  config,
 }: NavDefaultProps): React.JSX.Element {
   const navId = useId()
 

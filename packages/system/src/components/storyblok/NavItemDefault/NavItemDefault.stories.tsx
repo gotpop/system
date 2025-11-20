@@ -4,7 +4,6 @@ import { NavItemDefault } from "./NavItemDefault"
 import {
   mockConfig,
   mockExternalNavItem,
-  mockIconOnlyNavItem,
   mockIconTextNavItem,
   mockTextOnlyNavItem,
 } from "./NavItemDefault.mocks"
@@ -20,16 +19,7 @@ const meta: Meta<typeof NavItemDefault> = {
     (Story) => (
       <GridMaster>
         <main>
-          <nav
-            style={{
-              padding: "2rem",
-              display: "flex",
-              gap: "1rem",
-              alignItems: "center",
-            }}
-          >
-            <Story />
-          </nav>
+          <Story />
         </main>
       </GridMaster>
     ),
@@ -37,6 +27,7 @@ const meta: Meta<typeof NavItemDefault> = {
   args: {
     blok: mockTextOnlyNavItem,
     config: mockConfig,
+    style: { "--grid-column": "content-start / span 1" } as React.CSSProperties,
   },
   argTypes: {
     blok: {
@@ -55,36 +46,6 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const Tablet: Story = {
-  args: {
-    blok: mockIconTextNavItem,
-  },
-  globals: {
-    viewport: { value: "tablet", isRotated: false },
-  },
-}
-
-export const Mobile: Story = {
-  args: {
-    blok: mockIconOnlyNavItem,
-  },
-  globals: {
-    viewport: { value: "mobile2", isRotated: false },
-  },
-}
-
-export const TextOnly: Story = {
-  args: {
-    blok: mockTextOnlyNavItem,
-  },
-}
-
-export const IconOnly: Story = {
-  args: {
-    blok: mockIconOnlyNavItem,
-  },
-}
-
 export const IconAndText: Story = {
   args: {
     blok: mockIconTextNavItem,
@@ -94,5 +55,23 @@ export const IconAndText: Story = {
 export const ExternalLink: Story = {
   args: {
     blok: mockExternalNavItem,
+  },
+}
+
+export const Tablet: Story = {
+  args: {
+    blok: mockIconTextNavItem,
+  },
+  globals: {
+    viewport: { value: "tablet" },
+  },
+}
+
+export const Mobile: Story = {
+  args: {
+    blok: mockIconTextNavItem,
+  },
+  globals: {
+    viewport: { value: "mobile2" },
   },
 }

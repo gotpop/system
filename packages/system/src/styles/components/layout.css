@@ -35,6 +35,7 @@ box-grid {
   background-color: var(--light-100);
   background-image: var(--grid-css);
   column-gap: var(--column-gap, 0);
+  row-gap: var(--row-gap, 0);
   display: flex;
   flex-direction: var(--direction, column);
   grid-column: var(--grid-column, content);

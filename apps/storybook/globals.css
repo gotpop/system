@@ -1,6 +1,21 @@
+/* Storybook-specific styles */
+
 @import url("../../packages/system/src/styles/index.css");
 
-/* Ensure Inter font is loaded for Storybook */
+@font-face {
+  font-family: "Monaspace";
+  src: url("/fonts/Monaspace.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-monaspace:
+    "Monaspace", ui-monospace, "SF Mono", Monaco, "Cascadia Code",
+    "Roboto Mono", Consolas, "Courier New", monospace;
+}
+
 body,
 html {
   font-family: var(--font-family-base);
@@ -14,31 +29,30 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Storybook-specific styles */
-.sb-show-main.sb-main-centered #storybook-root {
+/* .sb-show-main.sb-main-centered #storybook-root {
   padding: 0;
-}
+} */
 
 /* Make Storybook canvas 100% width */
-.sb-show-main.sb-main-centered #storybook-root > * {
+/* .sb-show-main.sb-main-centered #storybook-root > * {
   width: 100% !important;
   max-width: 100% !important;
-}
+} */
 
-.sb-show-main.sb-main-centered {
+/* .sb-show-main.sb-main-centered {
   padding: 0 !important;
   margin: 0 !important;
-}
+} */
 
-.sb-show-main .sb-main-centered {
+/* .sb-show-main .sb-main-centered {
   max-width: 100% !important;
   width: 100% !important;
-}
+} */
 
-html {
+/* html {
   scrollbar-gutter: auto !important;
-}
+} */
 
-.search-field {
+/* .search-field {
   border-radius: 0 !important;
-}
+} */

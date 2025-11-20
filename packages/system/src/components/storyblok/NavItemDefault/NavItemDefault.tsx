@@ -12,11 +12,12 @@ import "./NavItemDefault.css"
 interface NavItemDefaultProps {
   blok: NavItemDefaultStoryblok
   config?: ConfigStoryblok | null
+  style?: React.CSSProperties
 }
 
 export function NavItemDefault({
   blok,
-  config,
+  style,
 }: NavItemDefaultProps): React.JSX.Element {
   const linkProps = getStoryblokLinkProps(blok.link)
   const { href, target, rel } = linkProps
@@ -26,9 +27,6 @@ export function NavItemDefault({
   const hasBoth = hasText && hasIcon
   const hasTextOnly = hasText && !hasIcon
   const hasIconOnly = hasIcon && !hasText
-
-  // log config for debugging
-  console.log("NavItemDefault config:", config)
 
   if (!blok.link || href === "#") {
     return <span className="nav-item">{blok.text}</span>
@@ -63,7 +61,7 @@ export function NavItemDefault({
   }
 
   return (
-    <CustomElement tag="nav-item" className={classNames}>
+    <CustomElement tag="nav-item" className={classNames} style={style}>
       <a href={href} target={target} rel={rel}>
         {renderContent()}
       </a>

@@ -7,10 +7,7 @@ const meta: Meta<typeof RichTextBlock> = {
   title: "Storyblok/RichTextBlock",
   component: RichTextBlock,
   parameters: {
-    layout: "centered",
-    viewport: {
-      defaultViewport: "desktop",
-    },
+    layout: "fullscreen",
   },
   args: {
     blok: mockBasicRichTextBlok,

@@ -1,7 +1,7 @@
 import type { PagePostStoryblok } from "../../../types/storyblok-components"
 import { CustomElement } from "../../ui/CustomElement"
 import { PageLayout } from "../PageLayout/PageLayout"
-import { PostHeader } from "../PostHeader"
+import { PostHeader } from "../PostHeader/PostHeader"
 
 interface PagePostProps {
   header: React.ReactNode

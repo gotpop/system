@@ -1,6 +1,6 @@
 import type { RichTextCodeBlockStoryblok } from "../../../types/storyblok-components"
 import { CustomElement } from "../../ui/CustomElement"
-import { StoryblokRichText } from "../RichText"
+import { RichText } from "../RichText/RichText"
 import "./RichTextCodeBlock.css"
 
 interface RichTextCodeBlockProps {
@@ -14,7 +14,7 @@ export function RichTextCodeBlock({
 
   return (
     <CustomElement tag="code-block">
-      {content && <StoryblokRichText content={content} />}
+      {content && <RichText content={content} />}
     </CustomElement>
   )
 }

@@ -5,7 +5,7 @@ import type {
 } from "../../../types/storyblok-components"
 import { LinkList } from "../LinkList/LinkList"
 import { LogoDefault } from "../LogoDefault/LogoDefault"
-import { Typography } from "../Typography"
+import { Typography } from "../Typography/Typography"
 import "./FooterDefault.css"
 
 export interface FooterData {

@@ -1,11 +1,11 @@
 "use client"
 
 import { startTransition, ViewTransition } from "react"
-import type { ConfigStoryblok } from "@/index"
+import type { ConfigStoryblok } from "../../../index"
 import { CustomElement } from "../../ui/CustomElement"
-import type { PostProps } from "../Card"
-import { Card } from "../Card"
-import { CardsControl } from "../CardsControl"
+import type { PostProps } from "../Card/Card"
+import { Card } from "../Card/Card"
+import { CardsControl } from "../CardsControl/CardsControl"
 import { useCardsFilter } from "./use-cards-filter"
 
 const SORT_OPTIONS = [

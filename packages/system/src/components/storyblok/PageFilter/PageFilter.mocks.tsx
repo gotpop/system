@@ -12,85 +12,85 @@ import { HeroDefault } from "../HeroDefault"
 export const mockFilterPosts: PostProps[] = [
   {
     uuid: "post-1",
-    full_slug: "blog/react-fundamentals",
-    name: "React Fundamentals",
+    full_slug: "blog/lorem-ipsum-dolor",
+    name: "Lorem Ipsum Dolor",
     published_at: "2024-01-15T10:00:00Z",
     content: {
       _uid: "content-1",
       component: "page_post",
-      Heading: "React Fundamentals",
+      Heading: "Lorem Ipsum Dolor",
       description:
-        "Learn the basics of React and start building modern web applications.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
       published_date: "2024-01-15T10:00:00Z",
-      tags: ["react", "javascript", "beginner"],
+      tags: ["lorem", "ipsum", "dolor"],
       view_transition_name: "post-1",
     },
   },
   {
     uuid: "post-2",
-    full_slug: "blog/typescript-advanced",
-    name: "Advanced TypeScript",
+    full_slug: "blog/ut-enim-ad-minim",
+    name: "Ut Enim Ad Minim",
     published_at: "2024-02-20T14:30:00Z",
     content: {
       _uid: "content-2",
       component: "page_post",
-      Heading: "Advanced TypeScript",
+      Heading: "Ut Enim Ad Minim",
       description:
-        "Explore advanced TypeScript patterns and techniques for better development.",
+        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
       published_date: "2024-02-20T14:30:00Z",
-      tags: ["typescript", "advanced", "patterns"],
+      tags: ["veniam", "exercitation", "laboris"],
       view_transition_name: "post-2",
     },
   },
   {
     uuid: "post-3",
-    full_slug: "blog/css-modern-techniques",
-    name: "Modern CSS Techniques",
+    full_slug: "blog/duis-aute-irure",
+    name: "Duis Aute Irure",
     published_at: "2024-01-10T09:00:00Z",
     content: {
       _uid: "content-3",
       component: "page_post",
-      Heading: "Modern CSS Techniques",
+      Heading: "Duis Aute Irure",
       description:
-        "Discover modern CSS techniques for building responsive and accessible designs.",
+        "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat.",
       published_date: "2024-01-10T09:00:00Z",
-      tags: ["css", "design", "responsive"],
+      tags: ["irure", "reprehenderit", "voluptate"],
       view_transition_name: "post-3",
     },
   },
   {
     uuid: "post-4",
-    full_slug: "blog/web-performance",
-    name: "Web Performance Optimization",
+    full_slug: "blog/excepteur-sint-occaecat",
+    name: "Excepteur Sint Occaecat",
     published_at: "2024-03-05T16:45:00Z",
     content: {
       _uid: "content-4",
       component: "page_post",
-      Heading: "Web Performance Optimization",
+      Heading: "Excepteur Sint Occaecat",
       description:
-        "Learn how to optimize your web applications for better performance and user experience.",
+        "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.",
       published_date: "2024-03-05T16:45:00Z",
-      tags: ["performance", "optimization", "advanced"],
+      tags: ["excepteur", "cupidatat", "proident"],
       view_transition_name: "post-4",
     },
   },
 ]
 
 export const mockFilterTags: TagDatasourceEntry[] = [
-  { id: 1, name: "React", value: "react" },
-  { id: 2, name: "TypeScript", value: "typescript" },
-  { id: 3, name: "CSS", value: "css" },
-  { id: 4, name: "JavaScript", value: "javascript" },
-  { id: 5, name: "Performance", value: "performance" },
-  { id: 6, name: "Advanced", value: "advanced" },
-  { id: 7, name: "Beginner", value: "beginner" },
+  { id: 1, name: "Lorem", value: "lorem" },
+  { id: 2, name: "Ipsum", value: "ipsum" },
+  { id: 3, name: "Dolor", value: "dolor" },
+  { id: 4, name: "Veniam", value: "veniam" },
+  { id: 5, name: "Laboris", value: "laboris" },
+  { id: 6, name: "Irure", value: "irure" },
+  { id: 7, name: "Excepteur", value: "excepteur" },
 ]
 
 // Mock content blocks
 export const mockFilterHeroBlock: HeroDefaultStoryblok = {
   _uid: "hero-filter-1",
   component: "hero_default",
-  heading: "Blog Posts & Articles",
+  heading: "Lorem Ipsum Dolor Sit",
   subheading: {
     type: "doc",
     content: [
@@ -99,7 +99,7 @@ export const mockFilterHeroBlock: HeroDefaultStoryblok = {
         content: [
           {
             type: "text",
-            text: "Explore our collection of articles, tutorials, and insights on web development, design, and technology.",
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
           },
         ],
       },
@@ -110,23 +110,23 @@ export const mockFilterHeroBlock: HeroDefaultStoryblok = {
 export const mockCardsWithFilter: CardsStoryblok = {
   _uid: "cards-filter-1",
   component: "cards",
-  heading: "Latest Posts",
-  subheading: "Find articles that interest you",
+  heading: "Ut Enim Ad Minim",
+  subheading: "Quis nostrud exercitation ullamco",
   use_filters: true,
 }
 
 export const mockCardsWithoutFilter: CardsStoryblok = {
   _uid: "cards-simple-1",
   component: "cards",
-  heading: "Featured Posts",
-  subheading: "Our most popular articles",
+  heading: "Duis Aute Irure",
+  subheading: "Dolor in reprehenderit in voluptate",
   use_filters: false,
 }
 
 export const mockCardsMinimal: CardsStoryblok = {
   _uid: "cards-minimal-1",
   component: "cards",
-  heading: "Recent Posts",
+  heading: "Excepteur Sint",
   use_filters: false,
 }
 
@@ -159,8 +159,8 @@ export const mockMinimalFilterPageBlok: PageFilterStoryblok = {
 export const mockConfig: ConfigStoryblok = {
   _uid: "config-1",
   component: "Config",
-  app_name: "GotPop Blog",
-  description: "A modern blog built with Next.js and Storyblok",
+  app_name: "Lorem Ipsum",
+  description: "Lorem ipsum dolor sit amet consectetur adipiscing elit",
   root_name_space: "blog",
   primary_content_name_space: "blog",
 }

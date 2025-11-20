@@ -18,7 +18,7 @@
   &.text-xs {
     font: var(--text-weight-regular) var(--font-xs);
     font-variation-settings: "opsz" var(--font-opsz-text);
-    margin-block: 0 var(--spacing-sm);
+    margin-block: 0 var(--spacing-base);
     padding-block-start: calc(1rem - 1cap);
     text-wrap: pretty;
   }
@@ -141,7 +141,6 @@
     font-variation-settings:
       "slnt" var(--font-slnt-italic),
       "opsz" var(--font-opsz-display);
-    /* letter-spacing: -0.025em; */
     margin-block: 0 var(--spacing-md);
     padding-block-start: calc(2rem - 1cap);
     position: relative;

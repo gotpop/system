@@ -3,10 +3,6 @@ import { PageFilter } from "./PageFilter"
 import {
   mockFilterPageBlocks,
   mockFilterPageBlok,
-  mockMinimalFilterPageBlocks,
-  mockMinimalFilterPageBlok,
-  mockSimpleFilterPageBlocks,
-  mockSimpleFilterPageBlok,
   mockSimpleFooter,
   mockSimpleHeader,
 } from "./PageFilter.mocks"
@@ -50,21 +46,13 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {}
 
 export const Tablet: Story = {
-  args: {
-    blok: mockSimpleFilterPageBlok,
-    blocks: mockSimpleFilterPageBlocks,
-  },
   globals: {
-    viewport: { value: "tablet", isRotated: false },
+    viewport: { value: "tablet" },
   },
 }
 
 export const Mobile: Story = {
-  args: {
-    blok: mockMinimalFilterPageBlok,
-    blocks: mockMinimalFilterPageBlocks,
-  },
   globals: {
-    viewport: { value: "mobile2", isRotated: false },
+    viewport: { value: "mobile2" },
   },
 }

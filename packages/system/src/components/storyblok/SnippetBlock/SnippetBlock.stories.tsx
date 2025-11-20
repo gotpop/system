@@ -1,19 +1,17 @@
 import type { Meta, StoryObj } from "@storybook/react"
+import { CustomElement } from "../../ui/CustomElement"
+import { GridMaster } from "../../ui/GridMaster"
 import { SnippetBlock } from "./SnippetBlock"
 import {
-  mockEmptySnippetBlok,
-  mockInvalidSnippetBlok,
-  mockNoSnippetBlok,
   mockTextAlignASnippetBlok,
   mockTextAlignBSnippetBlok,
-  mockUnknownSnippetBlok,
 } from "./SnippetBlock.mocks"
 
 const meta: Meta<typeof SnippetBlock> = {
   title: "Storyblok/SnippetBlock",
   component: SnippetBlock,
   parameters: {
-    layout: "centered",
+    layout: "fullscreen",
     viewport: {
       defaultViewport: "desktop",
     },
@@ -21,17 +19,27 @@ const meta: Meta<typeof SnippetBlock> = {
   argTypes: {
     blok: { control: "object" },
   },
+  args: {
+    blok: mockTextAlignASnippetBlok,
+  },
   tags: ["autodocs"],
+  decorators: [
+    (Story) => (
+      <GridMaster>
+        <main>
+          <CustomElement tag="box-grid">
+            <Story />
+          </CustomElement>
+        </main>
+      </GridMaster>
+    ),
+  ],
 }
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const TextAlignA: Story = {
-  args: {
-    blok: mockTextAlignASnippetBlok,
-  },
-}
+export const Default: Story = {}
 
 export const TextAlignB: Story = {
   args: {
@@ -39,48 +47,14 @@ export const TextAlignB: Story = {
   },
 }
 
-export const UnknownSnippet: Story = {
-  args: {
-    blok: mockUnknownSnippetBlok,
+export const Tablet: Story = {
+  globals: {
+    viewport: { value: "tablet" },
   },
 }
 
-export const InvalidSnippet: Story = {
-  args: {
-    blok: mockInvalidSnippetBlok,
-  },
-}
-
-export const EmptySnippet: Story = {
-  args: {
-    blok: mockEmptySnippetBlok,
-  },
-}
-
-export const NoSnippet: Story = {
-  args: {
-    blok: mockNoSnippetBlok,
-  },
-}
-
-export const TabletView: Story = {
-  args: {
-    blok: mockTextAlignBSnippetBlok,
-  },
-  parameters: {
-    viewport: {
-      defaultViewport: "tablet",
-    },
-  },
-}
-
-export const MobileView: Story = {
-  args: {
-    blok: mockTextAlignBSnippetBlok,
-  },
-  parameters: {
-    viewport: {
-      defaultViewport: "mobile1",
-    },
+export const Mobile: Story = {
+  globals: {
+    viewport: { value: "mobile2" },
   },
 }

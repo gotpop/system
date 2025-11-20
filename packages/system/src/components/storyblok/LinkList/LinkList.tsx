@@ -2,7 +2,7 @@ import type {
   LinkListItemStoryblok,
   LinkListStoryblok,
 } from "../../../types/storyblok-components"
-import { Typography } from "../Typography"
+import { Typography } from "../Typography/Typography"
 import "./LinkList.css"
 
 interface LinkListProps {

@@ -48,7 +48,7 @@ export const Tablet: Story = {
     data: newlyAvailableFeature,
   },
   globals: {
-    viewport: { value: "tablet", isRotated: false },
+    viewport: { value: "tablet" },
   },
 }
 
@@ -58,7 +58,7 @@ export const Mobile: Story = {
     data: limitedAvailabilityFeature,
   },
   globals: {
-    viewport: { value: "mobile2", isRotated: false },
+    viewport: { value: "mobile2" },
   },
 }
 

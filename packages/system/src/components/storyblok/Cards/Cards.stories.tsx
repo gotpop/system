@@ -77,7 +77,7 @@ export const Tablet: Story = {
     blocks: createMockBlocks(mockPosts, mockConfig),
   },
   globals: {
-    viewport: { value: "tablet", isRotated: false },
+    viewport: { value: "tablet" },
   },
 }
 
@@ -90,6 +90,6 @@ export const Mobile: Story = {
     blocks: createMockBlocks(mockPosts, mockConfig),
   },
   globals: {
-    viewport: { value: "mobile2", isRotated: false },
+    viewport: { value: "mobile2" },
   },
 }

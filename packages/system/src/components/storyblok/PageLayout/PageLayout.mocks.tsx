@@ -9,7 +9,7 @@ import { RichTextBlock } from "../RichTextBlock"
 export const mockLayoutHeroBlock: HeroDefaultStoryblok = {
   _uid: "hero-layout-1",
   component: "hero_default",
-  heading: "Page Layout Component",
+  heading: "Lorem Ipsum Dolor",
   subheading: {
     type: "doc",
     content: [
@@ -18,7 +18,7 @@ export const mockLayoutHeroBlock: HeroDefaultStoryblok = {
         content: [
           {
             type: "text",
-            text: "This demonstrates the PageLayout component with header, main content area, and footer structure.",
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
           },
         ],
       },
@@ -37,16 +37,16 @@ export const mockLayoutContentBlock: RichTextBlockStoryblok = {
         content: [
           {
             type: "text",
-            text: "The PageLayout component provides the fundamental page structure using CustomElement components. ",
+            text: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
           },
           {
             type: "text",
             marks: [{ type: "bold" }],
-            text: "It includes proper semantic markup",
+            text: "Duis aute irure dolor",
           },
           {
             type: "text",
-            text: " with header, main, and footer elements.",
+            text: " in reprehenderit in voluptate velit esse cillum dolore.",
           },
         ],
       },
@@ -55,7 +55,7 @@ export const mockLayoutContentBlock: RichTextBlockStoryblok = {
         content: [
           {
             type: "text",
-            text: "Content is wrapped in a box-crosshatch CustomElement for proper styling and layout within the main content area.",
+            text: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
           },
         ],
       },
@@ -75,7 +75,7 @@ export const mockLayoutSecondContentBlock: RichTextBlockStoryblok = {
         content: [
           {
             type: "text",
-            text: "Layout Features",
+            text: "Sed Ut Perspiciatis",
           },
         ],
       },
@@ -90,7 +90,7 @@ export const mockLayoutSecondContentBlock: RichTextBlockStoryblok = {
                 content: [
                   {
                     type: "text",
-                    text: "Semantic HTML structure",
+                    text: "Neque porro quisquam",
                   },
                 ],
               },
@@ -104,7 +104,7 @@ export const mockLayoutSecondContentBlock: RichTextBlockStoryblok = {
                 content: [
                   {
                     type: "text",
-                    text: "CustomElement integration",
+                    text: "Ut enim ad minima veniam",
                   },
                 ],
               },
@@ -118,7 +118,7 @@ export const mockLayoutSecondContentBlock: RichTextBlockStoryblok = {
                 content: [
                   {
                     type: "text",
-                    text: "Flexible content area",
+                    text: "Quis autem vel eum iure",
                   },
                 ],
               },
@@ -156,9 +156,10 @@ export const mockSimpleFooter = (
 // Mock content variations for different stories
 export const mockMinimalContent = (
   <div style={{ padding: "2rem", textAlign: "center" }}>
-    <h1>Minimal Content</h1>
+    <h1>Lorem Ipsum</h1>
     <p>
-      This is a simple content block for testing the basic layout structure.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt.
     </p>
   </div>
 )
@@ -186,6 +187,6 @@ export const mockEmptyContent = (
       color: "var(--neutral-500)",
     }}
   >
-    <p>No content provided</p>
+    <p>Nullam quis risus eget urna mollis</p>
   </div>
 )

@@ -1,11 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react"
+import { CustomElement } from "../CustomElement"
+import { GridMaster } from "../GridMaster/GridMaster"
 import { AVAILABLE_ICONS, Icon } from "./Icon"
 
 const meta: Meta<typeof Icon> = {
   title: "UI/Icon",
   component: Icon,
   parameters: {
-    layout: "centered",
+    layout: "fullscreen",
     docs: {
       description: {
         component:
@@ -37,46 +39,23 @@ const meta: Meta<typeof Icon> = {
     name: "FaHome",
     size: 24,
   },
+  decorators: [
+    (Story) => (
+      <GridMaster>
+        <main>
+          <CustomElement tag="box-grid">
+            <Story />
+          </CustomElement>
+        </main>
+      </GridMaster>
+    ),
+  ],
 }
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {}
-
-export const Large: Story = {
-  args: {
-    name: "FaStar",
-    size: 48,
-    color: "#f59e0b",
-  },
-}
-
-export const Small: Story = {
-  args: {
-    name: "FaUser",
-    size: 16,
-    color: "#6b7280",
-  },
-}
-
-export const Navigation: Story = {
-  args: {
-    name: "FaBars",
-    size: 24,
-    color: "#374151",
-  },
-}
-
-export const Social: Story = {
-  args: {
-    name: "FaSquareGithub",
-    size: 32,
-    color: "#1f2937",
-  },
-}
-
-export const AllIcons: Story = {
+export const Default: Story = {
   render: () => (
     <div
       style={{

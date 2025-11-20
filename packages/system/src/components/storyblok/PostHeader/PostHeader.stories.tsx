@@ -7,10 +7,7 @@ const meta: Meta<typeof PostHeader> = {
   title: "Storyblok/PostHeader",
   component: PostHeader,
   parameters: {
-    layout: "centered",
-    viewport: {
-      defaultViewport: "desktop",
-    },
+    layout: "fullscreen",
   },
   decorators: [
     (Story) => (

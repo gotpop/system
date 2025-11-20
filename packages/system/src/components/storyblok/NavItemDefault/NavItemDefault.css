@@ -1,4 +1,8 @@
 @scope (nav-item) {
+  & {
+    grid-column: var(--grid-column, auto);
+  }
+
   a {
     --background-colour: var(--secondary-700);
     --colour: var(--light-100);
@@ -9,23 +13,27 @@
     color: var(--colour);
     display: flex;
     font-size: var(--text-base);
+    gap: var(--spacing-base);
+    justify-content: center;
+    min-height: var(--spacing-md);
+    padding: var(--padding, 0 var(--spacing-md));
     text-align: center;
     text-decoration: none;
     transition: var(--transition);
-    min-width: 7rem;
-    min-height: 2rem;
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    padding: var(--padding, 1rem 2rem);
 
     @media screen and (width >= 1480px) {
       --padding: 0;
     }
 
-    svg {
-      height: 1.1rem;
-      width: 1.1rem;
+    span:has(svg) {
+      --size: 1.05rem;
+
+      display: inline-flex;
+
+      svg {
+        max-width: var(--size);
+        max-height: var(--size);
+      }
     }
 
     &.active {

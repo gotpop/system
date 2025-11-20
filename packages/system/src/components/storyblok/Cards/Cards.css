@@ -13,7 +13,12 @@
     > box-grid {
       --column-gap: var(--spacing-md);
       --columns: repeat(auto-fit, minmax(5rem, 12rem));
-      --direction: row;
+      --row-gap: var(--spacing-base);
+
+      @media screen and (width >= 480px) {
+        --direction: row;
+        --row-gap: 0;
+      }
     }
   }
 

@@ -1,7 +1,7 @@
 "use client"
 
 import { useMemo, useState } from "react"
-import type { PostProps } from "../Card"
+import type { PostProps } from "../Card/Card"
 
 export function useCardsFilter(posts: PostProps[]) {
   const [currentTag, setCurrentTag] = useState("all")

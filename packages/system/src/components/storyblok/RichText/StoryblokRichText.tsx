@@ -4,9 +4,9 @@ import type {
   RichtextStoryblok,
   SnippetBlockStoryblok,
 } from "../../../types/storyblok-components"
-import { BaselineStatusBlock } from "../BaselineStatusBlock"
-import { RichTextCodeBlock } from "../RichTextCodeBlock"
-import { SnippetBlock } from "../SnippetBlock"
+import { BaselineStatusBlock } from "../BaselineStatusBlock/index"
+import { RichTextCodeBlock } from "../RichTextCodeBlock/RichTextCodeBlock"
+import { SnippetBlock } from "../SnippetBlock/SnippetBlock"
 import { RichText } from "./RichText"
 
 interface StoryblokRichTextProps {
@@ -16,17 +16,16 @@ interface StoryblokRichTextProps {
 
 export function StoryblokRichText({
   content,
-  className,
 }: StoryblokRichTextProps): React.JSX.Element | null {
   const blokResolvers = {
-    baseline_status_block: (props: any) => (
+    baseline_status_block: (props: Record<string, unknown>) => (
       <BaselineStatusBlock blok={props as BaselineStatusBlockStoryblok} />
     ),
 
-    rich_text_code_block: (props: any) => (
+    rich_text_code_block: (props: Record<string, unknown>) => (
       <RichTextCodeBlock blok={props as RichTextCodeBlockStoryblok} />
     ),
-    snippet_block: (props: any) => (
+    snippet_block: (props: Record<string, unknown>) => (
       <SnippetBlock blok={props as SnippetBlockStoryblok} />
     ),
   }

@@ -1,9 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import { PageLayout } from "./PageLayout"
 import {
-  mockEmptyContent,
-  mockFullContent,
-  mockMinimalContent,
   mockRichContent,
   mockSimpleFooter,
   mockSimpleHeader,
@@ -19,7 +16,7 @@ const meta: Meta<typeof PageLayout> = {
   args: {
     header: mockSimpleHeader,
     footer: mockSimpleFooter,
-    children: mockMinimalContent,
+    children: mockRichContent,
   },
   argTypes: {
     header: {
@@ -47,37 +44,13 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {}
 
 export const Tablet: Story = {
-  args: {
-    children: mockRichContent,
-  },
   globals: {
-    viewport: { value: "tablet", isRotated: false },
+    viewport: { value: "tablet" },
   },
 }
 
 export const Mobile: Story = {
-  args: {
-    children: mockFullContent,
-  },
   globals: {
-    viewport: { value: "mobile2", isRotated: false },
-  },
-}
-
-export const WithRichContent: Story = {
-  args: {
-    children: mockRichContent,
-  },
-}
-
-export const WithFullContent: Story = {
-  args: {
-    children: mockFullContent,
-  },
-}
-
-export const EmptyContent: Story = {
-  args: {
-    children: mockEmptyContent,
+    viewport: { value: "mobile2" },
   },
 }

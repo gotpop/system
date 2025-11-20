@@ -1,18 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react"
+import { CustomElement } from "../../ui/CustomElement"
+import { GridMaster } from "../../ui/GridMaster"
 import { Typography } from "./Typography"
 import {
-  sampleAccents,
-  sampleBodyText,
-  sampleCodeText,
   sampleDateText,
-  sampleEmoji,
   sampleHeadingText,
   sampleLongText,
-  sampleMinimal,
   sampleNumbers,
   sampleShortText,
   sampleSmallText,
-  sampleSpecialChars,
   sampleSubheadingText,
   sampleText,
 } from "./Typography.mocks"
@@ -21,7 +17,7 @@ const meta: Meta<typeof Typography> = {
   title: "Storyblok/Typography",
   component: Typography,
   parameters: {
-    layout: "centered",
+    layout: "fullscreen",
     viewport: {
       defaultViewport: "desktop",
     },
@@ -83,17 +79,45 @@ const meta: Meta<typeof Typography> = {
     shade: "light",
   },
   tags: ["autodocs"],
+  decorators: [
+    (Story) => (
+      <GridMaster>
+        <main>
+          <CustomElement tag="box-grid">
+            <Story />
+          </CustomElement>
+        </main>
+      </GridMaster>
+    ),
+  ],
 }
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-// Basic variants
 export const Default: Story = {
-  args: {
-    children: sampleText,
-    tag: "p",
-  },
+  render: () => (
+    <div>
+      <Typography tag="p" variant="text-xs" shade="charcoal">
+        text-xs: {sampleText}
+      </Typography>
+      <Typography tag="p" variant="text-sm" shade="charcoal">
+        text-sm: {sampleText}
+      </Typography>
+      <Typography tag="p" variant="text-base" shade="charcoal">
+        text-base: {sampleText}
+      </Typography>
+      <Typography tag="p" variant="text-md" shade="charcoal">
+        text-md: {sampleText}
+      </Typography>
+      <Typography tag="p" variant="text-lg" shade="charcoal">
+        text-lg: {sampleText}
+      </Typography>
+      <Typography tag="p" variant="text-xl" shade="charcoal">
+        text-xl: {sampleText}
+      </Typography>
+    </div>
+  ),
 }
 
 export const Hero: Story = {
@@ -105,7 +129,6 @@ export const Hero: Story = {
   },
 }
 
-// Heading hierarchy
 export const Heading1: Story = {
   args: {
     children: sampleHeadingText,
@@ -142,7 +165,6 @@ export const Heading4: Story = {
   },
 }
 
-// Text sizes
 export const TextSizes: Story = {
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
@@ -168,7 +190,6 @@ export const TextSizes: Story = {
   ),
 }
 
-// Color shades
 export const ColorShades: Story = {
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
@@ -188,7 +209,6 @@ export const ColorShades: Story = {
   ),
 }
 
-// Font weights
 export const FontWeights: Story = {
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
@@ -227,7 +247,6 @@ export const FontWeights: Story = {
   ),
 }
 
-// Font styles
 export const FontStyles: Story = {
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
@@ -241,7 +260,6 @@ export const FontStyles: Story = {
   ),
 }
 
-// Special elements
 export const TimeElement: Story = {
   args: {
     children: sampleDateText,
@@ -261,7 +279,6 @@ export const SmallText: Story = {
   },
 }
 
-// Content variations
 export const ShortContent: Story = {
   args: {
     children: sampleShortText,
@@ -280,69 +297,12 @@ export const LongContent: Story = {
   },
 }
 
-export const SpecialCharacters: Story = {
-  args: {
-    children: sampleSpecialChars,
-    tag: "p",
-    variant: "text-base",
-    shade: "dark",
-  },
-}
-
 export const NumbersAndText: Story = {
   args: {
     children: sampleNumbers,
     tag: "p",
     variant: "text-base",
     shade: "dark",
-  },
-}
-
-export const EmojiContent: Story = {
-  args: {
-    children: sampleEmoji,
-    tag: "p",
-    variant: "text-lg",
-    shade: "dark",
-  },
-}
-
-export const CodeText: Story = {
-  args: {
-    children: sampleCodeText,
-    tag: "p",
-    variant: "text-sm",
-    shade: "dark",
-    className: "font-mono",
-  },
-}
-
-export const AccentedText: Story = {
-  args: {
-    children: sampleAccents,
-    tag: "p",
-    variant: "text-base",
-    shade: "dark",
-  },
-}
-
-export const MinimalContent: Story = {
-  args: {
-    children: sampleMinimal,
-    tag: "p",
-    variant: "text-lg",
-    shade: "dark",
-  },
-}
-
-// Custom styling
-export const WithCustomClass: Story = {
-  args: {
-    children: sampleBodyText,
-    tag: "p",
-    variant: "text-base",
-    shade: "dark",
-    className: "custom-spacing",
   },
 }
 
@@ -356,31 +316,26 @@ export const WithId: Story = {
   },
 }
 
-// Responsive testing
-export const TabletView: Story = {
+export const Tablet: Story = {
   args: {
     children: sampleLongText,
     tag: "p",
     variant: "text-base",
     shade: "charcoal",
   },
-  parameters: {
-    viewport: {
-      defaultViewport: "tablet",
-    },
+  globals: {
+    viewport: { value: "tablet" },
   },
 }
 
-export const MobileView: Story = {
+export const Mobile: Story = {
   args: {
-    children: sampleHeadingText,
-    tag: "h1",
-    variant: "hero",
-    shade: "dark",
+    children: sampleLongText,
+    tag: "p",
+    variant: "text-base",
+    shade: "charcoal",
   },
-  parameters: {
-    viewport: {
-      defaultViewport: "mobile1",
-    },
+  globals: {
+    viewport: { value: "mobile2" },
   },
 }

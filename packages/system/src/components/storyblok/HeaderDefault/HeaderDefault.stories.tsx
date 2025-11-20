@@ -55,12 +55,12 @@ export const Default: Story = {}
 
 export const Tablet: Story = {
   globals: {
-    viewport: { value: "tablet", isRotated: false },
+    viewport: { value: "tablet" },
   },
 }
 
 export const Mobile: Story = {
   globals: {
-    viewport: { value: "mobile2", isRotated: false },
+    viewport: { value: "mobile2" },
   },
 }
