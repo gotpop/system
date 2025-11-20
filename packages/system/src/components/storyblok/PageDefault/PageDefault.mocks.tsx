@@ -10,7 +10,7 @@ import { RichTextBlock } from "../RichTextBlock"
 export const mockHeroBlock: HeroDefaultStoryblok = {
   _uid: "hero-1",
   component: "hero_default",
-  heading: "Welcome to Our Website",
+  heading: "Lorem Ipsum Dolor Sit",
   subheading: {
     type: "doc",
     content: [
@@ -19,7 +19,7 @@ export const mockHeroBlock: HeroDefaultStoryblok = {
         content: [
           {
             type: "text",
-            text: "Discover amazing content and innovative solutions that will transform your digital experience.",
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
           },
         ],
       },
@@ -38,25 +38,25 @@ export const mockRichTextBlock: RichTextBlockStoryblok = {
         content: [
           {
             type: "text",
-            text: "This is a sample rich text content block that demonstrates how content flows within a page layout. ",
+            text: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
           },
           {
             type: "text",
             marks: [{ type: "bold" }],
-            text: "Bold text",
+            text: "Duis aute irure",
           },
           {
             type: "text",
-            text: " and ",
+            text: " dolor in reprehenderit in voluptate velit esse ",
           },
           {
             type: "text",
             marks: [{ type: "italic" }],
-            text: "italic text",
+            text: "cillum dolore",
           },
           {
             type: "text",
-            text: " are supported.",
+            text: " eu fugiat nulla pariatur.",
           },
         ],
       },
@@ -65,7 +65,7 @@ export const mockRichTextBlock: RichTextBlockStoryblok = {
         content: [
           {
             type: "text",
-            text: "Multiple paragraphs help demonstrate the page content structure and layout capabilities.",
+            text: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
           },
         ],
       },
@@ -85,7 +85,7 @@ export const mockSecondRichTextBlock: RichTextBlockStoryblok = {
         content: [
           {
             type: "text",
-            text: "About Our Services",
+            text: "Sed Ut Perspiciatis",
           },
         ],
       },
@@ -94,7 +94,7 @@ export const mockSecondRichTextBlock: RichTextBlockStoryblok = {
         content: [
           {
             type: "text",
-            text: "We provide comprehensive solutions for modern web development, focusing on performance, accessibility, and user experience.",
+            text: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.",
           },
         ],
       },
