@@ -1,10 +1,11 @@
-import { CustomElement, Icon } from "../../"
 import type {
   ConfigStoryblok,
   NavItemDefaultStoryblok,
 } from "../../../types/storyblok-components"
 import { cn } from "../../../utils/cn"
 import { getStoryblokLinkProps } from "../../../utils/storyblok"
+import { CustomElement } from "../../ui/CustomElement"
+import { Icon } from "../../ui/Icon"
 import type { IconName } from "../../ui/Icon/Icon"
 import "./NavItemDefault.css"
 

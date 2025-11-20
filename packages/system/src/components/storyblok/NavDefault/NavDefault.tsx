@@ -1,9 +1,9 @@
 import { useId } from "react"
-import { ButtonToggleMenu } from "../../"
 import type {
   ConfigStoryblok,
   NavDefaultStoryblok,
 } from "../../../types/storyblok-components"
+import { ButtonToggleMenu } from "../../ui/ButtonToggleMenu"
 import "./NavDefault.css"
 
 interface NavDefaultProps {

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { GridMaster } from "../../ui"
+import { GridMaster } from "../../ui/GridMaster"
 import { HeroDefault } from "./HeroDefault"
 import { mockFullHeroBlok } from "./HeroDefault.mocks"
 

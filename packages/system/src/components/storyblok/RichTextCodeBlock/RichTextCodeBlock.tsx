@@ -1,6 +1,6 @@
 import type { RichTextCodeBlockStoryblok } from "../../../types/storyblok-components"
 import { CustomElement } from "../../ui/CustomElement"
-import { RichText } from "../../ui/RichText"
+import { RichText } from "../RichText"
 import "./RichTextCodeBlock.css"
 
 interface RichTextCodeBlockProps {

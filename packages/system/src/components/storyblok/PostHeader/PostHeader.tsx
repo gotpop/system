@@ -1,6 +1,6 @@
 import { useId } from "react"
 import { formatDate } from "../../../utils/date-formatter"
-import { CustomElement } from "../../ui"
+import { CustomElement } from "../../ui/CustomElement"
 import { Typography } from "../Typography"
 
 interface PostHeaderProps {

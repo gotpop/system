@@ -21,6 +21,7 @@ import { PageLayout } from "./PageLayout"
 import { PageNotFound } from "./PageNotFound"
 import { PagePost } from "./PagePost"
 import { PostHeader } from "./PostHeader"
+import { RichText } from "./RichText"
 import { RichTextBlock } from "./RichTextBlock"
 import { RichTextCodeBlock } from "./RichTextCodeBlock"
 import { SnippetBlock } from "./SnippetBlock"
@@ -41,10 +42,11 @@ export {
   NavItemDefault,
   PageDefault,
   PageFilter,
-  PageNotFound,
   PageLayout,
+  PageNotFound,
   PagePost,
   PostHeader,
+  RichText,
   RichTextBlock,
   RichTextCodeBlock,
   SnippetBlock,

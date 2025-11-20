@@ -1,7 +1,7 @@
 import { useId } from "react"
 import type { HeroDefaultStoryblok } from "../../../types/storyblok-components"
-import { CustomElement } from "../../ui"
-import { RichText } from "../../ui/RichText"
+import { CustomElement } from "../../ui/CustomElement"
+import { RichText } from "../RichText"
 import { Typography } from "../Typography"
 
 interface HeroDefaultProps {

@@ -8,13 +8,13 @@ import type {
   RichtextStoryblok,
   SnippetBlockStoryblok,
 } from "../../../types/storyblok-components"
-import { BaselineStatusBlock } from "../../storyblok/BaselineStatusBlock"
-import { HeroDefault } from "../../storyblok/HeroDefault"
-import { LogoDefault } from "../../storyblok/LogoDefault"
-import { RichTextBlock } from "../../storyblok/RichTextBlock"
-import { RichTextCodeBlock } from "../../storyblok/RichTextCodeBlock"
-import { SnippetBlock } from "../../storyblok/SnippetBlock"
-import { Typography } from "../../storyblok/Typography"
+import { BaselineStatusBlock } from "../BaselineStatusBlock"
+import { HeroDefault } from "../HeroDefault"
+import { LogoDefault } from "../LogoDefault"
+import { RichTextBlock } from "../RichTextBlock"
+import { RichTextCodeBlock } from "../RichTextCodeBlock"
+import { SnippetBlock } from "../SnippetBlock"
+import { Typography } from "../Typography"
 
 interface RichTextProps {
   content: RichtextStoryblok
