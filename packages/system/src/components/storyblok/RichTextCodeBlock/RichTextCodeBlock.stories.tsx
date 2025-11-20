@@ -8,7 +8,7 @@ const meta: Meta<typeof RichTextCodeBlock> = {
   title: "Storyblok/RichTextCodeBlock",
   component: RichTextCodeBlock,
   parameters: {
-    layout: "centered",
+    layout: "fullscreen",
     viewport: {
       defaultViewport: "desktop",
     },

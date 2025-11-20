@@ -13,7 +13,7 @@ const meta: Meta<typeof SnippetBlock> = {
   title: "Storyblok/SnippetBlock",
   component: SnippetBlock,
   parameters: {
-    layout: "centered",
+    layout: "fullscreen",
     viewport: {
       defaultViewport: "desktop",
     },

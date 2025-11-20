@@ -7,7 +7,7 @@ const meta: Meta<typeof Card> = {
   title: "Storyblok/Card",
   component: Card,
   parameters: {
-    layout: "centered",
+    layout: "fullscreen",
     docs: {
       description: {
         component:

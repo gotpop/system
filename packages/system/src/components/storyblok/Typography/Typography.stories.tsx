@@ -21,7 +21,7 @@ const meta: Meta<typeof Typography> = {
   title: "Storyblok/Typography",
   component: Typography,
   parameters: {
-    layout: "centered",
+    layout: "fullscreen",
     viewport: {
       defaultViewport: "desktop",
     },
