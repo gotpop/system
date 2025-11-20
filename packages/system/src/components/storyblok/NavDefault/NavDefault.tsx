@@ -1,9 +1,9 @@
 import { useId } from "react"
+import { ButtonToggleMenu } from "../../"
 import type {
   ConfigStoryblok,
   NavDefaultStoryblok,
 } from "../../../types/storyblok-components"
-import { ButtonToggleMenu } from "../../"
 import "./NavDefault.css"
 
 interface NavDefaultProps {
@@ -18,8 +18,6 @@ export function NavDefault({
   config,
 }: NavDefaultProps): React.JSX.Element {
   const navId = useId()
-
-  console.log("NavDefault config:", config)
 
   return (
     <>
