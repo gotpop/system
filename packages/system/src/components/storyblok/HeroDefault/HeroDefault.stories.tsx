@@ -7,10 +7,7 @@ const meta: Meta<typeof HeroDefault> = {
   title: "Storyblok/HeroDefault",
   component: HeroDefault,
   parameters: {
-    layout: "centered",
-    viewport: {
-      defaultViewport: "desktop",
-    },
+    layout: "fullscreen",
   },
   argTypes: {
     blok: { control: "object" },

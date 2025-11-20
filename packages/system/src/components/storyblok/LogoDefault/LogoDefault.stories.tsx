@@ -9,7 +9,7 @@ const meta: Meta<typeof LogoDefault> = {
   title: "Storyblok/LogoDefault",
   component: LogoDefault,
   parameters: {
-    layout: "centered",
+    layout: "fullscreen",
   },
   tags: ["autodocs"],
   decorators: [
@@ -23,6 +23,16 @@ const meta: Meta<typeof LogoDefault> = {
       </GridMaster>
     ),
   ],
+  args: {
+    blok: {
+      _uid: "12345",
+      component: "logo_default",
+      link: {
+        cached_url: "/",
+        linktype: "story",
+      },
+    } satisfies LogoDefaultStoryblok,
+  },
   argTypes: {
     blok: {
       description: "The Storyblok blok data for the logo component",
@@ -34,32 +44,16 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
-  args: {
-    blok: {
-      _uid: "12345",
-      component: "logo_default",
-      link: {
-        cached_url: "/",
-        linktype: "story",
-      },
-    } satisfies LogoDefaultStoryblok,
+export const Default: Story = {}
+
+export const Tablet: Story = {
+  globals: {
+    viewport: { value: "tablet" },
   },
 }
 
 export const Mobile: Story = {
   globals: {
-    // 👇 Override viewport for this story
-    viewport: { value: "mobile2", isRotated: false },
-  },
-  args: {
-    blok: {
-      _uid: "12345",
-      component: "logo_default",
-      link: {
-        cached_url: "/",
-        linktype: "story",
-      },
-    } satisfies LogoDefaultStoryblok,
+    viewport: { value: "mobile2" },
   },
 }
