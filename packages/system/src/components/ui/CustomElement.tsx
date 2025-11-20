@@ -15,6 +15,7 @@ type ValidTag =
   | "box-crosshatch"
   | "page-layout"
   | "select-option"
+  | "nav-item"
 
 interface CustomElementProps {
   children?: ReactNode

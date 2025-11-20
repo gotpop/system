@@ -1,11 +1,12 @@
+import { CustomElement, Icon } from "../../"
 import type {
   ConfigStoryblok,
   NavItemDefaultStoryblok,
 } from "../../../types/storyblok-components"
 import { cn } from "../../../utils/cn"
 import { getStoryblokLinkProps } from "../../../utils/storyblok"
-import { Icon } from "../../"
 import type { IconName } from "../../ui/Icon/Icon"
+import "./NavItemDefault.css"
 
 interface NavItemDefaultProps {
   blok: NavItemDefaultStoryblok
@@ -61,8 +62,10 @@ export function NavItemDefault({
   }
 
   return (
-    <a href={href} target={target} rel={rel} className={classNames}>
-      {renderContent()}
-    </a>
+    <CustomElement tag="nav-item" className={classNames}>
+      <a href={href} target={target} rel={rel}>
+        {renderContent()}
+      </a>
+    </CustomElement>
   )
 }

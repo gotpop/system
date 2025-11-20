@@ -19,16 +19,18 @@ const meta: Meta<typeof NavItemDefault> = {
   decorators: [
     (Story) => (
       <GridMaster>
-        <nav
-          style={{
-            padding: "2rem",
-            display: "flex",
-            gap: "1rem",
-            alignItems: "center",
-          }}
-        >
-          <Story />
-        </nav>
+        <main>
+          <nav
+            style={{
+              padding: "2rem",
+              display: "flex",
+              gap: "1rem",
+              alignItems: "center",
+            }}
+          >
+            <Story />
+          </nav>
+        </main>
       </GridMaster>
     ),
   ],

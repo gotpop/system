@@ -21,7 +21,11 @@ const meta: Meta<typeof NavDefault> = {
   decorators: [
     (Story) => (
       <GridMaster>
-        <header>
+        <header
+          style={{
+            gridColumn: "content",
+          }}
+        >
           <Story />
         </header>
       </GridMaster>
