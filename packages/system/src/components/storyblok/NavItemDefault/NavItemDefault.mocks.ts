@@ -1,4 +1,16 @@
-import type { NavItemDefaultStoryblok } from "../../../types/storyblok-components"
+import type {
+  ConfigStoryblok,
+  NavItemDefaultStoryblok,
+} from "../../../types/storyblok-components"
+
+export const mockConfig: ConfigStoryblok = {
+  _uid: "config-1",
+  component: "Config",
+  app_name: "Lorem Ipsum",
+  description: "Lorem ipsum dolor sit amet consectetur adipiscing elit",
+  root_name_space: "blog",
+  primary_content_name_space: "blog",
+}
 
 export const mockTextOnlyNavItem: NavItemDefaultStoryblok = {
   _uid: "nav-item-text-1",

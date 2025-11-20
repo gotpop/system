@@ -55,7 +55,7 @@ export const Tablet: Story = {
     blocks: mockContentPageBlocks,
   },
   globals: {
-    viewport: { value: "tablet", isRotated: false },
+    viewport: { value: "tablet" },
   },
 }
 
@@ -65,6 +65,6 @@ export const Mobile: Story = {
     blocks: mockLandingPageBlocks,
   },
   globals: {
-    viewport: { value: "mobile2", isRotated: false },
+    viewport: { value: "mobile2" },
   },
 }

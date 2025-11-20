@@ -63,7 +63,7 @@ export const Tablet: Story = {
     blok: mockIconTextNavItem,
   },
   globals: {
-    viewport: { value: "tablet", isRotated: false },
+    viewport: { value: "tablet" },
   },
 }
 
@@ -72,6 +72,6 @@ export const Mobile: Story = {
     blok: mockIconTextNavItem,
   },
   globals: {
-    viewport: { value: "mobile2", isRotated: false },
+    viewport: { value: "mobile2" },
   },
 }
