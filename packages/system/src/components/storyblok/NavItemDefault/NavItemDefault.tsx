@@ -12,11 +12,13 @@ import "./NavItemDefault.css"
 interface NavItemDefaultProps {
   blok: NavItemDefaultStoryblok
   config?: ConfigStoryblok | null
+  style?: React.CSSProperties
 }
 
 export function NavItemDefault({
   blok,
   config,
+  style,
 }: NavItemDefaultProps): React.JSX.Element {
   const linkProps = getStoryblokLinkProps(blok.link)
   const { href, target, rel } = linkProps
@@ -60,7 +62,7 @@ export function NavItemDefault({
   }
 
   return (
-    <CustomElement tag="nav-item" className={classNames}>
+    <CustomElement tag="nav-item" className={classNames} style={style}>
       <a href={href} target={target} rel={rel}>
         {renderContent()}
       </a>
