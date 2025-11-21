@@ -67,7 +67,7 @@
   &.text-xxl {
     font: var(--text-weight-regular) var(--font-xxl);
     font-variation-settings: "opsz" var(--font-opsz-heading);
-    margin-block: 0 var(--spacing-xl);
+    margin-block: 0 var(--spacing-md);
     padding-block-start: calc(2rem - 1cap);
     text-wrap: balance;
   }
@@ -75,7 +75,7 @@
   &.text-2xl {
     font: var(--text-weight-regular) var(--font-2xl);
     font-variation-settings: "opsz" var(--font-opsz-heading);
-    margin-block: 0 var(--spacing-xl);
+    margin-block: 0 var(--spacing-md);
     padding-block-start: calc(2rem - 1cap);
     text-wrap: balance;
   }
@@ -83,7 +83,7 @@
   &.text-3xl {
     font: var(--text-weight-regular) var(--font-3xl);
     font-variation-settings: "opsz" var(--font-opsz-display);
-    margin-block: 0 var(--spacing-xl);
+    margin-block: 0 var(--spacing-md);
     padding-block-start: calc(3rem - 1cap);
     text-wrap: balance;
   }
@@ -91,7 +91,7 @@
   &.text-4xl {
     font: var(--text-weight-regular) var(--font-4xl);
     font-variation-settings: "opsz" var(--font-opsz-display);
-    margin-block: 0 var(--spacing-xl);
+    margin-block: 0 var(--spacing-md);
     padding-block-start: calc(3rem - 1cap);
     text-wrap: balance;
   }
@@ -99,7 +99,7 @@
   &.text-5xl {
     font: var(--text-weight-regular) var(--font-5xl);
     font-variation-settings: "opsz" var(--font-opsz-display);
-    margin-block: 0 var(--spacing-xxl);
+    margin-block: 0 var(--spacing-md);
     padding-block-start: calc(4rem - 1cap);
     text-wrap: balance;
   }
@@ -107,7 +107,7 @@
   &.text-6xl {
     font: var(--text-weight-regular) var(--font-6xl);
     font-variation-settings: "opsz" var(--font-opsz-display);
-    margin-block: 0 var(--spacing-xxl);
+    margin-block: 0 var(--spacing-md);
     padding-block-start: calc(4rem - 1cap);
     text-wrap: balance;
   }
@@ -115,7 +115,7 @@
   &.text-7xl {
     font: var(--text-weight-regular) var(--font-7xl);
     font-variation-settings: "opsz" var(--font-opsz-display);
-    margin-block: 0 var(--spacing-xxl);
+    margin-block: 0 var(--spacing-md);
     padding-block-start: calc(5rem - 1cap);
     text-wrap: balance;
   }
@@ -123,7 +123,7 @@
   &.text-8xl {
     font: var(--text-weight-regular) var(--font-8xl);
     font-variation-settings: "opsz" var(--font-opsz-display);
-    margin-block: 0 var(--spacing-xxl);
+    margin-block: 0 var(--spacing-md);
     padding-block-start: calc(6rem - 1cap);
     text-wrap: balance;
   }
@@ -131,7 +131,7 @@
   &.text-9xl {
     font: var(--text-weight-regular) var(--font-9xl);
     font-variation-settings: "opsz" var(--font-opsz-display);
-    margin-block: 0 var(--spacing-xxl);
+    margin-block: 0 var(--spacing-md);
     padding-block-start: calc(7rem - 1cap);
     text-wrap: balance;
   }
@@ -148,7 +148,6 @@
     text-wrap: balance;
   }
 
-  /* Font variation utility classes */
   &.style-italic {
     font-variation-settings: "slnt" var(--font-slnt-italic);
   }
@@ -157,7 +156,6 @@
     font-variation-settings: "slnt" var(--font-slnt-normal);
   }
 
-  /* Weight classes using font-weight (keeps existing behavior) */
   &.weight-thin {
     font-weight: var(--text-weight-thin);
   }
@@ -186,7 +184,6 @@
     font-weight: var(--text-weight-black);
   }
 
-  /* Combined italic + optical size overrides */
   &.text-xs.style-italic,
   &.text-sm.style-italic,
   &.text-base.style-italic {
