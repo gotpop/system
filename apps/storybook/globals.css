@@ -18,6 +18,8 @@
 
 body,
 html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   font-family: var(--font-family-base);
   font-feature-settings:
     "kern" 1,
@@ -25,8 +27,7 @@ html {
     "calt" 1;
   font-kerning: normal;
   font-variant-ligatures: common-ligatures;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  scrollbar-gutter: auto;
 }
 
 /* .sb-show-main.sb-main-centered #storybook-root {
@@ -47,10 +48,6 @@ html {
 /* .sb-show-main .sb-main-centered {
   max-width: 100% !important;
   width: 100% !important;
-} */
-
-/* html {
-  scrollbar-gutter: auto !important;
 } */
 
 /* .search-field {

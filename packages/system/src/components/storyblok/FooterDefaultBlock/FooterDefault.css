@@ -27,6 +27,7 @@
     grid-template-columns: [nav-start logo-start] 1fr [nav-end logo-end];
     padding-block: var(--spacing-lg);
     row-gap: var(--spacing-lg);
+    height: var(--round-up);
 
     logo-main {
       padding: 1rem;
