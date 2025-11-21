@@ -1,5 +1,13 @@
 import { render } from "storyblok-rich-text-react-renderer"
-import type { RichtextStoryblok } from "../../../types/storyblok-components"
+import type {
+  BaselineStatusBlockStoryblok,
+  RichTextCodeBlockStoryblok,
+  RichtextStoryblok,
+  SnippetBlockStoryblok,
+} from "../../../types/storyblok-components"
+import { BaselineStatusBlock } from "../BaselineStatusBlock/index"
+import { RichTextCodeBlock } from "../RichTextCodeBlock/RichTextCodeBlock"
+import { SnippetBlock } from "../SnippetBlock/SnippetBlock"
 import { Typography } from "../Typography/Typography"
 
 interface RichTextProps {
@@ -13,7 +21,17 @@ interface RichTextProps {
 
 export function RichText({
   content,
-  blokResolvers = {},
+  blokResolvers = {
+    baseline_status_block: (props: Record<string, unknown>) => (
+      <BaselineStatusBlock blok={props as BaselineStatusBlockStoryblok} />
+    ),
+    rich_text_code_block: (props: Record<string, unknown>) => (
+      <RichTextCodeBlock blok={props as RichTextCodeBlockStoryblok} />
+    ),
+    snippet_block: (props: Record<string, unknown>) => (
+      <SnippetBlock blok={props as SnippetBlockStoryblok} />
+    ),
+  },
 }: RichTextProps): React.JSX.Element | null {
   if (!content) return null
 
