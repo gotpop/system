@@ -1,8 +1,8 @@
 import { CustomElement, Typography } from "@gotpop/system"
 import { IconChrome, IconEdge, IconFirefox, IconSafari } from "../../icons"
 import { BaselineIcon } from "./BaselineIcon"
-import { SupportStatusIcon } from "./SupportStatusIcon"
 import "./BaselineStatus.css"
+import { SupportStatusIcon } from "./SupportStatusIcon"
 
 export interface BaselineStatusData {
   featureId: string
@@ -86,7 +86,19 @@ export function BaselineStatus({
           )}
           {highDateFormatted && status === "widely" && (
             <Typography tag="p" variant="text-base" shade="dark">
-              It's been available across browsers since {highDateFormatted}.
+              Has been available across browsers since {highDateFormatted}.
+            </Typography>
+          )}
+          {status === "limited" && (
+            <Typography tag="p" variant="text-base" shade="dark">
+              This feature has partial browser implementation coverage. Check
+              individual browser support before deployment.
+            </Typography>
+          )}
+          {status === "no_data" && (
+            <Typography tag="p" variant="text-base" shade="dark">
+              We currently don't have browser support information about this
+              feature.
             </Typography>
           )}
           <a

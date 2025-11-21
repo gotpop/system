@@ -10,10 +10,6 @@
 
     width: auto;
     margin-bottom: var(--spacing-md);
-
-    @media screen and (width >= 768px) {
-      width: var(--round-up);
-    }
   }
 
   details {
@@ -27,10 +23,10 @@
     padding: var(--spacing-base);
     display: grid;
     grid-template-columns: 1fr;
-    height: min-content;
+    height: 9rem;
     align-content: center;
     gap: var(--spacing-base);
-    background-color: var(--light-200);
+    background-color: #f8f8f8;
     width: 100%;
 
     @media screen and (width >= 768px) {
@@ -49,6 +45,11 @@
     grid-template-columns: max-content;
     font-size: var(--font-scaled-base);
     align-items: center;
+    justify-content: center;
+
+    @media screen and (width >= 768px) {
+      justify-content: start;
+    }
 
     strong {
       font-weight: var(--text-weight-semibold);
