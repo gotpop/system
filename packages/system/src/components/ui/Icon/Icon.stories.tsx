@@ -16,25 +16,6 @@ const meta: Meta<typeof Icon> = {
     },
   },
   tags: ["autodocs"],
-  argTypes: {
-    name: {
-      description: "Icon name from the registry",
-      control: "select",
-      options: AVAILABLE_ICONS,
-    },
-    size: {
-      description: "Icon size in pixels",
-      control: { type: "range", min: 12, max: 64, step: 4 },
-    },
-    color: {
-      description: "Icon color (CSS color value)",
-      control: "color",
-    },
-    className: {
-      description: "Optional CSS class name",
-      control: "text",
-    },
-  },
   args: {
     name: "FaHome",
     size: 24,
@@ -60,9 +41,9 @@ export const Default: Story = {
     <div
       style={{
         display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(120px, 1fr))",
+        gridTemplateColumns: "repeat(auto-fit, 8rem",
+        justifyContent: "center",
         gap: "1rem",
-        maxWidth: "800px",
       }}
     >
       {AVAILABLE_ICONS.map((iconName) => (
@@ -72,17 +53,20 @@ export const Default: Story = {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            padding: "0.75rem",
+            padding: "2rem",
             border: "1px solid #e5e7eb",
-            borderRadius: "0.375rem",
+            backgroundColor: "#f9fafb",
             textAlign: "center",
+            justifyContent: "center",
+            height: "8rem",
+            gap: "1rem",
           }}
         >
           <Icon name={iconName} size={24} />
           <span
             style={{
               fontSize: "0.75rem",
-              marginTop: "0.5rem",
+              marginTop: "1rem",
               color: "#6b7280",
             }}
           >
