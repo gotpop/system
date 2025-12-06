@@ -41,6 +41,7 @@ interface TypographyProps {
   variant?: TypographyVariant
   weight?: FontWeight
   style?: FontStyle
+  styles?: React.CSSProperties | undefined
   className?: string
   id?: string
   dateTime?: string
@@ -52,10 +53,11 @@ export function Typography({
   shade,
   variant,
   weight,
-  style,
   className = "",
   id = undefined,
   dateTime = undefined,
+  style = undefined,
+  styles = undefined,
 }: TypographyProps) {
   const validTags: ValidTag[] = [
     "h1",
@@ -87,7 +89,7 @@ export function Typography({
   )
 
   return (
-    <Element dateTime={dateTime} className={classNames} id={id}>
+    <Element dateTime={dateTime} className={classNames} id={id} style={styles}>
       {children}
     </Element>
   )

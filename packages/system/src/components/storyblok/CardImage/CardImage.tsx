@@ -5,7 +5,6 @@ import {
   getMeta,
   type MetaDataArray,
 } from "../../../utils/card-utils"
-import { formatDate } from "../../../utils/date-formatter"
 import { CustomElement } from "../../ui/CustomElement"
 import { Typography } from "../Typography/Typography"
 import "./CardImage.css"
@@ -50,6 +49,9 @@ export function CardImage({ blok, config }: CardImageProps) {
             width={640}
             height={364}
             className="card-image"
+            style={{
+              viewTransitionName: `${viewTransitionName}-image`,
+            }}
           />
         </div>
       )}
@@ -67,7 +69,14 @@ export function CardImage({ blok, config }: CardImageProps) {
           </Typography> */}
             <div className="tags">{tagList}</div>
           </div>
-          <Typography tag="h3" variant="text-xl" shade="dark">
+          <Typography
+            tag="h3"
+            variant="text-xl"
+            shade="dark"
+            styles={{
+              viewTransitionName: `${viewTransitionName}-heading`,
+            }}
+          >
             <a href={linkPath} className="title-link">
               {title}
             </a>

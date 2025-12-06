@@ -932,13 +932,13 @@
     dotenv "^16.0.0"
 
 "@gotpop/storyblok@file:/Users/minivan/web/sites/platform/system/packages/storyblok":
-  version "0.1.87"
+  version "0.1.88"
   resolved "file:packages/storyblok"
   dependencies:
     "@storyblok/react" "^5.0.0"
 
 "@gotpop/system@*", "@gotpop/system@file:/Users/minivan/web/sites/platform/system/packages/system":
-  version "0.1.231"
+  version "0.1.233"
   resolved "file:packages/system"
   dependencies:
     "@next/font" "^14.2.15"

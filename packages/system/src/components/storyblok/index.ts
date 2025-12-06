@@ -14,6 +14,7 @@ import { FormInputText } from "./FormInputText"
 import { FormInputTextArea } from "./FormInputTextArea"
 import { HeaderDefault } from "./HeaderDefault"
 import { HeroDefault } from "./HeroDefault"
+import { HeroPage } from "./HeroPage"
 import { LinkList } from "./LinkList"
 import { LogoDefault } from "./LogoDefault"
 import { NavDefault } from "./NavDefault"
@@ -42,6 +43,7 @@ export {
   FormInputTextArea,
   HeaderDefault,
   HeroDefault,
+  HeroPage,
   LinkList,
   LogoDefault,
   NavDefault,
