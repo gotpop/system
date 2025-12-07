@@ -8,9 +8,10 @@
     grid-column: span 3;
     grid-template-columns: [all] 1fr;
     grid-template-rows: [all] 1fr;
-    height: 20rem;
+    height: 22rem;
     overflow: hidden;
     position: relative;
+    padding: var(--spacing-base);
 
     &:hover {
       --translate-x: 0;
@@ -20,8 +21,6 @@
   }
 
   .content {
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: var(--filter, 0);
     position: absolute;
     grid-row: all;
     grid-column: all;
@@ -33,6 +32,8 @@
       display: flex;
       flex-direction: column;
       padding: var(--spacing-base);
+      padding: 0;
+      padding-top: 1rem;
       background-color: white;
       width: 100%;
       inset: auto auto 0 0;

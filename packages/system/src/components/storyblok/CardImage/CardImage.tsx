@@ -35,7 +35,8 @@ export function CardImage({ blok, config }: CardImageProps) {
   ))
 
   return (
-    <article
+    <CustomElement
+      tag="box-grid"
       className="card-with-image"
       style={{
         viewTransitionName: viewTransitionName,
@@ -75,6 +76,6 @@ export function CardImage({ blok, config }: CardImageProps) {
           </a> */}
         </CustomElement>
       </div>
-    </article>
+    </CustomElement>
   )
 }
