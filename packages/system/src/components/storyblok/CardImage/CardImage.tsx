@@ -57,18 +57,6 @@ export function CardImage({ blok, config }: CardImageProps) {
       )}
       <div className="content">
         <CustomElement tag="box-grid">
-          <div className="meta">
-            {/* <Typography
-            tag="time"
-            variant="text-sm"
-            shade="charcoal"
-            dateTime={formattedDate}
-            className="margin-none"
-          >
-            {formattedDate}
-          </Typography> */}
-            <div className="tags">{tagList}</div>
-          </div>
           <Typography
             tag="h3"
             variant="text-xl"
@@ -81,12 +69,10 @@ export function CardImage({ blok, config }: CardImageProps) {
               {title}
             </a>
           </Typography>
-          {/* <Typography tag="p" variant="text-base" shade="charcoal">
-          {description}
-        </Typography> */}
-          <a href={linkPath} className="link-simple">
+          <div className="tags">{tagList}</div>
+          {/* <a href={linkPath} className="link-simple">
             Read more
-          </a>
+          </a> */}
         </CustomElement>
       </div>
     </article>

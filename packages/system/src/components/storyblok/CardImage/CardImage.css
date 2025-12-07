@@ -1,6 +1,6 @@
 @scope (.card-with-image) {
   & {
-    --translate-x: -100%;
+    --translate-x: 0%;
     --translate-y: 0;
 
     background-color: white;
@@ -20,7 +20,7 @@
   }
 
   .content {
-    /* background-color: rgba(0, 0, 0, 0.5); */
+    background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: var(--filter, 0);
     position: absolute;
     grid-row: all;
@@ -34,7 +34,7 @@
       flex-direction: column;
       padding: var(--spacing-base);
       background-color: white;
-      width: 20rem;
+      width: 100%;
       inset: auto auto 0 0;
       position: absolute;
       transition: all 0.2s ease-in-out;
