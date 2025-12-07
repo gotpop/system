@@ -59,7 +59,14 @@ export function HeroPage({ blok, metaDataPage }: HeroPageProps) {
           {heading}
         </Typography>
         <div className="meta">
-          <div className="tags">{tagList}</div>
+          <div
+            className="tags"
+            style={{
+              viewTransitionName: `${viewTransitionName}-tags`,
+            }}
+          >
+            {tagList}
+          </div>
         </div>
       </div>
     </CustomElement>

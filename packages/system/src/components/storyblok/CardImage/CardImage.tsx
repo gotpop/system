@@ -8,6 +8,7 @@ import {
 import { CustomElement } from "../../ui/CustomElement"
 import { Typography } from "../Typography/Typography"
 import "./CardImage.css"
+import { useId } from "react"
 
 export interface CardImageBlokProps {
   _uid: string
@@ -24,9 +25,9 @@ export interface CardImageProps {
 export function CardImage({ blok, config }: CardImageProps) {
   const { full_slug: fullSlug, meta_data_page: metaData } = blok
   const { title, image, tags, viewTransitionName } = getMeta(metaData)
+  const id = useId()
 
   const linkPath = getLinkPath(fullSlug, config)
-  // const formattedDate = formatDate(date)
 
   const tagList = tags.map((tag) => (
     <span key={tag} className="tag">
@@ -36,46 +37,47 @@ export function CardImage({ blok, config }: CardImageProps) {
 
   return (
     <CustomElement
-      tag="box-grid"
       className="card-with-image"
+      tag="box-grid"
       style={{
         viewTransitionName: viewTransitionName,
       }}
     >
-      {image && (
-        <div className="image-container">
-          <Image
-            src={image}
-            alt={title || "Card image"}
-            width={640}
-            height={364}
-            className="card-image"
-            style={{
-              viewTransitionName: `${viewTransitionName}-image`,
-            }}
-          />
+      <figure className="figure">
+        <Image
+          alt={title || "Card image"}
+          className="image"
+          height={364}
+          src={image}
+          width={640}
+          style={{
+            viewTransitionName: `${viewTransitionName}-image`,
+          }}
+        />
+      </figure>
+      <section className="content" aria-labelledby={id}>
+        <Typography
+          id={id}
+          shade="dark"
+          tag="h3"
+          variant="text-xl"
+          styles={{
+            viewTransitionName: `${viewTransitionName}-heading`,
+          }}
+        >
+          <a href={linkPath} className="heading-link">
+            {title}
+          </a>
+        </Typography>
+        <div
+          className="tags"
+          style={{
+            viewTransitionName: `${viewTransitionName}-tags`,
+          }}
+        >
+          {tagList}
         </div>
-      )}
-      <div className="content">
-        <CustomElement tag="box-grid">
-          <Typography
-            tag="h3"
-            variant="text-xl"
-            shade="dark"
-            styles={{
-              viewTransitionName: `${viewTransitionName}-heading`,
-            }}
-          >
-            <a href={linkPath} className="title-link">
-              {title}
-            </a>
-          </Typography>
-          <div className="tags">{tagList}</div>
-          {/* <a href={linkPath} className="link-simple">
-            Read more
-          </a> */}
-        </CustomElement>
-      </div>
+      </section>
     </CustomElement>
   )
 }
