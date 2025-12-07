@@ -8,6 +8,7 @@ import { getMeta } from "../../../utils/card-utils"
 import { CustomElement } from "../../ui/CustomElement"
 import { Typography } from "../Typography/Typography"
 import "./HeroPage.css"
+import { RichText } from "../RichText"
 
 export interface HeroPageProps {
   blok: HeroPageStoryblok
@@ -17,7 +18,7 @@ export interface HeroPageProps {
 
 export function HeroPage({ blok, metaDataPage }: HeroPageProps) {
   const { tags, viewTransitionName } = getMeta(metaDataPage)
-  const { heading, image } = blok
+  const { heading, subheading, image } = blok
 
   const tagList = tags.map((tag) => (
     <span key={tag} className="tag">
@@ -68,6 +69,12 @@ export function HeroPage({ blok, metaDataPage }: HeroPageProps) {
             {tagList}
           </div>
         </div>
+
+        {subheading && (
+          <div className="subheading">
+            <RichText content={subheading} />
+          </div>
+        )}
       </div>
     </CustomElement>
   )

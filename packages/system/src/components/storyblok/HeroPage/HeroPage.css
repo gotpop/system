@@ -1,40 +1,42 @@
 @scope (.hero-page) {
   & {
-    --translate-x: -100%;
-    --translate-y: 0;
+    --width-image: 36rem;
 
-    &:hover {
-      --translate-x: 0;
-      --translate-y: 0;
-      --filter: grayscale(1);
-    }
-
-    grid-template-columns: [content-start] 1fr [content-end image-start] 640px [image-end];
-    grid-template-rows: 1fr;
     display: grid;
+    grid-template-columns: [image content] 1fr;
+    grid-template-rows: [content] max-content [image] 1fr;
     gap: var(--spacing-md);
-  }
 
-  .image-container {
-    overflow: hidden;
-    width: 640px;
-    height: 364px;
-    display: flex;
-    grid-column: image;
-    grid-row: 1;
-    position: relative;
-  }
-
-  .hero-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top left;
-    display: block;
+    @media screen and (width >= 1280px) {
+      grid-template-columns: [content] 1fr [image] var(--width-image);
+      grid-template-rows: [image content] 1fr;
+    }
   }
 
   .content {
-    grid-row: 1;
-    grid-column: content;
+    grid-area: content;
+  }
+
+  .meta {
+    margin-block-end: var(--spacing-md);
+  }
+
+  .image-container {
+    border: 1px solid rgb(from var(--light-400) r g b / 0.1);
+    display: flex;
+    grid-area: image;
+    height: 364px;
+    max-height: 22rem;
+    overflow: hidden;
+    position: relative;
+    width: min(var(--width-image), 100%);
+  }
+
+  .hero-image {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    object-position: top left;
+    width: 100%;
   }
 }
