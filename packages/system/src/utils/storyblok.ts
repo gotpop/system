@@ -40,13 +40,13 @@ export function getStoryblokLinkProps(
   }
 
   // Determine if it's an external link
-  const isExternal = link.linktype === "url" || href.startsWith("http")
+  // const isExternal = link.linktype === "url" || href.startsWith("http")
 
-  // Set target based on link type or explicit target
-  const target = link.target || (isExternal ? "_blank" : "_self")
+  // Set target based on explicit target only, default to _self for all links
+  const target = link.target || "_self"
 
-  // Add security attributes for external links
-  const rel = isExternal ? "noopener noreferrer" : undefined
+  // Add security attributes for external links that open in new tab
+  const rel = undefined
 
   return {
     href,
