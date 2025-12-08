@@ -22,6 +22,7 @@ import { NavItemDefault } from "./NavItemDefault"
 import { PageDefault } from "./PageDefault"
 import { PageLayout } from "./PageLayout"
 import { PageNotFound } from "./PageNotFound"
+import { PaginationDefault } from "./PaginationDefault"
 import { Popover } from "./Popover"
 import { PostHeader } from "./PostHeader"
 import { RichText, StoryblokRichText } from "./RichText"
@@ -48,6 +49,7 @@ export {
   LogoDefault,
   NavDefault,
   NavItemDefault,
+  PaginationDefault,
   PageDefault,
   PageLayout,
   PageNotFound,

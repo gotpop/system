@@ -34,20 +34,16 @@ export function HeroPage({ blok, metaDataPage }: HeroPageProps) {
         viewTransitionName: viewTransitionName,
       }}
     >
-      {image && (
-        <div className="image-container">
-          <Image
-            src={image.filename}
-            alt={heading || "Card image"}
-            width={640}
-            height={364}
-            className="hero-image"
-            style={{
-              viewTransitionName: `${viewTransitionName}-image`,
-            }}
-          />
-        </div>
-      )}
+      <figure className="figure">
+        <Image
+          src={image?.filename}
+          alt={heading || "Card image"}
+          width={640}
+          height={364}
+          className="image"
+          style={{ viewTransitionName: `${viewTransitionName}-image` }}
+        />
+      </figure>
       <div className="content">
         <Typography
           tag="h3"
@@ -59,17 +55,14 @@ export function HeroPage({ blok, metaDataPage }: HeroPageProps) {
         >
           {heading}
         </Typography>
-        <div className="meta">
-          <div
-            className="tags"
-            style={{
-              viewTransitionName: `${viewTransitionName}-tags`,
-            }}
-          >
-            {tagList}
-          </div>
+        <div
+          className="tags"
+          style={{
+            viewTransitionName: `${viewTransitionName}-tags`,
+          }}
+        >
+          {tagList}
         </div>
-
         {subheading && (
           <div className="subheading">
             <RichText content={subheading} />

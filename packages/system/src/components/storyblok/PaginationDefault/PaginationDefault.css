@@ -1,0 +1,20 @@
+@scope (.pagination) {
+  & {
+    --column-gap: var(--spacing-md);
+    --direction: row;
+    --row-gap: var(--spacing-md);
+  }
+
+  .link-pagination {
+    align-items: center;
+    background-color: var(--secondary-700);
+    color: var(--light-100);
+    display: flex;
+    gap: var(--spacing-base);
+    height: var(--spacing-md);
+    justify-content: center;
+    padding: var(--spacing-sm) var(--spacing-md);
+    text-decoration: none;
+    width: var(--round-up);
+  }
+}
