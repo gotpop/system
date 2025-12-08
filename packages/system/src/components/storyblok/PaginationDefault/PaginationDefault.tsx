@@ -50,7 +50,7 @@ function PaginationLink({
 
 export interface PaginationDefaultProps {
   blok: PaginationDefaultStoryblok
-  metaDataPage: PageDefaultStoryblok["meta_data_page"]
+  metaDataPage?: PageDefaultStoryblok["meta_data_page"]
   config?: ConfigStoryblok | null
   pagination: PaginationData
 }
@@ -59,7 +59,7 @@ export function PaginationDefault({
   metaDataPage,
   pagination: { previous, next },
 }: PaginationDefaultProps) {
-  const { viewTransitionName } = getMeta(metaDataPage)
+  const { viewTransitionName } = getMeta(metaDataPage || [])
 
   return (
     <CustomElement

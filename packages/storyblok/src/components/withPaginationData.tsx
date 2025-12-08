@@ -2,6 +2,7 @@ import "server-only"
 
 import type {
   ConfigStoryblok,
+  PageDefaultStoryblok,
   PaginationDefaultStoryblok,
 } from "@gotpop/system"
 import { headers } from "next/headers"
@@ -9,17 +10,12 @@ import { getStoryPath } from "../config/path-utils"
 import { getConfig } from "../config/runtime-config"
 import { getInitializedStoryblokApi } from "../data/get-storyblok-data"
 
-// Temporary types
-interface TempStory {
+interface StoryblokStory {
   full_slug: string
   name: string
   content?: {
     title?: string
-    // biome-ignore lint/suspicious/noExplicitAny: Temp
-    [key: string]: any
   }
-  // biome-ignore lint/suspicious/noExplicitAny: Temp
-  [key: string]: any
 }
 
 interface PaginationData {
@@ -35,6 +31,7 @@ interface PaginationData {
 
 interface WithPaginationDataProps {
   blok: PaginationDefaultStoryblok
+  metaDataPage?: PageDefaultStoryblok["meta_data_page"]
   config: ConfigStoryblok | null
   pagination: PaginationData
 }
@@ -46,9 +43,11 @@ export function withPaginationData(
   return async ({
     blok,
     config: providedConfig,
+    metaDataPage,
   }: {
     blok: PaginationDefaultStoryblok
     config?: ConfigStoryblok | null
+    metaDataPage?: PageDefaultStoryblok["meta_data_page"]
   }) => {
     // Use provided config or fetch from cache
     const config = providedConfig ?? (await getConfig())
@@ -82,7 +81,7 @@ export function withPaginationData(
       sort_by: "created_at:asc",
     })
 
-    const allStories = directoryStoriesResult.data.stories as TempStory[]
+    const allStories = directoryStoriesResult.data.stories as StoryblokStory[]
 
     const headersList = await headers()
     const pathname =
@@ -112,7 +111,7 @@ export function withPaginationData(
     }
 
     const currentIndex = allStories.findIndex(
-      (story: TempStory) => story.full_slug === currentStorySlug
+      (story: StoryblokStory) => story.full_slug === currentStorySlug
     )
     const totalStories = allStories.length
 
@@ -143,6 +142,13 @@ export function withPaginationData(
       }
     }
 
-    return <ViewComponent blok={blok} config={config} pagination={pagination} />
+    return (
+      <ViewComponent
+        blok={blok}
+        config={config}
+        metaDataPage={metaDataPage}
+        pagination={pagination}
+      />
+    )
   }
 }
