@@ -1,6 +1,6 @@
 {
   "name": "@gotpop/storyblok",
-  "version": "0.1.91",
+  "version": "0.1.92",
   "description": "Storyblok integration utilities and components for gotpop projects",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

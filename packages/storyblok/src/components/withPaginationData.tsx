@@ -5,7 +5,6 @@ import type {
   PageDefaultStoryblok,
   PaginationDefaultStoryblok,
 } from "@gotpop/system"
-import { headers } from "next/headers"
 import { getStoryPath } from "../config/path-utils"
 import { getConfig } from "../config/runtime-config"
 import { getInitializedStoryblokApi } from "../data/get-storyblok-data"
@@ -44,10 +43,12 @@ export function withPaginationData(
     blok,
     config: providedConfig,
     metaDataPage,
+    currentStorySlug,
   }: {
     blok: PaginationDefaultStoryblok
     config?: ConfigStoryblok | null
     metaDataPage?: PageDefaultStoryblok["meta_data_page"]
+    currentStorySlug?: string
   }) => {
     // Use provided config or fetch from cache
     const config = providedConfig ?? (await getConfig())
@@ -83,36 +84,12 @@ export function withPaginationData(
 
     const allStories = directoryStoriesResult.data.stories as StoryblokStory[]
 
-    const headersList = await headers()
-    const pathname =
-      headersList.get("x-pathname") || headersList.get("referer") || ""
-
-    let currentStorySlug = ""
-    if (pathname) {
-      let cleanPath = pathname
-      if (pathname.includes("://")) {
-        try {
-          const url = new URL(pathname)
-          cleanPath = url.pathname
-        } catch {
-          cleanPath = pathname
-        }
-      }
-
-      const segments = cleanPath.slice(1).split("/").filter(Boolean)
-
-      if (segments[0] === "work" && segments.length > 1) {
-        currentStorySlug = `portfolio/work/${segments.slice(1).join("/")}`
-      } else {
-        const prefix = config?.content_prefix || "blog"
-        currentStorySlug =
-          segments.length > 0 ? `${prefix}/${segments.join("/")}` : prefix
-      }
-    }
+    const resolvedCurrentStorySlug = currentStorySlug || ""
 
     const currentIndex = allStories.findIndex(
-      (story: StoryblokStory) => story.full_slug === currentStorySlug
+      (story: StoryblokStory) => story.full_slug === resolvedCurrentStorySlug
     )
+
     const totalStories = allStories.length
 
     const pagination: PaginationData = {

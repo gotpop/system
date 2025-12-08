@@ -6,6 +6,11 @@ import type { ReactNode } from "react"
 import { getConfig } from "../config/runtime-config"
 import { getInitializedStoryblokApi } from "../data/get-storyblok-data"
 
+interface StoryblokStory {
+  full_slug: string
+  content: Record<string, string>
+}
+
 interface WithPageDataProps<T extends PageDefaultStoryblok> {
   header: ReactNode
   footer: ReactNode
@@ -20,9 +25,11 @@ export function withPageData<T extends PageDefaultStoryblok>(
   return async ({
     blok,
     config: providedConfig,
+    story,
   }: {
     blok: T
     config?: ConfigStoryblok | null
+    story?: StoryblokStory
   }) => {
     const {
       header: headerUuid = "",
@@ -57,14 +64,23 @@ export function withPageData<T extends PageDefaultStoryblok>(
       <StoryblokServerComponent blok={footerData.content} config={config} />
     ) : null
 
-    const blocks = blok.body?.map((nestedBlok) => (
-      <StoryblokServerComponent
-        blok={nestedBlok}
-        config={config}
-        key={nestedBlok._uid}
-        metaDataPage={metaDataPage}
-      />
-    ))
+    const blocks = blok.body?.map((nestedBlok) => {
+      // Pass currentStorySlug to pagination components
+      const additionalProps =
+        nestedBlok.component === "pagination_default" && story
+          ? { currentStorySlug: story.full_slug }
+          : {}
+
+      return (
+        <StoryblokServerComponent
+          blok={nestedBlok}
+          config={config}
+          key={nestedBlok._uid}
+          metaDataPage={metaDataPage}
+          {...additionalProps}
+        />
+      )
+    })
 
     return (
       <ViewComponent
