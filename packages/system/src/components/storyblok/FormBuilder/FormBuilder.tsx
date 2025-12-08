@@ -4,10 +4,9 @@ import type {
   ConfigStoryblok,
   FormBuilderStoryblok,
 } from "../../../types/storyblok-components"
+import { CustomElement } from "../../ui/CustomElement"
 import "./FormBuilder.css"
 import { useActionState } from "react"
-
-// import { useFormState } from "react-dom"
 
 interface FormState {
   errors: Record<string, string[]>
@@ -32,18 +31,19 @@ export function FormBuilder({ content, onSubmit }: FormBuilderProps) {
   }
 
   const [state, formAction] = useActionState(handleSubmit, initialState)
-  // const [state, formAction] = useFormState(handleSubmit, initialState)
 
   return (
-    <form className="form-builder" action={formAction}>
-      {state.message && (
-        <div
-          className={`form-message ${state.success ? "form-message--success" : "form-message--error"}`}
-        >
-          {state.message}
-        </div>
-      )}
-      {content}
-    </form>
+    <CustomElement className="form-builder" tag="box-grid">
+      <form className="form" action={formAction}>
+        {state.message && (
+          <div
+            className={`form-message ${state.success ? "form-message--success" : "form-message--error"}`}
+          >
+            {state.message}
+          </div>
+        )}
+        {content}
+      </form>
+    </CustomElement>
   )
 }

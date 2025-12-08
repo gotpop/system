@@ -15,6 +15,7 @@ import { FormInputTextArea } from "./FormInputTextArea"
 import { HeaderDefault } from "./HeaderDefault"
 import { HeroDefault } from "./HeroDefault"
 import { HeroPage } from "./HeroPage"
+import { HeroPost } from "./HeroPost"
 import { LinkList } from "./LinkList"
 import { LogoDefault } from "./LogoDefault"
 import { NavDefault } from "./NavDefault"
@@ -45,14 +46,15 @@ export {
   HeaderDefault,
   HeroDefault,
   HeroPage,
+  HeroPost,
   LinkList,
   LogoDefault,
   NavDefault,
   NavItemDefault,
-  PaginationDefault,
   PageDefault,
   PageLayout,
   PageNotFound,
+  PaginationDefault,
   Popover,
   PostHeader,
   RichText,
