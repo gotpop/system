@@ -11,7 +11,7 @@
 
 The `app` dir contains a Storybook 8.4+ instance with React Server Components runtime support.
 
-<details open>
+<details>
 <summary><strong>View Technical Diagram</strong></summary>
 
 ### Project architecture
