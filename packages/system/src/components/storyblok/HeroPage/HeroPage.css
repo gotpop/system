@@ -24,13 +24,17 @@
     border: 1px solid rgb(from var(--light-400) r g b / 0.1);
     display: flex;
     grid-area: image;
-    height: 364px;
+    height: var(--height, 10rem);
     inset: 0.5px 0.5px auto auto;
     margin: 0;
     max-height: 22rem;
     overflow: hidden;
     position: relative;
     width: min(var(--width), 100%);
+
+    @media screen and (width >= 768px) {
+      --height: 364px;
+    }
   }
 
   .image {
