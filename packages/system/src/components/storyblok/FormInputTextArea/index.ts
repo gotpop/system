@@ -1,1 +1,1 @@
-export { FormInputTextArea } from "./FormInputTextArea"
+export * from "./FormInputTextArea"

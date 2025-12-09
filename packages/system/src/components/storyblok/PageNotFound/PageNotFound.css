@@ -1,21 +1,21 @@
 @scope (.page-not-found) {
   .page-not-found {
-    min-height: 60vh;
-    display: flex;
     align-items: center;
+    display: flex;
     justify-content: center;
+    min-height: 60vh;
     padding: 2rem;
   }
 
   .links-available {
-    list-style-type: square;
     display: flex;
     flex-direction: column;
+    list-style-type: square;
     margin: 0;
 
     a {
-      padding-block-start: calc(2rem - 1cap);
       display: flex;
+      padding-block-start: calc(2rem - 1cap);
       text-underline-offset: 0.4em;
     }
   }

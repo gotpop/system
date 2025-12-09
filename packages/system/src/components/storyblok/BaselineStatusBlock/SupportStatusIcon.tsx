@@ -25,6 +25,7 @@ export function SupportStatusIcon({ status }: SupportStatusIconProps) {
       </svg>
     )
   }
+
   if (status === "unavailable") {
     return (
       <svg
@@ -47,7 +48,7 @@ export function SupportStatusIcon({ status }: SupportStatusIconProps) {
       </svg>
     )
   }
-  // no_data
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

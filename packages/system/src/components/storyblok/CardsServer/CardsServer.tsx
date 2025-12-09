@@ -7,6 +7,6 @@ interface CardsProps {
   config?: ConfigStoryblok | null
 }
 
-export async function CardsServer({ blocks }: CardsProps) {
+export function CardsServer({ blocks }: CardsProps) {
   return <div className="grid-cards">{blocks}</div>
 }

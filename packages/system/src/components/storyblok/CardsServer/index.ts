@@ -1,1 +1,1 @@
-export { CardsServer } from "./CardsServer"
+export * from "./CardsServer"

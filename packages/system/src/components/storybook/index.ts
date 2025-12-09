@@ -1,1 +1,1 @@
-export { StorybookBackground } from "./StorybookBackground"
+export * from "./StorybookBackground"

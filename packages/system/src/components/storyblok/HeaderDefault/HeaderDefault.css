@@ -2,12 +2,13 @@
   :scope {
     --grid-vertical-color: oklch(from var(--light-200) l c h / 0.08);
     --grid-horizontal-color: oklch(from var(--light-200) l c h / 0.08);
+    --grid-light-color: var(--light-100);
+    --grid-light-opacity: 0.4;
 
-    /* Customize centered grid colors for header */
-    --grid-light-color: var(--light-100); /* White */
-    --grid-light-opacity: 0.4; /* Subtle visibility */
-
-    /* background: paint(grid) var(--secondary-700); */
+    background-color: var(--secondary-700);
+    background-image: var(--grid-light-pattern);
+    background-position: var(--grid-light-bg-position);
+    background-size: var(--grid-light-bg-size);
     display: grid;
     grid-area: header / full;
     grid-template-columns: [logo] 1fr [button-toggle] 4rem;
@@ -17,21 +18,16 @@
     view-transition-name: header;
     z-index: 1;
 
-    background-color: var(--secondary-700);
-    background-image: var(--grid-light-pattern);
-    background-size: var(--grid-light-bg-size);
-    background-position: var(--grid-light-bg-position);
-
     &::before {
-      content: "";
-      pointer-events: none;
-      position: absolute;
-      z-index: 0;
-      width: 100%;
-      height: 100%;
-      grid-area: full / breakout;
       background-image: var(--crosshatch-white-pattern);
       background-size: var(--box-hero-grid-size) var(--box-hero-grid-size);
+      content: "";
+      grid-area: full / breakout;
+      height: 100%;
+      pointer-events: none;
+      position: absolute;
+      width: 100%;
+      z-index: 0;
     }
 
     @media screen and (width >= 480px) {
@@ -50,8 +46,8 @@
     }
 
     @media screen and (width >= 1480px) {
-      grid-template-rows: [full-start] 1rem [centre-start] 2rem [centre-end] 1rem [full-end];
       grid-template-columns: subgrid [] [] [logo-start][logo-end nav-start] [] [] [] [] [] [nav-end] [];
+      grid-template-rows: [full-start] 1rem [centre-start] 2rem [centre-end] 1rem [full-end];
     }
   }
 }

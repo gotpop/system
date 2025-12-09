@@ -36,11 +36,13 @@ export function FormBuilder({ content, onSubmit }: FormBuilderProps) {
     <CustomElement className="form-builder" tag="box-grid">
       <form className="form" action={formAction}>
         {state.message && (
-          <div
+          <section
             className={`form-message ${state.success ? "form-message--success" : "form-message--error"}`}
+            role={state.success ? "status" : "alert"}
+            aria-live="polite"
           >
             {state.message}
-          </div>
+          </section>
         )}
         {content}
       </form>

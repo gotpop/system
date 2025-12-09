@@ -1,30 +1,24 @@
 @scope (page-layout) {
   :scope {
     --col-width: 21rem;
-    --grid-horizontal-color: --opacity(var(--secondary-600), 0.2);
-    --grid-offset: centre;
-    --grid-vertical-color: --opacity(var(--primary-600), 0.1);
-    --repeat: 1;
-
-    --root-grid-size: 16px;
-    --grid-vertical-color: rgba(200, 200, 200, 0.6);
-    --grid-horizontal-color: rgba(180, 180, 180, 0.6);
     --even-odd: even;
+    --grid-horizontal-color: rgba(180, 180, 180, 0.6);
     --grid-offset: centre;
+    --grid-vertical-color: rgba(200, 200, 200, 0.6);
+    --repeat: 1;
+    --root-grid-size: 16px;
 
-    background-image: paint(grid), var(--grain-uri);
+    background-image: var(--grid-centered-pattern), var(--grain-uri);
+    background-position: top center;
+    background-size: var(--grid-centered-bg-size);
     display: grid;
     grid-template-rows: [header] min-content [main] 1fr [double-col] 0 [footer] min-content;
-    row-gap: var(--spacing-base);
     min-height: 100dvh;
+    row-gap: var(--spacing-base);
     grid-template-columns:
       [full-start] minmax(0, 1fr) [breakout-start] 0 [content-start]
       repeat(var(--repeat), var(--col-width)) [content-end] 0 [breakout-end]
       minmax(0, 1fr) [full-end];
-
-    background-image: var(--grid-centered-pattern), var(--grain-uri);
-    background-size: var(--grid-centered-bg-size);
-    background-position: top center;
 
     @media screen and (width >= 480px) {
       --repeat: 2;
