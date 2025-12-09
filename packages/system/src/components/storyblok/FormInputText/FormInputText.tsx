@@ -1,7 +1,7 @@
 import type {
   ConfigStoryblok,
   FormInputTextStoryblok,
-} from "@/types/storyblok-components"
+} from "../../../types/storyblok-components"
 import "./FormInputText.css"
 import { CustomElement } from "@gotpop/system"
 import { useId } from "react"

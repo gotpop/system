@@ -1,0 +1,5 @@
+@scope (.hero-post) {
+  .tags {
+    margin-block-end: var(--spacing-md);
+  }
+}

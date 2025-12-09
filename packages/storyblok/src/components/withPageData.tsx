@@ -1,20 +1,17 @@
 import "server-only"
 
-import type { ConfigStoryblok } from "@gotpop/system"
-import type { SbBlokData } from "@storyblok/react/rsc"
+import type { ConfigStoryblok, PageDefaultStoryblok } from "@gotpop/system"
 import { StoryblokServerComponent } from "@storyblok/react/rsc"
 import type { ReactNode } from "react"
 import { getConfig } from "../config/runtime-config"
 import { getInitializedStoryblokApi } from "../data/get-storyblok-data"
 
-interface PageBlok {
-  header?: string
-  footer?: string
-  body?: SbBlokData[]
-  [key: string]: unknown
+interface StoryblokStory {
+  full_slug: string
+  content: Record<string, string>
 }
 
-interface WithPageDataProps<T extends PageBlok> {
+interface WithPageDataProps<T extends PageDefaultStoryblok> {
   header: ReactNode
   footer: ReactNode
   blok: T
@@ -22,46 +19,42 @@ interface WithPageDataProps<T extends PageBlok> {
 }
 
 /** Higher-Order Component that fetches and renders header and footer components for a page */
-export function withPageData<T extends PageBlok>(
+export function withPageData<T extends PageDefaultStoryblok>(
   ViewComponent: React.ComponentType<WithPageDataProps<T>>
 ) {
   return async ({
     blok,
     config: providedConfig,
+    story,
   }: {
     blok: T
     config?: ConfigStoryblok | null
+    story?: StoryblokStory
   }) => {
-    const { header: headerUuid = "", footer: footerUuid = "" } = blok
+    const {
+      header: headerUuid = "",
+      footer: footerUuid = "",
+      meta_data_page: metaDataPage = [],
+    } = blok
 
     // Use provided config or fetch from cache
     const config = providedConfig ?? (await getConfig())
 
     const storyblokApi = getInitializedStoryblokApi()
 
-    const fetchHeader = async () => {
-      if (!headerUuid) return null
+    const fetchStoryByUuid = async (uuid: string) => {
+      if (!uuid) return null
 
-      return await storyblokApi.get("cdn/stories", {
+      const response = await storyblokApi.get("cdn/stories", {
         version: "published",
-        by_uuids: headerUuid,
+        by_uuids: uuid,
       })
+
+      return response?.data?.stories?.[0] || null
     }
 
-    const fetchFooter = async () => {
-      if (!footerUuid) return null
-
-      return await storyblokApi.get("cdn/stories", {
-        version: "published",
-        by_uuids: footerUuid,
-      })
-    }
-
-    const headerResponse = await fetchHeader()
-    const footerResponse = await fetchFooter()
-
-    const headerData = headerResponse?.data?.stories?.[0]
-    const footerData = footerResponse?.data?.stories?.[0]
+    const headerData = await fetchStoryByUuid(headerUuid)
+    const footerData = await fetchStoryByUuid(footerUuid)
 
     const header = headerData?.content ? (
       <StoryblokServerComponent blok={headerData.content} config={config} />
@@ -71,20 +64,30 @@ export function withPageData<T extends PageBlok>(
       <StoryblokServerComponent blok={footerData.content} config={config} />
     ) : null
 
-    const blocks = blok.body?.map((nestedBlok) => (
-      <StoryblokServerComponent
-        blok={nestedBlok}
-        key={nestedBlok._uid}
-        config={config}
-      />
-    ))
+    const blocks = blok.body?.map((nestedBlok) => {
+      // Pass currentStorySlug to pagination components
+      const additionalProps =
+        nestedBlok.component === "pagination_default" && story
+          ? { currentStorySlug: story.full_slug }
+          : {}
+
+      return (
+        <StoryblokServerComponent
+          blok={nestedBlok}
+          config={config}
+          key={nestedBlok._uid}
+          metaDataPage={metaDataPage}
+          {...additionalProps}
+        />
+      )
+    })
 
     return (
       <ViewComponent
-        blok={blok}
         blocks={blocks}
-        header={header}
+        blok={blok}
         footer={footer}
+        header={header}
       />
     )
   }

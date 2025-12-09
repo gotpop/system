@@ -33,6 +33,7 @@ export function FooterDefault({ blok }: FooterDefaultProps): React.JSX.Element {
     nav: processedNav,
     copyright: processedCopyright,
   } = viewData
+
   const hasNav = processedNav.length > 0
   const hasLogo = processedLogo !== null
 
@@ -48,7 +49,6 @@ export function FooterDefault({ blok }: FooterDefaultProps): React.JSX.Element {
           </nav>
         )}
       </div>
-
       <Typography
         className="copyright"
         tag="small"

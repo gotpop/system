@@ -4,7 +4,7 @@ import { CustomElement, Typography } from "@gotpop/system"
 import type {
   ConfigStoryblok,
   PopoverStoryblok,
-} from "@/types/storyblok-components"
+} from "../../../types/storyblok-components"
 
 interface PopoverProps {
   blok: PopoverStoryblok

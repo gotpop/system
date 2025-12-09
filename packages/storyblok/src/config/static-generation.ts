@@ -1,6 +1,7 @@
 import "server-only"
 
 import type { ConfigStoryblok } from "@gotpop/system"
+import type { StoryblokStoryResponse } from "../types"
 import { getPrefix } from "./prefix-utils"
 
 /** Global stories that should be excluded from static generation */
@@ -38,4 +39,54 @@ export function getStartsWithPrefix(config: ConfigStoryblok): string {
   const prefix = getPrefix(config)
 
   return `${prefix}/`
+}
+
+/** Checks if a story is a startpage */
+export function isStoryStartpage(story: StoryblokStoryResponse): boolean {
+  return Boolean(story.is_startpage)
+}
+
+/** Determines if an index route should be generated for a story */
+export function shouldGenerateIndexRoute(
+  story: StoryblokStoryResponse,
+  config: ConfigStoryblok
+): boolean {
+  if (!isStoryStartpage(story)) {
+    return false
+  }
+
+  const prefix = getPrefix(config)
+
+  // Don't generate separate index route for homepage
+  if (story.full_slug === `${prefix}/`) {
+    return false
+  }
+
+  return true
+}
+
+/** Gets the index path for a startpage story */
+export function getStartpageIndexPath(
+  fullSlug: string,
+  config: ConfigStoryblok
+): string {
+  const prefix = getPrefix(config)
+
+  // Remove prefix from full_slug
+  let pathWithoutPrefix = fullSlug
+  if (fullSlug.startsWith(`${prefix}/`)) {
+    pathWithoutPrefix = fullSlug.slice(prefix.length + 1)
+  }
+
+  // Handle homepage case
+  if (pathWithoutPrefix === "" || pathWithoutPrefix === "/") {
+    return "/"
+  }
+
+  // Remove trailing slash if present and ensure leading slash
+  const cleanPath = pathWithoutPrefix.endsWith("/")
+    ? pathWithoutPrefix.slice(0, -1)
+    : pathWithoutPrefix
+
+  return cleanPath.startsWith("/") ? cleanPath : `/${cleanPath}`
 }

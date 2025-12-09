@@ -1,7 +1,7 @@
 import type {
   ConfigStoryblok,
   FormInputButtonSubmitStoryblok,
-} from "@/types/storyblok-components"
+} from "../../../types/storyblok-components"
 import "./FormInputButtonSubmit.css"
 import type { IconName } from "@gotpop/system"
 import { Icon } from "@gotpop/system"

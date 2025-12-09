@@ -5,5 +5,8 @@
  * by consumers of the design system package.
  */
 
-export type { CardProps, PostProps } from "../components/storyblok/Card/Card"
-export type { TagDatasourceEntry } from "../components/storyblok/CardsFilter/CardsFilterClient"
+export type {
+  CardBlokProps,
+  CardProps,
+} from "../components/storyblok/Card/Card"
+export type { TagDatasourceEntry } from "./storyblok"

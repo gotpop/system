@@ -13,7 +13,6 @@ export function useClickOutside(
       const buttonElement = document.querySelector(`[aria-controls="${navId}"]`)
 
       if (navElement && !navElement.contains(event.target as Node)) {
-        // Don't trigger if clicking on the toggle button
         if (buttonElement?.contains(event.target as Node)) {
           return
         }
@@ -32,6 +31,7 @@ export function useClickOutside(
     }
 
     document.addEventListener("mousedown", handleClickOutside)
+
     return () => document.removeEventListener("mousedown", handleClickOutside)
   }, [navId, isActive, onClickOutside])
 }

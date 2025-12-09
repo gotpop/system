@@ -28,7 +28,7 @@ export async function fetchFeatureData(
       headers: {
         "User-Agent": "gotpop-blog-baseline-status/1.0",
       },
-      // Cache for 24 hours (Next.js specific)
+      // Cache for 24 hours
       next: { revalidate: 86400 },
     } as RequestInit & { next?: { revalidate: number } })
 
@@ -42,6 +42,7 @@ export async function fetchFeatureData(
     return await response.json()
   } catch (error) {
     console.error(`Error fetching baseline data for ${featureId}:`, error)
+
     return {}
   }
 }

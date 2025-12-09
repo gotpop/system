@@ -9,3 +9,9 @@ export interface StoryblokStoryResponse {
 export interface StoryblokStoriesResponse {
   stories: StoryblokStoryResponse[]
 }
+
+export interface TagDatasourceEntry {
+  name: string
+  value: string
+  id: number
+}

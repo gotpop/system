@@ -14,8 +14,8 @@ export function getContentPath(path: string, config: ConfigStoryblok): string {
     cleanPath = cleanPath.slice(prefix.length + 1)
   }
 
-  /** Handle home/root path */
-  if (!cleanPath || cleanPath === "home") {
+  /** Handle root path */
+  if (!cleanPath) {
     return `${prefix}/`
   }
 
@@ -36,8 +36,8 @@ export function getStoryPath(
     withoutPrefix = fullSlug.slice(prefix.length + 1)
   }
 
-  /** Handle home page */
-  if (withoutPrefix === "home" || withoutPrefix === "") {
+  /** Handle homepage */
+  if (withoutPrefix === "") {
     return "/"
   }
 

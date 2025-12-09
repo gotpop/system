@@ -1,49 +1,33 @@
-import type {
-  ConfigStoryblok,
-  PagePostStoryblok,
-} from "../../../types/storyblok-components"
-import { formatDate } from "../../../utils/date-formatter"
+import Image from "next/image"
+import type { ConfigStoryblok } from "../../../types/storyblok-components"
+import {
+  getLinkPath,
+  getMeta,
+  type MetaDataArray,
+} from "../../../utils/card-utils"
 import { CustomElement } from "../../ui/CustomElement"
 import { Typography } from "../Typography/Typography"
 import "./CardImage.css"
-import Image from "next/image"
+import { useId } from "react"
 
-export interface PostImageProps {
-  uuid: string
+export interface CardImageBlokProps {
+  _uid: string
+  component: string
   full_slug: string
-  name: string
-  published_at: string
-  content: PagePostStoryblok
+  meta_data_page?: MetaDataArray
 }
 
 export interface CardImageProps {
-  blok: PostImageProps
+  blok: CardImageBlokProps
   config?: ConfigStoryblok | null
 }
 
 export function CardImage({ blok, config }: CardImageProps) {
-  const { full_slug, name, published_at, content } = blok
-  const {
-    heading,
-    description,
-    published_date,
-    image_hero,
-    tags = [],
-    view_transition_name: viewTransitionName,
-  } = content || {}
+  const { full_slug: fullSlug, meta_data_page: metaData } = blok
+  const { title, image, tags, viewTransitionName } = getMeta(metaData)
+  const id = useId()
 
-  let linkPath = `/${full_slug}`
-
-  const root = config?.root_name_space
-
-  if (root && linkPath.startsWith(`/${root}/`)) {
-    linkPath = linkPath.slice(root.length + 1)
-  }
-
-  const dateToUse = published_date || published_at
-  const formattedDate = formatDate(dateToUse)
-
-  const title = heading || name || "Untitled"
+  const linkPath = getLinkPath(fullSlug, config)
 
   const tagList = tags.map((tag) => (
     <span key={tag} className="tag">
@@ -53,50 +37,47 @@ export function CardImage({ blok, config }: CardImageProps) {
 
   return (
     <CustomElement
-      tag="box-grid"
       className="card-with-image"
+      tag="box-grid"
       style={{
         viewTransitionName: viewTransitionName,
       }}
     >
-      <div className="meta">
+      <figure className="figure">
+        <Image
+          alt={title || "Card image"}
+          className="image"
+          height={364}
+          src={image}
+          width={640}
+          style={{
+            viewTransitionName: `${viewTransitionName}-image`,
+          }}
+        />
+      </figure>
+      <section className="content" aria-labelledby={id}>
         <Typography
-          tag="time"
-          variant="text-sm"
-          shade="charcoal"
-          dateTime={formattedDate}
-          className="margin-none"
+          id={id}
+          shade="dark"
+          tag="h3"
+          variant="text-xl"
+          styles={{
+            viewTransitionName: `${viewTransitionName}-heading`,
+          }}
         >
-          {formattedDate} !!!!!
+          <a href={linkPath} className="heading-link">
+            {title}
+          </a>
         </Typography>
-        <div className="tags">{tagList}</div>
-      </div>
-      <Typography tag="h3" variant="text-xl" shade="dark">
-        <a href={linkPath} className="title-link">
-          {title}
-        </a>
-      </Typography>
-      {image_hero?.filename && (
         <div
-          className="card-image-hero"
-          style={{ aspectRatio: "640 / 316", width: "100%" }}
+          className="tags"
+          style={{
+            viewTransitionName: `${viewTransitionName}-tags`,
+          }}
         >
-          <Image
-            src={image_hero.filename}
-            alt={image_hero.alt || title}
-            width={640}
-            height={316}
-            style={{ objectFit: "cover", width: "100%", height: "auto" }}
-            priority={false}
-          />
+          {tagList}
         </div>
-      )}
-      <Typography tag="p" variant="text-base" shade="charcoal">
-        {description}
-      </Typography>
-      <a href={linkPath} className="link-simple">
-        Read more
-      </a>
+      </section>
     </CustomElement>
   )
 }

@@ -5,6 +5,10 @@
     gap: var(--spacing-base);
   }
 
+  .form {
+    width: min(30rem, 100%);
+  }
+
   .form-message {
     padding: var(--spacing-sm);
     margin-bottom: var(--spacing-base);

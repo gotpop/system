@@ -1,47 +1,34 @@
-import type {
-  ConfigStoryblok,
-  PagePostStoryblok,
-} from "../../../types/storyblok-components"
+import type { ConfigStoryblok } from "../../../types/storyblok-components"
+import {
+  getLinkPath,
+  getMeta,
+  type MetaDataArray,
+} from "../../../utils/card-utils"
 import { formatDate } from "../../../utils/date-formatter"
 import { CustomElement } from "../../ui/CustomElement"
 import { Typography } from "../Typography/Typography"
 import "./Card.css"
 
-export interface PostProps {
-  uuid: string
+export interface CardBlokProps {
+  _uid: string
+  component: string
   full_slug: string
-  name: string
-  published_at: string
-  content: PagePostStoryblok
+  meta_data_page?: MetaDataArray
 }
 
 export interface CardProps {
-  blok: PostProps
+  blok: CardBlokProps
   config?: ConfigStoryblok | null
 }
 
 export function Card({ blok, config }: CardProps) {
-  const { full_slug, name, published_at, content } = blok
-  const {
-    heading,
-    description,
-    published_date,
-    tags = [],
-    view_transition_name: viewTransitionName,
-  } = content || {}
+  const { full_slug: fullSlug, meta_data_page: metaData } = blok
 
-  let linkPath = `/${full_slug}`
+  const { title, date, description, tags, viewTransitionName } =
+    getMeta(metaData)
 
-  const root = config?.root_name_space
-
-  if (root && linkPath.startsWith(`/${root}/`)) {
-    linkPath = linkPath.slice(root.length + 1)
-  }
-
-  const dateToUse = published_date || published_at
-  const formattedDate = formatDate(dateToUse)
-
-  const title = heading || name || "Untitled"
+  const linkPath = getLinkPath(fullSlug, config)
+  const formattedDate = formatDate(date)
 
   const tagList = tags.map((tag) => (
     <span key={tag} className="tag">
