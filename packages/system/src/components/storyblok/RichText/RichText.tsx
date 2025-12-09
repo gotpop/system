@@ -61,7 +61,7 @@ export function RichText({
         switch (level) {
           case 1:
             return (
-              <Typography shade="dark" tag="h1" variant="text-lg">
+              <Typography shade="dark" tag="h1" variant="text-xl">
                 {children}
               </Typography>
             )
