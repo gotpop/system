@@ -30,4 +30,4 @@ The `app` dir contains a Storybook 8.4+ instance with React Server Components ru
 |------|------|-------------|-----------|
 | **Package** | [`@gotpop/system`](https://github.com/gotpop/gotpop-system/pkgs/npm/system) | React design system components for gotpop | ✅ GitHub Packages |
 | **Package** | [`@gotpop/storyblok`](https://github.com/gotpop/gotpop-system/pkgs/npm/storyblok) | Storyblok integration utilities and components | ✅ GitHub Packages |
-| **App** | `storybook` | Storybook documentation for design system | 🌐 [storybook.gotpop.io](https://storybook.gotpop.io) |
+| **App** | `storybook` | Storybook documentation for design system | 🌐 [system.gotpop.io](https://system.gotpop.io) |
