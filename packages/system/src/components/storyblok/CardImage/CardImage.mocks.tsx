@@ -39,5 +39,18 @@ export const baseMockPost: CardImageBlokProps = {
       _uid: "transition-123",
       payload: "post-12345",
     },
+    {
+      component: "meta_image",
+      _uid: "image-123",
+      payload: {
+        filename: "https://picsum.photos/640/364",
+        alt: "Placeholder image for blog post",
+        copyright: "",
+        fieldtype: "asset",
+        focus: "",
+        name: "placeholder-image.jpg",
+        title: "Placeholder Image",
+      },
+    },
   ],
 }
