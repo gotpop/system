@@ -6,7 +6,7 @@
 
 ## A component system monorepo featuring:
 
-- Published React Server Component packages for design system distribution
+- React Server Component package 
 - Storyblok integration utilities with HOC patterns for routing and API data fetching
 
 The `app` dir contains a Storybook 8.4+ instance with React Server Components runtime support.
