@@ -12,6 +12,7 @@ export function Tags({ tags, className = "", viewTransitionName }: TagsProps) {
     if (length <= 4) return "tag-xs"
     if (length <= 6) return "tag-sm"
     if (length <= 9) return "tag-md"
+
     return "tag-lg"
   }
 
