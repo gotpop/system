@@ -1,10 +1,11 @@
 @scope (.hero-page) {
   & {
-    --width: 36rem;
+    --width: 35rem;
     --template: [content] max-content [image] 1fr / [image content] 1fr;
+    --margin-block-end: var(--spacing-md);
 
     display: grid;
-    gap: var(--spacing-md);
+    gap: var(--spacing-lg);
     grid-template: var(--template);
 
     @media screen and (width >= 1280px) {
