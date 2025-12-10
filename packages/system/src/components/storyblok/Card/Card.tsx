@@ -6,6 +6,7 @@ import {
 } from "../../../utils/card-utils"
 import { formatDate } from "../../../utils/date-formatter"
 import { CustomElement } from "../../ui/CustomElement"
+import { Tags } from "../../ui/Tags"
 import { Typography } from "../Typography/Typography"
 import "./Card.css"
 
@@ -30,12 +31,6 @@ export function Card({ blok, config }: CardProps) {
   const linkPath = getLinkPath(fullSlug, config)
   const formattedDate = formatDate(date)
 
-  const tagList = tags.map((tag) => (
-    <span key={tag} className="tag">
-      {tag}
-    </span>
-  ))
-
   return (
     <CustomElement
       tag="box-grid"
@@ -53,7 +48,7 @@ export function Card({ blok, config }: CardProps) {
         >
           {formattedDate}
         </Typography>
-        <div className="tags">{tagList}</div>
+        <Tags tags={tags} />
       </div>
       <Typography tag="h3" variant="text-xl" shade="dark">
         <a href={linkPath} className="title-link">

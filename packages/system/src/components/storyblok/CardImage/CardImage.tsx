@@ -6,6 +6,7 @@ import {
   type MetaDataArray,
 } from "../../../utils/card-utils"
 import { CustomElement } from "../../ui/CustomElement"
+import { Tags } from "../../ui/Tags"
 import { Typography } from "../Typography/Typography"
 import "./CardImage.css"
 import { useId } from "react"
@@ -28,20 +29,6 @@ export function CardImage({ blok, config }: CardImageProps) {
   const id = useId()
 
   const linkPath = getLinkPath(fullSlug, config)
-
-  const getTagLengthClass = (tag: string) => {
-    const length = tag.length
-    if (length <= 4) return "tag-xs"
-    if (length <= 6) return "tag-sm"
-    if (length <= 9) return "tag-md"
-    return "tag-lg"
-  }
-
-  const tagList = tags.map((tag) => (
-    <span key={tag} className={`tag ${getTagLengthClass(tag)}`}>
-      {tag}
-    </span>
-  ))
 
   return (
     <CustomElement
@@ -77,14 +64,7 @@ export function CardImage({ blok, config }: CardImageProps) {
             {title}
           </a>
         </Typography>
-        <div
-          className="tags"
-          style={{
-            viewTransitionName: `${viewTransitionName}-tags`,
-          }}
-        >
-          {tagList}
-        </div>
+        <Tags tags={tags} viewTransitionName={`${viewTransitionName}-tags`} />
       </section>
     </CustomElement>
   )

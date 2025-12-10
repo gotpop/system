@@ -1,0 +1,41 @@
+@scope (.tags) {
+  & {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-base);
+    margin-block-end: var(--margin-block-end, var(--spacing-base));
+  }
+
+  .tag {
+    align-items: center;
+    color: var(--dark-600);
+    display: flex;
+    font-size: calc(var(--text-xs) * 0.9);
+    font-weight: var(--text-weight-medium);
+    height: var(--spacing-base);
+    justify-content: center;
+    padding-block-start: 1px;
+    width: var(--tag-width);
+    background-color: color-mix(
+      in srgb,
+      var(--light-200),
+      var(--light-100) 60%
+    );
+
+    &.tag-xs {
+      --tag-width: 3rem;
+    }
+
+    &.tag-sm {
+      --tag-width: 3rem;
+    }
+
+    &.tag-md {
+      --tag-width: 4rem;
+    }
+
+    &.tag-lg {
+      --tag-width: 5rem;
+    }
+  }
+}
