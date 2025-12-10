@@ -7,6 +7,7 @@ import type {
   ConfigStoryblok,
   TagDatasourceEntry,
 } from "@gotpop/system"
+import { getMeta } from "@gotpop/system"
 import { StoryblokServerComponent } from "@storyblok/react/rsc"
 import type { ReactNode } from "react"
 import { getConfig } from "../config/runtime-config"
@@ -74,9 +75,17 @@ export function withCardsData<
         })
       : []
 
+    // Sort posts by date (newest first)
+    const sortedPosts = [...posts].sort((a, b) => {
+      const { date: dateA } = getMeta(a.meta_data_page)
+      const { date: dateB } = getMeta(b.meta_data_page)
+
+      return new Date(dateB).getTime() - new Date(dateA).getTime()
+    })
+
     const availableTags = tagsResult.data?.datasource_entries || []
 
-    const blocks = posts.map((post) => (
+    const blocks = sortedPosts.map((post) => (
       <StoryblokServerComponent key={post._uid} blok={post} config={config} />
     ))
 
