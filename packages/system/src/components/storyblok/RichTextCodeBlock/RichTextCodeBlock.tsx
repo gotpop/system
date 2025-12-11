@@ -10,10 +10,15 @@ interface RichTextCodeBlockProps {
 export function RichTextCodeBlock({
   blok,
 }: RichTextCodeBlockProps): React.JSX.Element {
-  const { content } = blok
+  const { content, height = "20" } = blok
 
   return (
-    <CustomElement tag="code-block">
+    <CustomElement
+      tag="code-block"
+      style={{
+        height: `${height}rem`,
+      }}
+    >
       {content && <RichText content={content} />}
     </CustomElement>
   )

@@ -1,26 +1,30 @@
 @scope (code-block) {
   & {
     margin-block: var(--spacing-base) var(--spacing-md);
-    width: 100%;
     overflow: hidden;
+    width: 100%;
   }
 
   pre {
-    overflow-x: auto;
-    overflow-y: hidden;
     background-color: #2b3248;
     color: white;
+    height: 100%;
     margin: 0;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
     padding: var(--spacing-lg);
     width: 100%;
-    max-width: 100%;
   }
 
   code {
+    /* 
+      TODO: Create a custom font-palette variable for code blocks
+      font-palette: --github; 
+    */
     background-color: transparent;
     display: block;
     font-family: var(--font-monaspace);
-    /* font-palette: --github; */
     font-size: var(--text-base);
     line-height: 1.722;
     min-width: 38rem;
