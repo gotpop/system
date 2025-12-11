@@ -1,28 +1,53 @@
 @scope (.pagination) {
   & {
-    --direction: column;
-    --row-gap: var(--spacing-base);
+    --display-box-grid: grid;
+    --grid-template-columns: 1fr;
+    --row-gap: 1rem;
 
-    @media screen and (width >= 768px) {
-      --column-gap: var(--spacing-md);
-      --direction: row;
+    @media screen and (width >= 1280px) {
+      --column-gap: var(--spacing-lg);
+      --grid-template-columns: 1fr 1fr;
     }
   }
 
   .link-pagination {
     align-items: center;
-    background-color: var(--secondary-700);
+    background-color: var(--background-colour, var(--secondary-400));
     color: var(--light-100);
     display: flex;
-    gap: var(--spacing-base);
-    height: var(--spacing-md);
-    justify-content: center;
-    padding: var(--spacing-sm) var(--spacing-md);
+    flex: 1 1 auto;
+    gap: var(--spacing-lg);
+    height: var(--height, auto);
+    justify-content: space-between;
+    line-height: 2;
+    padding-block: var(--padding-block, calc(2rem - 1cap / 2));
+    padding-inline: var(--padding-inline, var(--spacing-md) var(--spacing-xl));
+    position: relative;
     text-decoration: none;
+    transition: background-color 0.2s ease-in-out;
     width: 100%;
 
-    @media screen and (width >= 768px) {
-      width: var(--round-up);
+    &:hover {
+      --background-colour: var(--secondary-500);
+    }
+
+    @media screen and (width >= 1280px) {
+      --width: var(--round-up);
+      --padding-block: 2rem;
+      --height: var(--spacing-md);
+      --padding-inline: var(--spacing-md);
+    }
+  }
+
+  .arrow {
+    align-items: center;
+    display: flex;
+    inset: auto 2rem auto auto;
+    justify-content: center;
+    position: var(--position-icon, absolute);
+
+    @media screen and (width >= 1280px) {
+      --position-icon: static;
     }
   }
 }
