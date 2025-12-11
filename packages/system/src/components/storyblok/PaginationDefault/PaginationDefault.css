@@ -1,11 +1,12 @@
 @scope (.pagination) {
   & {
-    --direction: column;
-    --row-gap: var(--spacing-base);
+    --display-box-grid: grid;
+    --grid-template-columns: 1fr;
+    --row-gap: 1rem;
 
     @media screen and (width >= 1280px) {
       --column-gap: var(--spacing-lg);
-      --direction: row;
+      --grid-template-columns: 1fr 1fr;
     }
   }
 
@@ -24,7 +25,7 @@
     position: relative;
     text-decoration: none;
     transition: background-color 0.2s ease-in-out;
-    width: var(--width, 100%);
+    width: 100%;
 
     &:hover {
       --background-colour: var(--secondary-500);

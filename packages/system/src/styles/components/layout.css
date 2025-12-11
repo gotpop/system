@@ -34,15 +34,21 @@ box-grid {
 
   background-color: var(--light-100);
   background-image: var(--grid-css);
+  background-position: var(--position);
+  background-size: 16px 16px;
   column-gap: var(--column-gap, 0);
-  row-gap: var(--row-gap, 0);
-  display: flex;
+  display: var(--display-box-grid, flex);
   flex-direction: var(--direction, column);
   grid-column: var(--grid-column, content);
-  padding-block: var(--spacing-lg);
-  padding-inline: var(--spacing-lg);
-  background-size: 16px 16px;
-  background-position: var(--position);
+  grid-template-columns: var(--grid-template-columns, none);
+  padding-block: var(--padding-block-box-grid, var(--spacing-base));
+  padding-inline: var(--padding-inline-box-grid, var(--spacing-base));
+  row-gap: var(--row-gap, 0);
+
+  @media screen and (width >= 768px) {
+    --padding-block-box-grid: var(--spacing-lg);
+    --padding-inline-box-grid: var(--spacing-lg);
+  }
 
   @media (-webkit-max-device-pixel-ratio: 1.5), (max-resolution: 1.5dppx) {
     --position: 0 -5px, -6px 0px;
