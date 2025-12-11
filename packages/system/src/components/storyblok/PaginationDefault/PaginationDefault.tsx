@@ -5,6 +5,7 @@ import type {
 } from "../../../types/storyblok-components"
 import { getMeta } from "../../../utils/card-utils"
 import { CustomElement } from "../../ui/CustomElement"
+import { Icon } from "../../ui/Icon"
 import "./PaginationDefault.css"
 
 interface PaginationData {
@@ -41,9 +42,9 @@ function PaginationLink({
       href={slug}
       className={`link-pagination pagination-${direction}`}
     >
-      {isPrevious && <span>←</span>}
+      {isPrevious && <Icon className="arrow" name="FaChevronLeft" />}
       <span>{title}</span>
-      {!isPrevious && <span>→</span>}
+      {!isPrevious && <Icon className="arrow" name="FaChevronRight" />}
     </a>
   )
 }
