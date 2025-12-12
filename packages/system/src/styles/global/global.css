@@ -1,5 +1,10 @@
 :where(html) {
   accent-color: var(--accent);
+  background-color: var(--colour-bg-site);
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--spacing-xl);
+  scrollbar-gutter: var(--scrollbar-gutter);
+  scrollbar-width: var(--scrollbar-width);
 
   :focus-visible {
     outline-color: var(--accent);
@@ -11,7 +16,7 @@
 
   ::selection {
     background-color: var(--accent);
-    color: var(--dark-400);
+    color: var(--theme-accent-text);
   }
 
   ::marker {
@@ -26,18 +31,12 @@
   }
 }
 
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: var(--spacing-xl);
-  scrollbar-gutter: var(--scrollbar-gutter);
-  scrollbar-width: var(--scrollbar-width);
-}
-
-body {
+:where(body) {
   -webkit-font-smoothing: antialiased;
+  background-color: var(--light-100);
   font-family: var(--font-family-base);
   margin: unset;
+  min-height: 100dvh;
   overflow: hidden auto;
   position: relative;
-  min-height: 100dvh;
 }

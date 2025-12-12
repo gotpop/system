@@ -1,7 +1,7 @@
 :where(html) {
   /* Theming */
-  --accent: var(--primary-100);
-  --colour-bg-site: var(--dark-100);
+  --accent: var(--theme-accent, var(--primary-100));
+  --colour-bg-site: var(--background-color, var(--secondary-700));
   --color-scheme: only light;
 
   /* Scrollbar */
