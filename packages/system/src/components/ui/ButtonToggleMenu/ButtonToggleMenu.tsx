@@ -1,6 +1,6 @@
 "use client"
 
-import { forwardRef, useId } from "react"
+import { useId } from "react"
 import "./ButtonToggleMenu.css"
 import { CustomElement } from "../CustomElement"
 
@@ -12,24 +12,17 @@ interface ButtonToggleMenuClientProps {
   onClose?: () => void
 }
 
-export const ButtonToggleMenu = forwardRef<
-  HTMLButtonElement,
-  ButtonToggleMenuClientProps
->(function ButtonToggleMenu(
-  {
-    navId,
-    isExpanded,
-    onToggle,
-    // onClose,
-  },
-  ref
-) {
+export function ButtonToggleMenu({
+  navId,
+  isExpanded,
+  onToggle,
+  // onClose,
+}: ButtonToggleMenuClientProps) {
   const id = useId()
 
   return (
     <CustomElement tag="button-toggle">
       <button
-        ref={ref}
         aria-controls={navId}
         aria-expanded={isExpanded}
         aria-haspopup="dialog"
@@ -43,4 +36,4 @@ export const ButtonToggleMenu = forwardRef<
       </button>
     </CustomElement>
   )
-})
+}
