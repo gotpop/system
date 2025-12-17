@@ -21,6 +21,10 @@ export function useNavigationToggle(navId: string) {
       navElement.removeAttribute("aria-hidden")
       navElement.removeAttribute("hidden")
       navElement.removeAttribute("popover")
+
+      if (navElement.matches(":popover-open")) {
+        navElement.hidePopover()
+      }
     } else {
       const isHidden = !isExpanded
 
@@ -29,8 +33,16 @@ export function useNavigationToggle(navId: string) {
 
       if (isHidden) {
         navElement.setAttribute("hidden", "")
+
+        if (navElement.matches(":popover-open")) {
+          navElement.hidePopover()
+        }
       } else {
         navElement.removeAttribute("hidden")
+
+        if (!navElement.matches(":popover-open")) {
+          navElement.showPopover()
+        }
       }
     }
   }, [navId, isExpanded, isDesktop])
