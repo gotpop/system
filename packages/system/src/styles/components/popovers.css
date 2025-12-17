@@ -1,18 +1,19 @@
 [popover] {
-  --popover-timing: 0.3s;
-  --popover-ease: cubic-bezier(0.68, -0.55, 0.27, 1.55);
   --translate-distance: 10rem;
   --opacity: 0;
 
+  border: none;
   margin: 0;
   opacity: var(--opacity);
   padding: 0;
   translate: var(--translate-distance);
   transition:
-    opacity var(--popover-timing) var(--popover-ease),
-    translate var(--popover-timing) var(--popover-ease),
-    overlay var(--popover-timing) allow-discrete,
-    display var(--popover-timing) allow-discrete;
+    display var(--popover-timing, 0.3s) allow-discrete,
+    opacity var(--popover-timing, 0.3s)
+      var(--popover-ease, cubic-bezier(0.68, -0.55, 0.27, 1.55)),
+    overlay var(--popover-timing, 0.3s) allow-discrete,
+    translate var(--popover-timing, 0.3s)
+      var(--popover-ease, cubic-bezier(0.68, -0.55, 0.27, 1.55));
 
   &:popover-open {
     --opacity: 1;
@@ -25,17 +26,15 @@
   }
 
   &::backdrop {
-    --backdrop-timing: 0.3s;
-
     background-color: transparent;
     transition:
-      display var(--backdrop-timing) allow-discrete,
-      overlay var(--backdrop-timing) allow-discrete,
-      background-color var(--backdrop-timing);
+      background-color var(--backdrop-timing, 0.3s),
+      display var(--backdrop-timing, 0.3s) allow-discrete,
+      overlay var(--backdrop-timing, 0.3s) allow-discrete;
   }
 
   &:popover-open::backdrop {
-    background-color: rgb(0 0 0 / 55%);
+    background-color: var(--popover-backdrop-background, rgba(0, 0, 0, 0.4));
   }
 }
 
