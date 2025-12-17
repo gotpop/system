@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { MEDIA_QUERIES } from "../../../constants/breakpoints"
 import { useMediaQuery } from "../../../hooks/useMediaQuery"
 
@@ -6,11 +6,11 @@ export function useNavigationToggle(navId: string) {
   const [isExpanded, setIsExpanded] = useState(false)
   const isDesktop = useMediaQuery(MEDIA_QUERIES.large)
 
-  const closeMenu = useCallback(() => {
+  const closeMenu = () => {
     if (isDesktop) return
 
     setIsExpanded(false)
-  }, [isDesktop])
+  }
 
   useEffect(() => {
     const navElement = document.getElementById(navId)
