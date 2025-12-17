@@ -26,6 +26,7 @@ export function ButtonToggleMenu({ navId }: ButtonToggleMenuClientProps) {
         id={id}
         onClick={toggleMenu}
         type="button"
+        popoverTarget={navId}
       >
         <CustomElement tag="icon-hamburger"></CustomElement>
         <span hidden>Toggle navigation</span>

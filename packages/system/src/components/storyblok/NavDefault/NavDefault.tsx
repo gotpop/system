@@ -21,7 +21,7 @@ export function NavDefault({
   return (
     <>
       <ButtonToggleMenu navId={navId} />
-      <nav className="nav" id={navId} aria-hidden="true" hidden>
+      <nav className="nav" id={navId} aria-hidden="true" hidden popover="auto">
         {blocks}
       </nav>
     </>

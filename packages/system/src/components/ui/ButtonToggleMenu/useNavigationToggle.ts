@@ -20,9 +20,12 @@ export function useNavigationToggle(navId: string) {
     if (isDesktop) {
       navElement.removeAttribute("aria-hidden")
       navElement.removeAttribute("hidden")
+      navElement.removeAttribute("popover")
     } else {
       const isHidden = !isExpanded
+
       navElement.setAttribute("aria-hidden", isHidden.toString())
+      navElement.setAttribute("popover", "auto")
 
       if (isHidden) {
         navElement.setAttribute("hidden", "")
