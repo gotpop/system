@@ -23,6 +23,7 @@ export function useNavigationToggle(navId: string) {
       navElement.removeAttribute("popover")
     } else {
       const isHidden = !isExpanded
+
       navElement.setAttribute("aria-hidden", isHidden.toString())
       navElement.setAttribute("popover", "auto")
 
