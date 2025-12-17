@@ -2,7 +2,6 @@
 
 import { useId } from "react"
 import { useClickOutside } from "../../../hooks/useClickOutside"
-import { useInertBody } from "./useInertBody"
 import { useNavigationToggle } from "./useNavigationToggle"
 import "./ButtonToggleMenu.css"
 import { CustomElement } from "../CustomElement"
@@ -16,7 +15,6 @@ export function ButtonToggleMenu({ navId }: ButtonToggleMenuClientProps) {
   const id = useId()
 
   useClickOutside(navId, isExpanded, closeMenu)
-  useInertBody(isExpanded)
 
   return (
     <CustomElement tag="button-toggle">

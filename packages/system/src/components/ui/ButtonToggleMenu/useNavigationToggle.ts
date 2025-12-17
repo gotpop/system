@@ -1,10 +1,13 @@
 import { useCallback, useEffect, useState } from "react"
 import { MEDIA_QUERIES } from "../../../constants/breakpoints"
 import { useMediaQuery } from "../../../hooks/useMediaQuery"
+import { useInertBody } from "./useInertBody"
 
 export function useNavigationToggle(navId: string) {
   const [isExpanded, setIsExpanded] = useState(false)
   const isDesktop = useMediaQuery(MEDIA_QUERIES.large)
+
+  useInertBody(isExpanded && !isDesktop)
 
   const closeMenu = useCallback(() => {
     if (isDesktop) return
