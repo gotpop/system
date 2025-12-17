@@ -17,32 +17,32 @@ export function useNavigationToggle(navId: string) {
 
     if (!navElement) return
 
-    if (isDesktop) {
-      navElement.removeAttribute("aria-hidden")
-      navElement.removeAttribute("hidden")
-      navElement.removeAttribute("popover")
+    const attributes = {
+      "aria-hidden": (!isDesktop && !isExpanded).toString(),
+      hidden: !isDesktop && !isExpanded ? "" : null,
+      popover: !isDesktop ? "auto" : null,
+    }
 
+    Object.entries(attributes).forEach(([key, value]) => {
+      if (value !== null) {
+        navElement.setAttribute(key, value)
+      } else {
+        navElement.removeAttribute(key)
+      }
+    })
+
+    if (isDesktop) {
       if (navElement.matches(":popover-open")) {
         navElement.hidePopover()
       }
     } else {
-      const isHidden = !isExpanded
+      const shouldShow = isExpanded
+      const isOpen = navElement.matches(":popover-open")
 
-      navElement.setAttribute("aria-hidden", isHidden.toString())
-      navElement.setAttribute("popover", "auto")
-
-      if (isHidden) {
-        navElement.setAttribute("hidden", "")
-
-        if (navElement.matches(":popover-open")) {
-          navElement.hidePopover()
-        }
-      } else {
-        navElement.removeAttribute("hidden")
-
-        if (!navElement.matches(":popover-open")) {
-          navElement.showPopover()
-        }
+      if (shouldShow && !isOpen) {
+        navElement.showPopover()
+      } else if (!shouldShow && isOpen) {
+        navElement.hidePopover()
       }
     }
   }, [navId, isExpanded, isDesktop])
