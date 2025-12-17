@@ -12,6 +12,7 @@
 @import "./global/links.css";
 @import "./global/font.css";
 @import "./global/transitions.css";
+@import "./global/stretch.css";
 
 /* Components */
 @import "./components/properties.css";
