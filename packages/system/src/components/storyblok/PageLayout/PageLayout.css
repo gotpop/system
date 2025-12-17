@@ -41,6 +41,7 @@ page-layout {
   grid-template-columns: var(--layout-columns-xs);
   grid-template-rows: [header] min-content [main] 1fr [double-col] 0 [footer] min-content;
   min-height: 100dvh;
+  overflow: clip;
   row-gap: var(--spacing-base);
 
   @media screen and (width >= 480px) {
