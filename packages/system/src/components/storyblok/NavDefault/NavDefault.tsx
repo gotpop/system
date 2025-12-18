@@ -7,6 +7,8 @@ import type {
 } from "../../../types/storyblok-components"
 import { ButtonToggleMenu } from "../../ui/ButtonToggleMenu"
 import "./NavDefault.css"
+import { MEDIA_QUERIES } from "../../../constants/breakpoints"
+import { useMediaQuery } from "../../../hooks/useMediaQuery"
 
 interface NavDefaultProps {
   blok: NavDefaultStoryblok
@@ -26,9 +28,22 @@ export function NavDefault({
   const triggerRef = useRef<HTMLButtonElement | null>(null)
   const popoverRef = useRef<HTMLElement>(null)
   const [isOpen, setIsOpen] = useState(false)
+  const isDesktop = useMediaQuery(MEDIA_QUERIES.desktop)
+
+  useEffect(() => {
+    const nav = popoverRef.current
+    if (!nav) return
+
+    if (isDesktop) {
+      nav.removeAttribute("popover")
+    } else {
+      nav.setAttribute("popover", "auto")
+    }
+  }, [isDesktop])
 
   useEffect(() => {
     const popover = popoverRef.current
+
     if (!popover) return
 
     try {
@@ -46,6 +61,7 @@ export function NavDefault({
 
   useEffect(() => {
     const popover = popoverRef.current
+
     if (!popover) return
 
     const handleToggle = (event: Event) => {
@@ -107,7 +123,7 @@ export function NavDefault({
         onToggle={toggleNav}
         onClose={() => setIsOpen(false)}
       />
-      <nav ref={popoverRef} id={navId} className="nav" popover="auto">
+      <nav ref={popoverRef} id={navId} className="nav">
         {blocks}
       </nav>
     </>

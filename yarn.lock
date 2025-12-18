@@ -938,11 +938,10 @@
     "@storyblok/react" "5.4.20"
 
 "@gotpop/system@*", "@gotpop/system@file:/Users/minivan/web/sites/platform/system/packages/system":
-  version "0.1.260"
+  version "0.1.266"
   resolved "file:packages/system"
   dependencies:
     "@next/font" "^14.2.15"
-    "@storyblok/react" "^5.4.20"
     react "19.2.3"
     react-dom "19.2.3"
     react-icons "^5.4.0"

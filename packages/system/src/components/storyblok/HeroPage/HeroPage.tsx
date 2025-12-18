@@ -31,7 +31,7 @@ export function HeroPage({ blok, metaDataPage }: HeroPageProps) {
     >
       <figure className="figure">
         <Image
-          src={image?.filename}
+          src={image?.filename || ""}
           alt={heading || "Card image"}
           width={640}
           height={364}
