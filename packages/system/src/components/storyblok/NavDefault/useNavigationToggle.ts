@@ -30,7 +30,7 @@ export function useNavigationToggle({
   useEffect(() => {
     const popover = popoverRef.current
 
-    if (!popover) return
+    if (!popover || isDesktop) return
 
     try {
       if (isOpen) {
@@ -43,9 +43,10 @@ export function useNavigationToggle({
     }
 
     onOpenChange?.(isOpen)
-  }, [isOpen, onOpenChange])
+  }, [isOpen, onOpenChange, isDesktop])
 
   // Listen to native popover toggle events
+  // This is the bridge between react and the native popover element
   useEffect(() => {
     const popover = popoverRef.current
 

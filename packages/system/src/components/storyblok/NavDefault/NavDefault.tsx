@@ -47,7 +47,12 @@ export function NavDefault({
         onToggle={toggleNav}
         onClose={closeNav}
       />
-      <nav ref={popoverRef} id={navId} className="nav">
+      <nav
+        ref={popoverRef}
+        id={navId}
+        className="nav"
+        aria-label="Main navigation"
+      >
         {blocks}
       </nav>
     </>

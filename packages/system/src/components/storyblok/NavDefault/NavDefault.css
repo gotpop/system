@@ -1,5 +1,7 @@
 @scope (.nav) {
   :scope {
+    --nav-display: none;
+
     background-color: var(--nav-background, var(--light-100));
     display: var(--nav-display, grid);
     gap: var(--spacing-base);
@@ -15,7 +17,16 @@
     top: var(--nav-top, anchor(bottom));
     z-index: 1;
 
+    &[popover]:popover-open {
+      --nav-display: grid;
+
+      @media screen and (width >= 1480px) {
+        --nav-display: grid;
+      }
+    }
+
     @media screen and (width >= 1480px) {
+      --nav-display: grid;
       --nav-auto-flow: column;
       --nav-background: transparent;
       --nav-display: grid;
