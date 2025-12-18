@@ -47,14 +47,18 @@ export function NavDefault({
         onToggle={toggleNav}
         onClose={closeNav}
       />
-      <nav
-        ref={popoverRef}
-        id={navId}
-        className="nav"
-        aria-label="Main navigation"
-      >
-        {blocks}
-      </nav>
+      <div className="nav-wrapper" ref={popoverRef}>
+        <nav
+          id={navId}
+          className="nav"
+          aria-label="Main navigation"
+          style={{
+            display: isDesktop ? "grid" : undefined,
+          }}
+        >
+          {blocks}
+        </nav>
+      </div>
     </>
   )
 }

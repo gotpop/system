@@ -1,9 +1,27 @@
-@scope (.nav) {
+@scope (.nav-wrapper) {
   :scope {
-    --nav-display: none;
+    display: none;
 
+    @media screen and (width >= 1480px) {
+      display: contents;
+    }
+
+    &[popover] {
+      margin: 0 0 0 auto;
+      position-anchor: var(--nav-position-anchor, --buttonToggle);
+      position: static;
+      right: anchor(right);
+      top: anchor(bottom);
+
+      &:popover-open {
+        display: grid;
+      }
+    }
+  }
+
+  .nav {
     background-color: var(--nav-background, var(--light-100));
-    display: var(--nav-display, grid);
+    display: grid;
     gap: var(--spacing-base);
     grid-auto-flow: var(--nav-auto-flow, row);
     grid-column: nav;
@@ -11,30 +29,11 @@
     margin: 0 0 0 auto;
     max-width: max-content;
     padding: var(--nav-padding, var(--spacing-md));
-    position-anchor: var(--nav-position-anchor, --buttonToggle);
-    position: var(--nav-position, absolute);
-    right: var(--nav-right, anchor(right));
-    top: var(--nav-top, anchor(bottom));
-    z-index: 1;
-
-    &[popover]:popover-open {
-      --nav-display: grid;
-
-      @media screen and (width >= 1480px) {
-        --nav-display: grid;
-      }
-    }
 
     @media screen and (width >= 1480px) {
-      --nav-display: grid;
       --nav-auto-flow: column;
       --nav-background: transparent;
-      --nav-display: grid;
       --nav-padding: var(--spacing-base);
-      --nav-position-anchor: unset;
-      --nav-position: static;
-      --nav-right: unset;
-      --nav-top: unset;
     }
   }
 }
