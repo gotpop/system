@@ -23,7 +23,7 @@ export function NavDefault({
   closeOnClickOutside = true,
 }: NavDefaultProps) {
   const navId = useId()
-  const triggerRef = useRef<HTMLButtonElement>(null)
+  const triggerRef = useRef<HTMLButtonElement | null>(null)
   const popoverRef = useRef<HTMLElement>(null)
   const [isOpen, setIsOpen] = useState(false)
 

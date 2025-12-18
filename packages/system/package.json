@@ -1,6 +1,6 @@
 {
   "name": "@gotpop/system",
-  "version": "0.1.258",
+  "version": "0.1.259",
   "description": "React design system components for gotpop",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -42,12 +42,7 @@
       "default": "./dist/lib/*.js"
     }
   },
-  "files": [
-    "dist/**/*",
-    "src/**/*",
-    "package.json",
-    "README.md"
-  ],
+  "files": ["dist/**/*", "src/**/*", "package.json", "README.md"],
   "repository": {
     "type": "git",
     "url": "https://github.com/gotpop/system.git",
@@ -69,7 +64,6 @@
   },
   "dependencies": {
     "@next/font": "^14.2.15",
-    "@storyblok/react": "^5.4.20",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-icons": "^5.4.0",

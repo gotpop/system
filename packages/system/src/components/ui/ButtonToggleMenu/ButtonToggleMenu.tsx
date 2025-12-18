@@ -6,11 +6,10 @@ import { CustomElement } from "../CustomElement"
 
 interface ButtonToggleMenuClientProps {
   navId: string
-  // Optional controlled state
   isExpanded?: boolean
   onToggle?: () => void
   onClose?: () => void
-  ref?: React.RefObject<HTMLButtonElement>
+  ref?: React.RefObject<HTMLButtonElement | null> | null
 }
 
 export function ButtonToggleMenu({
