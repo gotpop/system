@@ -48,14 +48,7 @@ export function NavDefault({
         onClose={closeNav}
       />
       <div className="nav-wrapper" ref={popoverRef}>
-        <nav
-          id={navId}
-          className="nav"
-          aria-label="Main navigation"
-          style={{
-            display: isDesktop ? "grid" : undefined,
-          }}
-        >
+        <nav id={navId} className="nav" aria-label="Main navigation">
           {blocks}
         </nav>
       </div>
