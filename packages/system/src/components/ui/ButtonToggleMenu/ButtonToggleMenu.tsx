@@ -10,12 +10,14 @@ interface ButtonToggleMenuClientProps {
   isExpanded?: boolean
   onToggle?: () => void
   onClose?: () => void
+  ref?: React.RefObject<HTMLButtonElement>
 }
 
 export function ButtonToggleMenu({
   navId,
   isExpanded,
   onToggle,
+  ref,
   // onClose,
 }: ButtonToggleMenuClientProps) {
   const id = useId()
@@ -23,6 +25,7 @@ export function ButtonToggleMenu({
   return (
     <CustomElement tag="button-toggle">
       <button
+        ref={ref}
         aria-controls={navId}
         aria-expanded={isExpanded}
         aria-haspopup="dialog"

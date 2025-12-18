@@ -21,7 +21,7 @@ export function NavDefault({
   blocks,
   onOpenChange,
   closeOnClickOutside = true,
-}: NavDefaultProps): React.JSX.Element {
+}: NavDefaultProps) {
   const navId = useId()
   const triggerRef = useRef<HTMLButtonElement>(null)
   const popoverRef = useRef<HTMLElement>(null)
