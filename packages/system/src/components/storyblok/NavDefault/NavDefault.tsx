@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useId, useRef, useState } from "react"
+import { useId } from "react"
 import type {
   ConfigStoryblok,
   NavDefaultStoryblok,
@@ -10,6 +10,7 @@ import "./NavDefault.css"
 import { MEDIA_QUERIES } from "../../../constants/breakpoints"
 import { useMediaQuery } from "../../../hooks/useMediaQuery"
 import { useInertBody } from "./useInertBody"
+import { useNavigationToggle } from "./useNavigationToggle"
 
 interface NavDefaultProps {
   blok: NavDefaultStoryblok
@@ -26,97 +27,16 @@ export function NavDefault({
   closeOnClickOutside = true,
 }: NavDefaultProps) {
   const navId = useId()
-  const triggerRef = useRef<HTMLButtonElement | null>(null)
-  const popoverRef = useRef<HTMLElement>(null)
-  const [isOpen, setIsOpen] = useState(false)
   const isDesktop = useMediaQuery(MEDIA_QUERIES.xl2)
 
+  const { triggerRef, popoverRef, isOpen, toggleNav, closeNav } =
+    useNavigationToggle({
+      isDesktop,
+      closeOnClickOutside,
+      onOpenChange,
+    })
+
   useInertBody(isOpen && !isDesktop)
-
-  useEffect(() => {
-    const nav = popoverRef.current
-
-    if (!nav) return
-
-    if (isDesktop) {
-      nav.removeAttribute("popover")
-    } else {
-      nav.setAttribute("popover", "auto")
-    }
-  }, [isDesktop])
-
-  useEffect(() => {
-    const popover = popoverRef.current
-
-    if (!popover) return
-
-    try {
-      if (isOpen) {
-        popover.showPopover()
-      } else {
-        popover.hidePopover()
-      }
-    } catch (e) {
-      console.warn(`${isOpen ? "showPopover" : "hidePopover"} failed:`, e)
-    }
-
-    onOpenChange?.(isOpen)
-  }, [isOpen, onOpenChange])
-
-  useEffect(() => {
-    const popover = popoverRef.current
-
-    if (!popover) return
-
-    const handleToggle = (event: Event) => {
-      const isPopoverOpen = (event.target as HTMLElement).matches(
-        ":popover-open"
-      )
-      setIsOpen(isPopoverOpen)
-    }
-
-    popover.addEventListener("toggle", handleToggle)
-    return () => popover.removeEventListener("toggle", handleToggle)
-  }, [])
-
-  useEffect(() => {
-    if (!closeOnClickOutside || !isOpen) return
-
-    const handleClickOutside = (event: MouseEvent) => {
-      const popover = popoverRef.current
-      const trigger = triggerRef.current
-
-      if (
-        popover &&
-        trigger &&
-        !popover.contains(event.target as Node) &&
-        !trigger.contains(event.target as Node)
-      ) {
-        setIsOpen(false)
-      }
-    }
-
-    document.addEventListener("mousedown", handleClickOutside)
-    return () => document.removeEventListener("mousedown", handleClickOutside)
-  }, [isOpen, closeOnClickOutside])
-
-  // Handle escape key
-  useEffect(() => {
-    if (!isOpen) return
-
-    const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setIsOpen(false)
-      }
-    }
-
-    document.addEventListener("keydown", handleEscape)
-    return () => document.removeEventListener("keydown", handleEscape)
-  }, [isOpen])
-
-  const toggleNav = () => {
-    setIsOpen(!isOpen)
-  }
 
   return (
     <>
@@ -125,7 +45,7 @@ export function NavDefault({
         navId={navId}
         isExpanded={isOpen}
         onToggle={toggleNav}
-        onClose={() => setIsOpen(false)}
+        onClose={closeNav}
       />
       <nav ref={popoverRef} id={navId} className="nav">
         {blocks}
