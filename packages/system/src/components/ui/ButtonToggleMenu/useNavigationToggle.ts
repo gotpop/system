@@ -5,7 +5,7 @@ import { useInertBody } from "./useInertBody"
 
 export function useNavigationToggle(navId: string) {
   const [isExpanded, setIsExpanded] = useState(false)
-  const isDesktop = useMediaQuery(MEDIA_QUERIES.large)
+  const isDesktop = useMediaQuery(MEDIA_QUERIES.xl2)
 
   useInertBody(isExpanded && !isDesktop)
 

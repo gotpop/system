@@ -28,17 +28,21 @@ export function NavDefault({
   const triggerRef = useRef<HTMLButtonElement | null>(null)
   const popoverRef = useRef<HTMLElement>(null)
   const [isOpen, setIsOpen] = useState(false)
-  const isDesktop = useMediaQuery(MEDIA_QUERIES.desktop)
+  const isDesktop = useMediaQuery(MEDIA_QUERIES.xl2)
 
   useEffect(() => {
     const nav = popoverRef.current
+    console.log("Nav element:", nav)
     if (!nav) return
 
     if (isDesktop) {
       nav.removeAttribute("popover")
+      console.log("Removed popover attribute (desktop)")
     } else {
       nav.setAttribute("popover", "auto")
+      console.log('Set popover="auto" (mobile)')
     }
+    console.log("Nav element:", nav)
   }, [isDesktop])
 
   useEffect(() => {
