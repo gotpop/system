@@ -9,7 +9,7 @@ interface ButtonToggleMenuClientProps {
   isExpanded?: boolean
   onToggle?: () => void
   onClose?: () => void
-  ref?: React.RefObject<HTMLButtonElement | null> | null
+  ref?: React.RefObject<HTMLButtonElement | null>
 }
 
 export function ButtonToggleMenu({
