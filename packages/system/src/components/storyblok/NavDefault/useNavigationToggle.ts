@@ -12,7 +12,7 @@ export function useNavigationToggle({
   onOpenChange,
 }: UseNavigationToggleProps) {
   const triggerRef = useRef<HTMLButtonElement | null>(null)
-  const popoverRef = useRef<HTMLElement>(null)
+  const popoverRef = useRef<HTMLDivElement | null>(null)
   const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
