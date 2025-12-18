@@ -17,7 +17,6 @@ export function ButtonToggleMenu({
   isExpanded,
   onToggle,
   ref,
-  // onClose,
 }: ButtonToggleMenuClientProps) {
   const id = useId()
 
