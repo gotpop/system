@@ -9,6 +9,7 @@ import { ButtonToggleMenu } from "../../ui/ButtonToggleMenu"
 import "./NavDefault.css"
 import { MEDIA_QUERIES } from "../../../constants/breakpoints"
 import { useMediaQuery } from "../../../hooks/useMediaQuery"
+import { useInertBody } from "./useInertBody"
 
 interface NavDefaultProps {
   blok: NavDefaultStoryblok
@@ -30,19 +31,18 @@ export function NavDefault({
   const [isOpen, setIsOpen] = useState(false)
   const isDesktop = useMediaQuery(MEDIA_QUERIES.xl2)
 
+  useInertBody(isOpen && !isDesktop)
+
   useEffect(() => {
     const nav = popoverRef.current
-    console.log("Nav element:", nav)
+
     if (!nav) return
 
     if (isDesktop) {
       nav.removeAttribute("popover")
-      console.log("Removed popover attribute (desktop)")
     } else {
       nav.setAttribute("popover", "auto")
-      console.log('Set popover="auto" (mobile)')
     }
-    console.log("Nav element:", nav)
   }, [isDesktop])
 
   useEffect(() => {
