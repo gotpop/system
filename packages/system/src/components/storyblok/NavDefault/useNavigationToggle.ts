@@ -8,7 +8,6 @@ interface UseNavigationToggleProps {
 
 export function useNavigationToggle({
   isDesktop,
-  closeOnClickOutside = true,
   onOpenChange,
 }: UseNavigationToggleProps) {
   const triggerRef = useRef<HTMLButtonElement | null>(null)
@@ -32,14 +31,10 @@ export function useNavigationToggle({
 
     if (!popover || isDesktop) return
 
-    try {
-      if (isOpen) {
-        popover.showPopover()
-      } else {
-        popover.hidePopover()
-      }
-    } catch (e) {
-      console.warn(`${isOpen ? "showPopover" : "hidePopover"} failed:`, e)
+    if (isOpen) {
+      popover.showPopover()
+    } else {
+      popover.hidePopover()
     }
 
     onOpenChange?.(isOpen)
@@ -62,40 +57,6 @@ export function useNavigationToggle({
     popover.addEventListener("toggle", handleToggle)
     return () => popover.removeEventListener("toggle", handleToggle)
   }, [])
-
-  useEffect(() => {
-    if (!closeOnClickOutside || !isOpen) return
-
-    const handleClickOutside = (event: MouseEvent) => {
-      const popover = popoverRef.current
-      const trigger = triggerRef.current
-
-      if (
-        popover &&
-        trigger &&
-        !popover.contains(event.target as Node) &&
-        !trigger.contains(event.target as Node)
-      ) {
-        setIsOpen(false)
-      }
-    }
-
-    document.addEventListener("mousedown", handleClickOutside)
-    return () => document.removeEventListener("mousedown", handleClickOutside)
-  }, [isOpen, closeOnClickOutside])
-
-  useEffect(() => {
-    if (!isOpen) return
-
-    const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setIsOpen(false)
-      }
-    }
-
-    document.addEventListener("keydown", handleEscape)
-    return () => document.removeEventListener("keydown", handleEscape)
-  }, [isOpen])
 
   const toggleNav = () => {
     setIsOpen(!isOpen)
