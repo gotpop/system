@@ -13,13 +13,13 @@ icon-hamburger {
   --before-y: 0;
   --hamburger-bg: var(--bg);
   --line: 0.2rem;
-  --transition: translate 0.3s ease, rotate 0.3s ease, bottom 0.3s ease;
+  --transition: translate 0.2s ease, rotate 0.2s ease, bottom 0.2s ease;
 
   aspect-ratio: 1;
   background: var(--hamburger-bg);
   display: block;
   position: relative;
-  transition: background 0.3s ease;
+  transition: background 0.2s ease;
   width: var(--spacing-md);
 
   &::before,
@@ -50,7 +50,8 @@ icon-hamburger {
     --y: var(--after-y);
   }
 
-  [aria-expanded="true"] & {
+  :has(+ [popover]:popover-open) &,
+  :has(~ [popover]:popover-open) & {
     --after-bottom: calc(50% - var(--line));
     --after-rotate: -45deg;
     --after-y: calc(-var(--spacing-md) / 2 + var(--line));
