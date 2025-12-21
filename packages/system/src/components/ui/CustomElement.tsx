@@ -18,12 +18,15 @@ type ValidTag =
   | "nav-item"
   | "form-input-text"
   | "form-input-textarea"
+  | "popover-nav"
 
 interface CustomElementProps {
   children?: ReactNode
   tag: ValidTag
   className?: string | undefined
   style?: React.CSSProperties | undefined
+  popover?: string | undefined
+  id?: string | undefined
 }
 
 export function CustomElement({
@@ -31,12 +34,14 @@ export function CustomElement({
   tag,
   className = undefined,
   style = undefined,
+  popover = undefined,
+  id = undefined,
 }: CustomElementProps) {
   const Tag = tag as ValidTag
 
   return (
     // @ts-expect-error - Custom elements not recognized by TypeScript
-    <Tag className={className} style={style}>
+    <Tag className={className} id={id} style={style} popover={popover}>
       {children}
     </Tag>
   )

@@ -1,37 +1,42 @@
-.nav-wrapper {
-  display: none;
-  position-anchor: --buttonToggle;
-  margin: 0 0 0 auto;
-  position: fixed;
-  right: anchor(right);
-  top: anchor(bottom);
-  top: 4rem;
-  left: auto;
-  border: none;
+@scope (popover-nav) {
+  :scope {
+    display: none;
+    position-anchor: --buttonToggle;
+    margin: 0 0 0 auto;
+    position: fixed;
+    right: anchor(right);
+    top: anchor(bottom);
+    top: 4rem;
+    left: auto;
 
-  @media screen and (width >= 1480px) {
-    display: contents;
+    @media screen and (width >= 768px) {
+      transition: none;
+    }
+
+    @media screen and (width >= 1480px) {
+      display: contents;
+    }
+
+    &[popover]:popover-open {
+      display: flex;
+    }
   }
 
-  &[popover]:popover-open {
-    display: flex;
-  }
-}
+  .nav {
+    background-color: var(--nav-background, var(--light-100));
+    display: grid;
+    gap: var(--spacing-base);
+    grid-auto-flow: var(--nav-auto-flow, row);
+    grid-column: nav;
+    grid-row: full;
+    margin: 0 0 0 auto;
+    max-width: max-content;
+    padding: var(--nav-padding, var(--spacing-md));
 
-.nav {
-  background-color: var(--nav-background, var(--light-100));
-  display: grid;
-  gap: var(--spacing-base);
-  grid-auto-flow: var(--nav-auto-flow, row);
-  grid-column: nav;
-  grid-row: full;
-  margin: 0 0 0 auto;
-  max-width: max-content;
-  padding: var(--nav-padding, var(--spacing-md));
-
-  @media screen and (width >= 1480px) {
-    --nav-auto-flow: column;
-    --nav-background: transparent;
-    --nav-padding: var(--spacing-base);
+    @media screen and (width >= 1480px) {
+      --nav-auto-flow: column;
+      --nav-background: transparent;
+      --nav-padding: var(--spacing-base);
+    }
   }
 }

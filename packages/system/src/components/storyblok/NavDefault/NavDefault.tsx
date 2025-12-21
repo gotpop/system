@@ -5,6 +5,7 @@ import type {
 } from "../../../types/storyblok-components"
 import { ButtonToggleMenu } from "../../ui/ButtonToggleMenu"
 import "./NavDefault.css"
+import { CustomElement } from "../../ui/CustomElement"
 
 interface NavDefaultProps {
   blok: NavDefaultStoryblok
@@ -19,11 +20,16 @@ export function NavDefault({ blok: _blok, blocks }: NavDefaultProps) {
   return (
     <>
       <ButtonToggleMenu navId={navId} />
-      <div className="nav-wrapper" popover="auto" id={navId}>
+      <CustomElement
+        tag="popover-nav"
+        className="nav-wrapper"
+        popover="auto"
+        id={navId}
+      >
         <nav className="nav" aria-label="Main navigation">
           {blocks}
         </nav>
-      </div>
+      </CustomElement>
     </>
   )
 }

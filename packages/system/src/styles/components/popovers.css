@@ -14,10 +14,7 @@
     overlay var(--popover-timing, 0.3s) allow-discrete,
     translate var(--popover-timing, 0.3s)
       var(--popover-ease, cubic-bezier(0.68, -0.55, 0.27, 1.55));
-
-  @media screen and (width >= 768px) {
-    transition: none;
-  }
+  will-change: opacity, translate;
 
   &:popover-open {
     --opacity: 1;
