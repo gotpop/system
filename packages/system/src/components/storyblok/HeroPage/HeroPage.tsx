@@ -25,6 +25,7 @@ export function HeroPage({ blok, metaDataPage }: HeroPageProps) {
     <CustomElement
       tag="box-grid"
       className="hero-page"
+      id="hero-page"
       style={{
         viewTransitionName: viewTransitionName,
       }}
@@ -36,21 +37,13 @@ export function HeroPage({ blok, metaDataPage }: HeroPageProps) {
           width={640}
           height={364}
           className="image"
-          style={{ viewTransitionName: `${viewTransitionName}-image` }}
         />
       </figure>
       <div className="content">
-        <Typography
-          tag="h3"
-          variant="text-xl"
-          shade="dark"
-          styles={{
-            viewTransitionName: `${viewTransitionName}-heading`,
-          }}
-        >
+        <Typography tag="h3" variant="text-xl" shade="dark">
           {heading}
         </Typography>
-        <Tags tags={tags} viewTransitionName={`${viewTransitionName}-tags`} />
+        <Tags tags={tags} />
         {subheading && (
           <div className="subheading">
             <RichText content={subheading} />

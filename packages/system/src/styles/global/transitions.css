@@ -60,3 +60,87 @@ html:active-view-transition-type(post-to-post) {
     animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
   }
 }
+
+@keyframes slide-out-to-left {
+  to {
+    transform: translateX(-30%);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-in-from-right {
+  from {
+    transform: translateX(30%);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-out-to-right {
+  to {
+    transform: translateX(30%);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-in-from-left {
+  from {
+    transform: translateX(-30%);
+    opacity: 0;
+  }
+}
+
+html:active-view-transition-type(post-to-post-forward) {
+  :root {
+    view-transition-name: none;
+  }
+
+  /* This transition name is only used here  */
+  .hero-page {
+    view-transition-name: hero-page !important;
+  }
+
+  &::view-transition-image-pair(hero-page) {
+    animation-duration: 250ms;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    will-change: transform, opacity;
+  }
+
+  &::view-transition-old(hero-page) {
+    animation-name: slide-out-to-left;
+    animation-timing-function: cubic-bezier(0.4, 0, 1, 1);
+  }
+
+  &::view-transition-new(hero-page) {
+    animation-name: slide-in-from-right;
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+html:active-view-transition-type(post-to-post-backward) {
+  :root {
+    view-transition-name: none;
+  }
+
+  /* This transition name is only used here  */
+  .hero-page {
+    view-transition-name: hero-page !important;
+  }
+
+  &::view-transition-image-pair(hero-page) {
+    animation-duration: 250ms;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    will-change: transform, opacity;
+  }
+
+  &::view-transition-old(hero-page) {
+    animation-name: slide-out-to-right;
+    animation-timing-function: cubic-bezier(0.4, 0, 1, 1);
+  }
+
+  &::view-transition-new(hero-page) {
+    animation-name: slide-in-from-left;
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
