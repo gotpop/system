@@ -61,23 +61,26 @@ export function CardsClientFilter({
     return component === "card_image"
   })
 
+  const hasPostsWithTag = (tagValue: string) => {
+    return posts.some((post) => {
+      const { tags } = getMeta(post.meta_data_page)
+
+      return tags.some(
+        (postTag: string) => postTag.toLowerCase() === tagValue.toLowerCase()
+      )
+    })
+  }
+
+  const availableTagOptions = availableTags
+    .filter((tag) => hasPostsWithTag(tag.value))
+    .map((tag) => ({
+      value: tag.value,
+      label: tag.name,
+    }))
+
   const tagOptions = [
     { value: "all", label: "All Posts" },
-    ...availableTags
-      .filter((tag) => {
-        const filtered = posts.filter((post) => {
-          const { tags } = getMeta(post.meta_data_page)
-          return tags.some(
-            (postTag: string) =>
-              postTag.toLowerCase() === tag.value.toLowerCase()
-          )
-        })
-        return filtered.length > 0
-      })
-      .map((tag) => ({
-        value: tag.value,
-        label: tag.name,
-      })),
+    ...availableTagOptions,
   ]
 
   const output =
