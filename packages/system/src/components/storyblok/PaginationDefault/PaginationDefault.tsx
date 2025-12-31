@@ -3,7 +3,6 @@ import type {
   PageDefaultStoryblok,
   PaginationDefaultStoryblok,
 } from "../../../types/storyblok-components"
-import { getMeta } from "../../../utils/card-utils"
 import { CustomElement } from "../../ui/CustomElement"
 import { Icon } from "../../ui/Icon"
 import "./PaginationDefault.css"
@@ -23,25 +22,14 @@ interface PaginationLinkProps {
   slug: string
   title: string
   direction: "previous" | "next"
-  viewTransitionName: string
+  // viewTransitionName: string
 }
 
-function PaginationLink({
-  slug,
-  title,
-  direction,
-  viewTransitionName,
-}: PaginationLinkProps) {
+function PaginationLink({ slug, title, direction }: PaginationLinkProps) {
   const isPrevious = direction === "previous"
 
   return (
-    <a
-      style={{
-        viewTransitionName: `${viewTransitionName}-${direction}`,
-      }}
-      href={slug}
-      className={`link-pagination pagination-${direction}`}
-    >
+    <a href={slug} className={`link-pagination pagination-${direction}`}>
       {isPrevious && <Icon className="arrow" name="FaChevronLeft" />}
       <span>{title}</span>
       {!isPrevious && <Icon className="arrow" name="FaChevronRight" />}
@@ -57,35 +45,20 @@ export interface PaginationDefaultProps {
 }
 
 export function PaginationDefault({
-  metaDataPage,
   pagination: { previous, next },
 }: PaginationDefaultProps) {
-  const { viewTransitionName } = getMeta(metaDataPage || [])
-
   return (
-    <CustomElement
-      tag="box-grid"
-      className="pagination"
-      style={{
-        viewTransitionName: `${viewTransitionName}-pagination`,
-      }}
-    >
+    <CustomElement tag="box-grid" className="pagination">
       {previous.slug && (
         <PaginationLink
           slug={previous.slug}
           title={previous.title}
           direction="previous"
-          viewTransitionName={viewTransitionName}
         />
       )}
 
       {next.slug && (
-        <PaginationLink
-          slug={next.slug}
-          title={next.title}
-          direction="next"
-          viewTransitionName={viewTransitionName}
-        />
+        <PaginationLink slug={next.slug} title={next.title} direction="next" />
       )}
     </CustomElement>
   )

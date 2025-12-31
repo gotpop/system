@@ -23,7 +23,6 @@ box-crosshatch {
   grid-template-columns: subgrid;
   padding-block: var(--spacing-base);
   row-gap: var(--spacing-md);
-  view-transition-name: box-crosshatch;
   /* Fix for subpixel rendering on Safari */
   position: relative;
   right: 0.2px;

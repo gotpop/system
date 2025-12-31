@@ -32,12 +32,7 @@ export function Card({ blok, config }: CardProps) {
   const formattedDate = formatDate(date)
 
   return (
-    <CustomElement
-      tag="box-grid"
-      style={{
-        viewTransitionName: viewTransitionName,
-      }}
-    >
+    <CustomElement tag="box-grid" dataViewTransition={viewTransitionName}>
       <div className="meta">
         <Typography
           tag="time"
