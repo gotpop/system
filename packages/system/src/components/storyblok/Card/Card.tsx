@@ -35,8 +35,6 @@ export function Card({ blok, config }: CardProps) {
   const linkPath = getLinkPath(fullSlug, config)
   const formattedDate = formatDate(date)
 
-  console.log("[Card] viewTransitionName:", viewTransitionName)
-
   return (
     <ViewTransition name={viewTransitionName}>
       <CustomElement tag="box-grid">

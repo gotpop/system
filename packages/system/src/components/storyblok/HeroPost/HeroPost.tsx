@@ -23,8 +23,6 @@ export function HeroPost({ blok, metaDataPage }: HeroPostProps) {
   const { tags, viewTransitionName } = getMeta(metaDataPage)
   const { heading, subheading } = blok
 
-  console.log("[HeroPost] viewTransitionName:", viewTransitionName)
-
   return (
     <ViewTransition name={viewTransitionName}>
       <CustomElement tag="box-grid" className="hero-post">
