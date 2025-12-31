@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@gotpop/system": "*",
-    "next": "16.0.0",
+    "next": "^16.1.1",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "storyblok-rich-text-react-renderer": "^3.0.0"
