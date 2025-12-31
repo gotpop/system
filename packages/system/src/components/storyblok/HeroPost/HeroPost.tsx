@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import { ViewTransition } from "react"
 import type {
@@ -23,13 +23,10 @@ export function HeroPost({ blok, metaDataPage }: HeroPostProps) {
   const { tags, viewTransitionName } = getMeta(metaDataPage)
   const { heading, subheading } = blok
 
-  console.log('[HeroPost] viewTransitionName:', viewTransitionName)
+  console.log("[HeroPost] viewTransitionName:", viewTransitionName)
 
   return (
-    <CustomElement
-      tag="box-grid"
-      className="hero-post"
-    >
+    <CustomElement tag="box-grid" className="hero-post">
       <ViewTransition name={`${viewTransitionName}-heading`}>
         <Typography tag="h3" variant="text-xl" shade="dark">
           {heading}

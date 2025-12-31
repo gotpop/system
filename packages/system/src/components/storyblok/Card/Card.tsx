@@ -1,7 +1,7 @@
-'use client'
+"use client"
 
-import { ViewTransition } from "react"
 import Link from "next/link"
+import { ViewTransition } from "react"
 import type { ConfigStoryblok } from "../../../types/storyblok-components"
 import {
   getLinkPath,
@@ -35,7 +35,7 @@ export function Card({ blok, config }: CardProps) {
   const linkPath = getLinkPath(fullSlug, config)
   const formattedDate = formatDate(date)
 
-  console.log('[Card] viewTransitionName:', viewTransitionName)
+  console.log("[Card] viewTransitionName:", viewTransitionName)
 
   return (
     <CustomElement tag="box-grid">

@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import type { CardsServerStoryblok, ConfigStoryblok } from "../../../types"
 import "./CardsServer.css"

@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
-import { ViewTransition } from "react"
-import Link from "next/link"
 import Image from "next/image"
+import Link from "next/link"
+import { ViewTransition } from "react"
 import type { ConfigStoryblok } from "../../../types/storyblok-components"
 import {
   getLinkPath,
@@ -35,10 +35,7 @@ export function CardImage({ blok, config }: CardImageProps) {
   const linkPath = getLinkPath(fullSlug, config)
 
   return (
-    <CustomElement
-      className="card-with-image"
-      tag="box-grid"
-    >
+    <CustomElement className="card-with-image" tag="box-grid">
       <figure className="figure">
         <ViewTransition name={`${viewTransitionName}-image`}>
           <Image
@@ -52,12 +49,7 @@ export function CardImage({ blok, config }: CardImageProps) {
       </figure>
       <section className="content" aria-labelledby={id}>
         <ViewTransition name={`${viewTransitionName}-heading`}>
-          <Typography
-            id={id}
-            shade="dark"
-            tag="h3"
-            variant="text-xl"
-          >
+          <Typography id={id} shade="dark" tag="h3" variant="text-xl">
             <Link href={linkPath} className="heading-link">
               {title}
             </Link>
