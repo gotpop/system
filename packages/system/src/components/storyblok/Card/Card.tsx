@@ -38,32 +38,32 @@ export function Card({ blok, config }: CardProps) {
   console.log("[Card] viewTransitionName:", viewTransitionName)
 
   return (
-    <CustomElement tag="box-grid">
-      <div className="meta">
-        <Typography
-          tag="time"
-          variant="text-sm"
-          shade="charcoal"
-          dateTime={formattedDate}
-          className="margin-none"
-        >
-          {formattedDate}
-        </Typography>
-        <Tags tags={tags} />
-      </div>
-      <ViewTransition name={`${viewTransitionName}-heading`}>
+    <ViewTransition name={viewTransitionName}>
+      <CustomElement tag="box-grid">
+        <div className="meta">
+          <Typography
+            tag="time"
+            variant="text-sm"
+            shade="charcoal"
+            dateTime={formattedDate}
+            className="margin-none"
+          >
+            {formattedDate}
+          </Typography>
+          <Tags tags={tags} />
+        </div>
         <Typography tag="h3" variant="text-xl" shade="dark">
           <Link href={linkPath} className="title-link">
             {title}
           </Link>
         </Typography>
-      </ViewTransition>
-      <Typography tag="p" variant="text-base" shade="charcoal">
-        {description}
-      </Typography>
-      <Link href={linkPath} className="link-simple">
-        Read more
-      </Link>
-    </CustomElement>
+        <Typography tag="p" variant="text-base" shade="charcoal">
+          {description}
+        </Typography>
+        <Link href={linkPath} className="link-simple">
+          Read more
+        </Link>
+      </CustomElement>
+    </ViewTransition>
   )
 }

@@ -26,20 +26,18 @@ export function HeroPost({ blok, metaDataPage }: HeroPostProps) {
   console.log("[HeroPost] viewTransitionName:", viewTransitionName)
 
   return (
-    <CustomElement tag="box-grid" className="hero-post">
-      <ViewTransition name={`${viewTransitionName}-heading`}>
+    <ViewTransition name={viewTransitionName}>
+      <CustomElement tag="box-grid" className="hero-post">
         <Typography tag="h3" variant="text-xl" shade="dark">
           {heading}
         </Typography>
-      </ViewTransition>
-      <ViewTransition name={`${viewTransitionName}-tags`}>
         <Tags tags={tags} />
-      </ViewTransition>
-      {subheading && (
-        <div className="subheading">
-          <RichText content={subheading} />
-        </div>
-      )}
-    </CustomElement>
+        {subheading && (
+          <div className="subheading">
+            <RichText content={subheading} />
+          </div>
+        )}
+      </CustomElement>
+    </ViewTransition>
   )
 }
