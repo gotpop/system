@@ -1,3 +1,7 @@
+'use client'
+
+import { ViewTransition } from "react"
+import Link from "next/link"
 import Image from "next/image"
 import type { ConfigStoryblok } from "../../../types/storyblok-components"
 import {
@@ -34,37 +38,34 @@ export function CardImage({ blok, config }: CardImageProps) {
     <CustomElement
       className="card-with-image"
       tag="box-grid"
-      style={{
-        viewTransitionName: viewTransitionName,
-      }}
     >
       <figure className="figure">
-        <Image
-          alt={title || "Card image"}
-          className="image"
-          height={364}
-          src={image}
-          width={640}
-          style={{
-            viewTransitionName: `${viewTransitionName}-image`,
-          }}
-        />
+        <ViewTransition name={`${viewTransitionName}-image`}>
+          <Image
+            alt={title || "Card image"}
+            className="image"
+            height={364}
+            src={image}
+            width={640}
+          />
+        </ViewTransition>
       </figure>
       <section className="content" aria-labelledby={id}>
-        <Typography
-          id={id}
-          shade="dark"
-          tag="h3"
-          variant="text-xl"
-          styles={{
-            viewTransitionName: `${viewTransitionName}-heading`,
-          }}
-        >
-          <a href={linkPath} className="heading-link">
-            {title}
-          </a>
-        </Typography>
-        <Tags tags={tags} viewTransitionName={`${viewTransitionName}-tags`} />
+        <ViewTransition name={`${viewTransitionName}-heading`}>
+          <Typography
+            id={id}
+            shade="dark"
+            tag="h3"
+            variant="text-xl"
+          >
+            <Link href={linkPath} className="heading-link">
+              {title}
+            </Link>
+          </Typography>
+        </ViewTransition>
+        <ViewTransition name={`${viewTransitionName}-tags`}>
+          <Tags tags={tags} />
+        </ViewTransition>
       </section>
     </CustomElement>
   )

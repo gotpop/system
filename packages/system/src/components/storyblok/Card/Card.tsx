@@ -1,3 +1,7 @@
+'use client'
+
+import { ViewTransition } from "react"
+import Link from "next/link"
 import type { ConfigStoryblok } from "../../../types/storyblok-components"
 import {
   getLinkPath,
@@ -31,8 +35,10 @@ export function Card({ blok, config }: CardProps) {
   const linkPath = getLinkPath(fullSlug, config)
   const formattedDate = formatDate(date)
 
+  console.log('[Card] viewTransitionName:', viewTransitionName)
+
   return (
-    <CustomElement tag="box-grid" dataViewTransition={viewTransitionName}>
+    <CustomElement tag="box-grid">
       <div className="meta">
         <Typography
           tag="time"
@@ -45,17 +51,19 @@ export function Card({ blok, config }: CardProps) {
         </Typography>
         <Tags tags={tags} />
       </div>
-      <Typography tag="h3" variant="text-xl" shade="dark">
-        <a href={linkPath} className="title-link">
-          {title}
-        </a>
-      </Typography>
+      <ViewTransition name={`${viewTransitionName}-heading`}>
+        <Typography tag="h3" variant="text-xl" shade="dark">
+          <Link href={linkPath} className="title-link">
+            {title}
+          </Link>
+        </Typography>
+      </ViewTransition>
       <Typography tag="p" variant="text-base" shade="charcoal">
         {description}
       </Typography>
-      <a href={linkPath} className="link-simple">
+      <Link href={linkPath} className="link-simple">
         Read more
-      </a>
+      </Link>
     </CustomElement>
   )
 }
