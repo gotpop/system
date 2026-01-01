@@ -37,19 +37,12 @@ export function CustomElement({
   style = undefined,
   popover = undefined,
   id = undefined,
-  dataViewTransition = undefined,
 }: CustomElementProps) {
   const Tag = tag as ValidTag
 
   return (
     // @ts-expect-error - Custom elements not recognized by TypeScript
-    <Tag
-      className={className}
-      id={id}
-      style={style}
-      popover={popover}
-      data-view-transition={dataViewTransition}
-    >
+    <Tag className={className} id={id} style={style} popover={popover}>
       {children}
     </Tag>
   )

@@ -46,3 +46,206 @@
     width: 100%;
   }
 }
+
+/* View Transition animations for pagination navigation */
+/* Exit animations (old content leaving) */
+@keyframes slide-to-left {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slide-to-right {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+/* Enter animations (new content arriving) */
+@keyframes slide-from-left {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-from-right {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Apply animations based on transition type */
+html:active-view-transition-type(navigation-forward) {
+  &::view-transition-old(post-1) {
+    animation-name: slide-to-left;
+  }
+  &::view-transition-new(post-1) {
+    animation-name: slide-from-right;
+  }
+  &::view-transition-old(post-2) {
+    animation-name: slide-to-left;
+  }
+  &::view-transition-new(post-2) {
+    animation-name: slide-from-right;
+  }
+  &::view-transition-old(post-3) {
+    animation-name: slide-to-left;
+  }
+  &::view-transition-new(post-3) {
+    animation-name: slide-from-right;
+  }
+  &::view-transition-old(post-4) {
+    animation-name: slide-to-left;
+  }
+  &::view-transition-new(post-4) {
+    animation-name: slide-from-right;
+  }
+  &::view-transition-old(post-5) {
+    animation-name: slide-to-left;
+  }
+  &::view-transition-new(post-5) {
+    animation-name: slide-from-right;
+  }
+  &::view-transition-old(post-6) {
+    animation-name: slide-to-left;
+  }
+  &::view-transition-new(post-6) {
+    animation-name: slide-from-right;
+  }
+  &::view-transition-old(post-7) {
+    animation-name: slide-to-left;
+  }
+  &::view-transition-new(post-7) {
+    animation-name: slide-from-right;
+  }
+  &::view-transition-old(post-8) {
+    animation-name: slide-to-left;
+  }
+  &::view-transition-new(post-8) {
+    animation-name: slide-from-right;
+  }
+  &::view-transition-old(post-9) {
+    animation-name: slide-to-left;
+  }
+  &::view-transition-new(post-9) {
+    animation-name: slide-from-right;
+  }
+  &::view-transition-old(post-10) {
+    animation-name: slide-to-left;
+  }
+  &::view-transition-new(post-10) {
+    animation-name: slide-from-right;
+  }
+}
+
+html:active-view-transition-type(navigation-back) {
+  &::view-transition-old(post-1) {
+    animation-name: slide-to-right;
+  }
+  &::view-transition-new(post-1) {
+    animation-name: slide-from-left;
+  }
+  &::view-transition-old(post-2) {
+    animation-name: slide-to-right;
+  }
+  &::view-transition-new(post-2) {
+    animation-name: slide-from-left;
+  }
+  &::view-transition-old(post-3) {
+    animation-name: slide-to-right;
+  }
+  &::view-transition-new(post-3) {
+    animation-name: slide-from-left;
+  }
+  &::view-transition-old(post-4) {
+    animation-name: slide-to-right;
+  }
+  &::view-transition-new(post-4) {
+    animation-name: slide-from-left;
+  }
+  &::view-transition-old(post-5) {
+    animation-name: slide-to-right;
+  }
+  &::view-transition-new(post-5) {
+    animation-name: slide-from-left;
+  }
+  &::view-transition-old(post-6) {
+    animation-name: slide-to-right;
+  }
+  &::view-transition-new(post-6) {
+    animation-name: slide-from-left;
+  }
+  &::view-transition-old(post-7) {
+    animation-name: slide-to-right;
+  }
+  &::view-transition-new(post-7) {
+    animation-name: slide-from-left;
+  }
+  &::view-transition-old(post-8) {
+    animation-name: slide-to-right;
+  }
+  &::view-transition-new(post-8) {
+    animation-name: slide-from-left;
+  }
+  &::view-transition-old(post-9) {
+    animation-name: slide-to-right;
+  }
+  &::view-transition-new(post-9) {
+    animation-name: slide-from-left;
+  }
+  &::view-transition-old(post-10) {
+    animation-name: slide-to-right;
+  }
+  &::view-transition-new(post-10) {
+    animation-name: slide-from-left;
+  }
+}
+
+/* Apply exit animations to old content */
+::view-transition-old(slide-to-left) {
+  animation: slide-to-left 0.3s ease-out;
+}
+
+::view-transition-old(slide-to-right) {
+  animation: slide-to-right 0.3s ease-out;
+}
+
+/* Apply enter animations to new content */
+::view-transition-new(slide-from-left) {
+  animation: slide-from-left 0.3s ease-in;
+}
+
+::view-transition-new(slide-from-right) {
+  animation: slide-from-right 0.3s ease-in;
+}
+
+/* :root:active-view-transition-type(navigation-forward) {
+  &::view-transition(post-1) {
+    &::view-transition-old {
+      animation: slide-to-left 0.3s ease-out;
+    }
+    &::view-transition-new {
+      animation: slide-from-right 0.3s ease-in;
+    }
+  }
+} */

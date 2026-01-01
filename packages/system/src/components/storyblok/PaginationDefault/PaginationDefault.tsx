@@ -1,4 +1,8 @@
+"use client"
+
 import Link from "next/link"
+import { useRouter } from "next/navigation"
+import { addTransitionType, startTransition } from "react"
 import type {
   ConfigStoryblok,
   PageDefaultStoryblok,
@@ -27,9 +31,24 @@ interface PaginationLinkProps {
 
 function PaginationLink({ slug, title, direction }: PaginationLinkProps) {
   const isPrevious = direction === "previous"
+  const router = useRouter()
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+
+    startTransition(() => {
+      addTransitionType(`navigation-${isPrevious ? "back" : "forward"}`)
+
+      router.push(slug)
+    })
+  }
 
   return (
-    <Link href={slug} className={`link-pagination pagination-${direction}`}>
+    <Link
+      href={slug}
+      className={`link-pagination pagination-${direction}`}
+      onClick={handleClick}
+    >
       {isPrevious && <Icon className="arrow" name="FaChevronLeft" />}
       <span>{title}</span>
       {!isPrevious && <Icon className="arrow" name="FaChevronRight" />}

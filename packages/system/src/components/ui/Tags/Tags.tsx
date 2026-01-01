@@ -6,7 +6,7 @@ export interface TagsProps {
   viewTransitionName?: string
 }
 
-export function Tags({ tags, className = "", viewTransitionName }: TagsProps) {
+export function Tags({ tags, className = "" }: TagsProps) {
   const getTagLengthClass = (tag: string) => {
     const length = tag.length
     if (length <= 4) return "tag-xs"
@@ -22,12 +22,5 @@ export function Tags({ tags, className = "", viewTransitionName }: TagsProps) {
     </span>
   ))
 
-  return (
-    <div
-      className={`tags ${className}`}
-      style={viewTransitionName ? { viewTransitionName } : undefined}
-    >
-      {tagList}
-    </div>
-  )
+  return <div className={`tags ${className}`}>{tagList}</div>
 }
