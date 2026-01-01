@@ -1,3 +1,4 @@
+import Link from "next/link"
 import type {
   ConfigStoryblok,
   PageDefaultStoryblok,
@@ -22,18 +23,17 @@ interface PaginationLinkProps {
   slug: string
   title: string
   direction: "previous" | "next"
-  // viewTransitionName: string
 }
 
 function PaginationLink({ slug, title, direction }: PaginationLinkProps) {
   const isPrevious = direction === "previous"
 
   return (
-    <a href={slug} className={`link-pagination pagination-${direction}`}>
+    <Link href={slug} className={`link-pagination pagination-${direction}`}>
       {isPrevious && <Icon className="arrow" name="FaChevronLeft" />}
       <span>{title}</span>
       {!isPrevious && <Icon className="arrow" name="FaChevronRight" />}
-    </a>
+    </Link>
   )
 }
 
