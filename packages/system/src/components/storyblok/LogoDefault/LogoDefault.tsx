@@ -1,3 +1,4 @@
+import Link from "next/link"
 import type { LogoDefaultStoryblok } from "../../../types/storyblok-components"
 import { getStoryblokLinkProps } from "../../../utils/storyblok"
 import { IconLogoSVG } from "../../icons"
@@ -15,7 +16,7 @@ export function LogoDefault({
 
   return (
     <CustomElement tag="logo-main" className="logo-main">
-      <a
+      <Link
         className="link-logo"
         href={linkProps.href}
         rel={linkProps.rel}
@@ -23,7 +24,7 @@ export function LogoDefault({
       >
         <IconLogoSVG />
         <span className="logo-text">GotPop</span>
-      </a>
+      </Link>
     </CustomElement>
   )
 }

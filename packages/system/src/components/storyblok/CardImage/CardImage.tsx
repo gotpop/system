@@ -13,7 +13,6 @@ import { CustomElement } from "../../ui/CustomElement"
 import { Tags } from "../../ui/Tags"
 import { Typography } from "../Typography/Typography"
 import "./CardImage.css"
-import { useId } from "react"
 
 export interface CardImageBlokProps {
   _uid: string
@@ -28,9 +27,8 @@ export interface CardImageProps {
 }
 
 export function CardImage({ blok, config }: CardImageProps) {
-  const { full_slug: fullSlug, meta_data_page: metaData } = blok
+  const { full_slug: fullSlug, meta_data_page: metaData, _uid } = blok
   const { title, image, tags, viewTransitionName } = getMeta(metaData)
-  const id = useId()
 
   const linkPath = getLinkPath(fullSlug, config)
 
@@ -46,8 +44,8 @@ export function CardImage({ blok, config }: CardImageProps) {
             width={640}
           />
         </figure>
-        <section className="content" aria-labelledby={id}>
-          <Typography id={id} shade="dark" tag="h3" variant="text-xl">
+        <section className="content" aria-labelledby={_uid}>
+          <Typography id={_uid} shade="dark" tag="h3" variant="text-xl">
             <Link href={linkPath} className="heading-link">
               {title}
             </Link>
