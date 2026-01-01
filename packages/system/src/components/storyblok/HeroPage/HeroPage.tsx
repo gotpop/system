@@ -34,6 +34,7 @@ export function HeroPage({ blok, metaDataPage }: HeroPageProps) {
             width={640}
             height={364}
             className="image"
+            loading="eager"
           />
         </figure>
         <div className="content">
