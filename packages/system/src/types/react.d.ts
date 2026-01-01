@@ -8,4 +8,6 @@ declare module "react" {
   }
 
   export function ViewTransition(props: ViewTransitionProps): JSX.Element
+  export function addTransitionType(type: string): void
+  export function startTransition(callback: () => void): void
 }
