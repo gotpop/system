@@ -10,7 +10,7 @@ export function RichTextBlock({ blok }: RichTextBlockProps): React.JSX.Element {
   const { content } = blok
 
   return (
-    <CustomElement tag="box-grid">
+    <CustomElement tag="box-grid" className="rich-text-block">
       {content && <RichText content={content} />}
     </CustomElement>
   )
