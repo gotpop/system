@@ -1,17 +1,18 @@
+// TODO: Use 1536px for xl2
 export const BREAKPOINTS = {
-  mobile: 480,
-  tablet: 768,
-  desktop: 1024,
-  large: 1480,
-  xlarge: 1920,
+  sm: 640,
+  md: 768,
+  lg: 1024,
+  xl: 1280,
+  xl2: 1480,
 } as const
 
 export const MEDIA_QUERIES: Record<BreakpointKey, string> = {
-  mobile: `(width >= ${BREAKPOINTS.mobile}px)`,
-  tablet: `(width >= ${BREAKPOINTS.tablet}px)`,
-  desktop: `(width >= ${BREAKPOINTS.desktop}px)`,
-  large: `(width >= ${BREAKPOINTS.large}px)`,
-  xlarge: `(width >= ${BREAKPOINTS.xlarge}px)`,
+  sm: `(width >= ${BREAKPOINTS.sm}px)`,
+  md: `(width >= ${BREAKPOINTS.md}px)`,
+  lg: `(width >= ${BREAKPOINTS.lg}px)`,
+  xl: `(width >= ${BREAKPOINTS.xl}px)`,
+  xl2: `(width >= ${BREAKPOINTS.xl2}px)`,
 } as const
 
 export type BreakpointKey = keyof typeof BREAKPOINTS

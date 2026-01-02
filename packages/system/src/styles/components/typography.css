@@ -32,12 +32,12 @@
   }
 
   &.text-base {
-    font: var(--text-weight-regular) var(--font-base);
     font-variation-settings: "opsz" var(--font-opsz-text);
+    font: var(--text-weight-regular) var(--font-base);
     margin-block: 0 var(--spacing-md);
-    padding-block-start: calc(1rem - 1cap);
-    text-wrap: pretty;
     max-width: 60ch;
+    padding-block-start: 4.5px;
+    text-wrap: pretty;
   }
 
   &.text-md {
@@ -57,10 +57,10 @@
   }
 
   &.text-xl {
-    font: var(--text-weight-semibold) var(--font-xl);
     font-variation-settings: "opsz" var(--font-opsz-heading);
+    font: var(--text-weight-semibold) var(--font-xl);
     margin-block: 0 var(--spacing-md);
-    padding-block-start: calc(2rem - 1cap);
+    padding-block-start: 1px;
     text-wrap: balance;
   }
 

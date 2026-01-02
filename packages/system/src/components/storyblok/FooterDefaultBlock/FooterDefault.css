@@ -14,7 +14,6 @@
     grid-template-columns: subgrid;
     padding-block: var(--spacing-xl);
     row-gap: var(--spacing-xxl);
-    view-transition-name: footer;
   }
 
   .footer-content {

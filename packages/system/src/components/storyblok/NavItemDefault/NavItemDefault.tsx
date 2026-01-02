@@ -1,3 +1,4 @@
+import Link from "next/link"
 import type {
   ConfigStoryblok,
   NavItemDefaultStoryblok,
@@ -78,9 +79,9 @@ export function NavItemDefault({
 
   return (
     <CustomElement tag="nav-item" className={classNames} style={style}>
-      <a href={href} target={target} rel={rel}>
+      <Link href={href} target={target} rel={rel}>
         {renderContent()}
-      </a>
+      </Link>
     </CustomElement>
   )
 }

@@ -14,7 +14,8 @@
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "typeRoots": ["../../node_modules/@types", "node_modules/@types"]
   },
   "include": ["src/**/*"],
   "exclude": [

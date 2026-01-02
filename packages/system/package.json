@@ -1,6 +1,6 @@
 {
   "name": "@gotpop/system",
-  "version": "0.1.248",
+  "version": "0.1.282",
   "description": "React design system components for gotpop",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -69,10 +69,10 @@
   },
   "dependencies": {
     "@next/font": "^14.2.15",
-    "@storyblok/react": "^5.4.18",
-    "react-dom": "19.2.0",
+    "motion": "^12.23.26",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
     "react-icons": "^5.4.0",
-    "react": "19.2.0",
     "server-only": "^0.0.1",
     "storyblok-rich-text-react-renderer": "^3.0.1"
   },
@@ -80,8 +80,8 @@
     "@biomejs/biome": "^2.3.8",
     "@gotpop/scripts": "^0.1.1",
     "@types/node": "^20",
-    "@types/react-dom": "19.2.2",
-    "@types/react": "19.2.2",
+    "@types/react": "19.2.3",
+    "@types/react-dom": "19.2.3",
     "chokidar-cli": "^3.0.0",
     "concurrently": "^8.0.1",
     "next": "16.0.0",
@@ -89,6 +89,6 @@
     "typescript": "~5.7.0"
   },
   "peerDependencies": {
-    "react": ">=19.0.0"
+    "react": ">=19.2.3"
   }
 }

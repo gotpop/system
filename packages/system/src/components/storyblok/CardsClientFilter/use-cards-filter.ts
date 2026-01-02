@@ -14,6 +14,7 @@ export function useCardsFilter(posts: CardBlokProps[]) {
     if (currentTag !== "all") {
       filtered = posts.filter((post) => {
         const { tags } = getMeta(post.meta_data_page)
+
         return tags.some(
           (tag: string) => tag.toLowerCase() === currentTag.toLowerCase()
         )

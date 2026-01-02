@@ -33,11 +33,7 @@
       "default": "./dist/utils/index.js"
     }
   },
-  "files": [
-    "dist/**/*",
-    "package.json",
-    "README.md"
-  ],
+  "files": ["dist/**/*", "package.json", "README.md"],
   "repository": {
     "type": "git",
     "url": "https://github.com/gotpop/system.git",
@@ -50,7 +46,7 @@
     "publish:github": "npm version patch && yarn build && npm publish && cd ../.. && rm -f package-lock.json"
   },
   "dependencies": {
-    "@storyblok/react": "^5.0.0"
+    "@storyblok/react": "5.4.20"
   },
   "devDependencies": {
     "@gotpop/system": "*",
@@ -60,6 +56,6 @@
   "peerDependencies": {
     "@gotpop/system": "*",
     "next": ">=15.0.0",
-    "react": ">=19.0.0"
+    "react": ">=19.2.3"
   }
 }

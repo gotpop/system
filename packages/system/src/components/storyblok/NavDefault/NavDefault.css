@@ -1,7 +1,30 @@
-@scope (.nav) {
+@scope (popover-nav) {
   :scope {
+    display: none;
+    position-anchor: --buttonToggle;
+    margin: 0 0 0 auto;
+    position: fixed;
+    right: anchor(right);
+    top: anchor(bottom);
+    top: 4rem;
+    left: auto;
+
+    @media screen and (width >= 768px) {
+      transition: none;
+    }
+
+    @media screen and (width >= 1480px) {
+      display: contents;
+    }
+
+    &[popover]:popover-open {
+      display: flex;
+    }
+  }
+
+  .nav {
     background-color: var(--nav-background, var(--light-100));
-    display: var(--nav-display, grid);
+    display: grid;
     gap: var(--spacing-base);
     grid-auto-flow: var(--nav-auto-flow, row);
     grid-column: nav;
@@ -9,51 +32,11 @@
     margin: 0 0 0 auto;
     max-width: max-content;
     padding: var(--nav-padding, var(--spacing-md));
-    position-anchor: var(--nav-position-anchor, --buttonToggle);
-    position: var(--nav-position, absolute);
-    right: var(--nav-right, anchor(right));
-    top: var(--nav-top, anchor(bottom));
-    z-index: 1;
-
-    @media screen and (width < 1480px) {
-      opacity: 1;
-      transform: translateX(0);
-      visibility: visible;
-      pointer-events: auto;
-      transition:
-        opacity 0.3s ease-in-out,
-        transform 0.3s ease-in-out,
-        visibility 0.3s ease-in-out;
-
-      @starting-style {
-        opacity: 0;
-        transform: translateX(-10px);
-        visibility: hidden;
-      }
-
-      &[hidden] {
-        opacity: 0;
-        transform: translateX(-10px);
-        visibility: hidden;
-        pointer-events: none;
-      }
-    }
-
-    &[hidden] {
-      @media screen and (width >= 1480px) {
-        --nav-display: none;
-      }
-    }
 
     @media screen and (width >= 1480px) {
-      --nav-display: grid;
+      --nav-auto-flow: column;
       --nav-background: transparent;
       --nav-padding: var(--spacing-base);
-      --nav-position: static;
-      --nav-position-anchor: unset;
-      --nav-right: unset;
-      --nav-top: unset;
-      --nav-auto-flow: column;
     }
   }
 }

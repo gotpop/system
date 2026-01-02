@@ -34,11 +34,13 @@ export function CardsControl({
         onChange={(e) => onChange(e.target.value)}
         className="select"
       >
-        {options.map((option) => (
-          <option key={option.value} value={option.value}>
-            {option.label}
-          </option>
-        ))}
+        {options
+          .filter((option) => option.value && option.label)
+          .map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
       </select>
     </CustomElement>
   )

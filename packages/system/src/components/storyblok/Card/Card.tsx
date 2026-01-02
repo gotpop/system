@@ -1,3 +1,7 @@
+"use client"
+
+import Link from "next/link"
+import { ViewTransition } from "react"
 import type { ConfigStoryblok } from "../../../types/storyblok-components"
 import {
   getLinkPath,
@@ -32,35 +36,32 @@ export function Card({ blok, config }: CardProps) {
   const formattedDate = formatDate(date)
 
   return (
-    <CustomElement
-      tag="box-grid"
-      style={{
-        viewTransitionName: viewTransitionName,
-      }}
-    >
-      <div className="meta">
-        <Typography
-          tag="time"
-          variant="text-sm"
-          shade="charcoal"
-          dateTime={formattedDate}
-          className="margin-none"
-        >
-          {formattedDate}
+    <ViewTransition name={viewTransitionName}>
+      <CustomElement tag="box-grid">
+        <div className="meta">
+          <Typography
+            tag="time"
+            variant="text-sm"
+            shade="charcoal"
+            dateTime={formattedDate}
+            className="margin-none"
+          >
+            {formattedDate}
+          </Typography>
+          <Tags tags={tags} />
+        </div>
+        <Typography tag="h3" variant="text-xl" shade="dark">
+          <Link href={linkPath} className="title-link">
+            {title}
+          </Link>
         </Typography>
-        <Tags tags={tags} />
-      </div>
-      <Typography tag="h3" variant="text-xl" shade="dark">
-        <a href={linkPath} className="title-link">
-          {title}
-        </a>
-      </Typography>
-      <Typography tag="p" variant="text-base" shade="charcoal">
-        {description}
-      </Typography>
-      <a href={linkPath} className="link-simple">
-        Read more
-      </a>
-    </CustomElement>
+        <Typography tag="p" variant="text-base" shade="charcoal">
+          {description}
+        </Typography>
+        <Link href={linkPath} className="link-simple">
+          Read more
+        </Link>
+      </CustomElement>
+    </ViewTransition>
   )
 }

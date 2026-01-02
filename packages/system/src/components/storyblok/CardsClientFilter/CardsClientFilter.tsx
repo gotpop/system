@@ -6,6 +6,7 @@ import type {
   ConfigStoryblok,
   TagDatasourceEntry,
 } from "../../../types"
+import { getMeta } from "../../../utils/card-utils"
 import { CardsControl } from "../../ui/CardsControl/CardsControl"
 import { CustomElement } from "../../ui/CustomElement"
 import { Card, type CardBlokProps } from "../Card/Card"
@@ -60,12 +61,26 @@ export function CardsClientFilter({
     return component === "card_image"
   })
 
-  const tagOptions = [
-    { value: "all", label: "All Posts" },
-    ...availableTags.map((tag) => ({
+  const hasPostsWithTag = (tagValue: string) => {
+    return posts.some((post) => {
+      const { tags } = getMeta(post.meta_data_page)
+
+      return tags.some(
+        (postTag: string) => postTag.toLowerCase() === tagValue.toLowerCase()
+      )
+    })
+  }
+
+  const availableTagOptions = availableTags
+    .filter((tag) => hasPostsWithTag(tag.value))
+    .map((tag) => ({
       value: tag.value,
       label: tag.name,
-    })),
+    }))
+
+  const tagOptions = [
+    { value: "all", label: "All Posts" },
+    ...availableTagOptions,
   ]
 
   const output =

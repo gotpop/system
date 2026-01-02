@@ -5,25 +5,31 @@ import type {
 } from "../../../types/storyblok-components"
 import { ButtonToggleMenu } from "../../ui/ButtonToggleMenu"
 import "./NavDefault.css"
+import { CustomElement } from "../../ui/CustomElement"
 
 interface NavDefaultProps {
   blok: NavDefaultStoryblok
   blocks?: React.ReactNode
   config?: ConfigStoryblok | null
+  onOpenChange?: (isOpen: boolean) => void
 }
 
-export function NavDefault({
-  blok: _blok,
-  blocks,
-}: NavDefaultProps): React.JSX.Element {
+export function NavDefault({ blok: _blok, blocks }: NavDefaultProps) {
   const navId = useId()
 
   return (
     <>
       <ButtonToggleMenu navId={navId} />
-      <nav className="nav" id={navId} aria-hidden="true" hidden>
-        {blocks}
-      </nav>
+      <CustomElement
+        tag="popover-nav"
+        className="nav-wrapper"
+        popover="auto"
+        id={navId}
+      >
+        <nav className="nav" aria-label="Main navigation">
+          {blocks}
+        </nav>
+      </CustomElement>
     </>
   )
 }

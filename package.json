@@ -3,7 +3,10 @@
   "private": true,
   "version": "0.1.0",
   "description": "Design system monorepo for gotpop projects",
-  "workspaces": ["packages/*", "apps/*"],
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
   "scripts": {
     "build": "turbo run build",
     "clean": "turbo run clean",
@@ -37,5 +40,9 @@
     "tabWidth": 2,
     "printWidth": 80,
     "arrowParens": "always"
+  },
+  "dependencies": {
+    "@types/react": "19.2.3",
+    "@types/react-dom": "19.2.3"
   }
 }

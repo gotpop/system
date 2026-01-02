@@ -1,4 +1,7 @@
+"use client"
+
 import Image from "next/image"
+import { ViewTransition } from "react"
 import type {
   ConfigStoryblok,
   HeroPageStoryblok,
@@ -22,41 +25,30 @@ export function HeroPage({ blok, metaDataPage }: HeroPageProps) {
   const { heading, subheading, image } = blok
 
   return (
-    <CustomElement
-      tag="box-grid"
-      className="hero-page"
-      style={{
-        viewTransitionName: viewTransitionName,
-      }}
-    >
-      <figure className="figure">
-        <Image
-          src={image?.filename}
-          alt={heading || "Card image"}
-          width={640}
-          height={364}
-          className="image"
-          style={{ viewTransitionName: `${viewTransitionName}-image` }}
-        />
-      </figure>
-      <div className="content">
-        <Typography
-          tag="h3"
-          variant="text-xl"
-          shade="dark"
-          styles={{
-            viewTransitionName: `${viewTransitionName}-heading`,
-          }}
-        >
-          {heading}
-        </Typography>
-        <Tags tags={tags} viewTransitionName={`${viewTransitionName}-tags`} />
-        {subheading && (
-          <div className="subheading">
-            <RichText content={subheading} />
-          </div>
-        )}
-      </div>
-    </CustomElement>
+    <ViewTransition name={viewTransitionName}>
+      <CustomElement tag="box-grid" className="hero-page" id="hero-page">
+        <figure className="figure">
+          <Image
+            src={image?.filename || ""}
+            alt={heading || "Card image"}
+            width={640}
+            height={364}
+            className="image"
+            loading="eager"
+          />
+        </figure>
+        <div className="content">
+          <Typography tag="h3" variant="text-xl" shade="dark">
+            {heading}
+          </Typography>
+          <Tags tags={tags} />
+          {subheading && (
+            <div className="subheading">
+              <RichText content={subheading} />
+            </div>
+          )}
+        </div>
+      </CustomElement>
+    </ViewTransition>
   )
 }

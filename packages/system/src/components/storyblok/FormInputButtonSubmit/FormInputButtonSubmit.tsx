@@ -1,10 +1,12 @@
+"use client"
+
 import type {
   ConfigStoryblok,
   FormInputButtonSubmitStoryblok,
 } from "../../../types/storyblok-components"
 import "./FormInputButtonSubmit.css"
-import type { IconName } from "@gotpop/system"
-import { Icon } from "@gotpop/system"
+import { useRef } from "react"
+import { AtSignIcon, type AtSignIconHandle } from "./IconAtSign"
 
 interface FormInputButtonSubmitProps {
   blok: FormInputButtonSubmitStoryblok
@@ -14,19 +16,27 @@ interface FormInputButtonSubmitProps {
 
 export function FormInputButtonSubmit({ blok }: FormInputButtonSubmitProps) {
   const label = blok.button_text ?? "Send"
+  const iconRef = useRef<AtSignIconHandle>(null)
 
-  const icon =
-    blok.icon_button && blok.icon_button.length > 0
-      ? (blok.icon_button[0].icon_picker as IconName | undefined)
-      : undefined
+  const handleMouseEnter = () => {
+    iconRef.current?.startAnimation()
+  }
 
-  const iconMarkup = icon ? <Icon name={icon} size={16} /> : null
+  const handleMouseLeave = () => {
+    iconRef.current?.stopAnimation()
+  }
 
   return (
     <div className="form-input-button-submit">
-      <button type="submit" className="form-submit-button" aria-label={label}>
+      <button
+        type="submit"
+        className="form-submit-button"
+        aria-label={label}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
         <span className="text">{label}</span>
-        {iconMarkup}
+        <AtSignIcon ref={iconRef} size={16} />
       </button>
     </div>
   )

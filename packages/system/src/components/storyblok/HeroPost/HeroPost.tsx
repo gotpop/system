@@ -1,3 +1,6 @@
+"use client"
+
+import { ViewTransition } from "react"
 import type {
   ConfigStoryblok,
   HeroPostStoryblok,
@@ -21,29 +24,18 @@ export function HeroPost({ blok, metaDataPage }: HeroPostProps) {
   const { heading, subheading } = blok
 
   return (
-    <CustomElement
-      tag="box-grid"
-      className="hero-post"
-      style={{
-        viewTransitionName: viewTransitionName,
-      }}
-    >
-      <Typography
-        tag="h3"
-        variant="text-xl"
-        shade="dark"
-        styles={{
-          viewTransitionName: `${viewTransitionName}-heading`,
-        }}
-      >
-        {heading}
-      </Typography>
-      <Tags tags={tags} viewTransitionName={`${viewTransitionName}-tags`} />
-      {subheading && (
-        <div className="subheading">
-          <RichText content={subheading} />
-        </div>
-      )}
-    </CustomElement>
+    <ViewTransition name={viewTransitionName}>
+      <CustomElement tag="box-grid" className="hero-post">
+        <Typography tag="h3" variant="text-xl" shade="dark">
+          {heading}
+        </Typography>
+        <Tags tags={tags} />
+        {subheading && (
+          <div className="subheading">
+            <RichText content={subheading} />
+          </div>
+        )}
+      </CustomElement>
+    </ViewTransition>
   )
 }

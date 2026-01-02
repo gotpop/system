@@ -1,50 +1,64 @@
-@scope (page-layout) {
-  :scope {
-    --col-width: 21rem;
-    --even-odd: even;
-    --grid-horizontal-color: rgba(180, 180, 180, 0.6);
-    --grid-offset: centre;
-    --grid-vertical-color: rgba(200, 200, 200, 0.6);
-    --repeat: 1;
-    --root-grid-size: 16px;
+@property --layout-columns-xs {
+  syntax: "*";
+  inherits: false;
+  initial-value: [full-start] minmax(0, 1fr) [breakout-start] 0 [content-start]
+    repeat(1, 21rem) [content-end] 0 [breakout-end] minmax(0, 1fr) [full-end];
+}
 
-    background-image: var(--grid-centered-pattern), var(--grain-uri);
-    background-position: top center;
-    background-size: var(--grid-centered-bg-size);
-    display: grid;
-    grid-template-rows: [header] min-content [main] 1fr [double-col] 0 [footer] min-content;
-    min-height: 100dvh;
-    row-gap: var(--spacing-base);
-    grid-template-columns:
-      [full-start] minmax(0, 1fr) [breakout-start] 0 [content-start]
-      repeat(var(--repeat), var(--col-width)) [content-end] 0 [breakout-end]
-      minmax(0, 1fr) [full-end];
+@property --layout-columns-sm {
+  syntax: "*";
+  inherits: false;
+  initial-value: [full-start] minmax(0, 1fr) [breakout-start] 0 [content-start]
+    repeat(2, 12rem) [content-end] 0 [breakout-end] minmax(0, 1fr) [full-end];
+}
 
-    @media screen and (width >= 480px) {
-      --repeat: 2;
-      --col-width: 12rem;
+@property --layout-columns-md {
+  syntax: "*";
+  inherits: false;
+  initial-value: [full-start] minmax(0, 1fr) [breakout-start] 0 [content-start]
+    repeat(4, 10rem) [content-end] 0 [breakout-end] minmax(0, 1fr) [full-end];
+}
 
-      grid-template-columns:
-        [full-start] minmax(0, 1fr) [breakout-start] 0 [content-start]
-        repeat(var(--repeat), var(--col-width)) [content-end] 0 [breakout-end]
-        minmax(0, 1fr) [full-end];
-      column-gap: var(--spacing-base);
-      row-gap: var(--spacing-xl);
-    }
+@property --layout-columns-lg {
+  syntax: "*";
+  inherits: false;
+  initial-value: [full-start] minmax(0, 1fr) [breakout-start] 0 [content-start]
+    repeat(4, 15rem) [content-end] 0 [breakout-end] minmax(0, 1fr) [full-end];
+}
 
-    @media screen and (width >= 768px) {
-      --repeat: 4;
-      --col-width: 10rem;
-    }
+@property --layout-columns-xl {
+  syntax: "*";
+  inherits: false;
+  initial-value: [full-start] minmax(0, 1fr) [breakout-start] 0 [content-start]
+    repeat(6, 10rem) [content-end] 0 [breakout-end] minmax(0, 1fr) [full-end];
+}
 
-    @media screen and (width >= 1280px) {
-      --repeat: 4;
-      --col-width: 15rem;
-    }
+page-layout {
+  background-image: var(--grid-centered-pattern), var(--grain-uri);
+  background-position: top center;
+  background-size: var(--grid-centered-bg-size);
+  display: grid;
+  grid-template-columns: var(--layout-columns-xs);
+  grid-template-rows: [header] min-content [main] 1fr [double-col] 0 [footer] min-content;
+  min-height: 100dvh;
+  overflow: clip;
+  row-gap: var(--spacing-base);
 
-    @media screen and (width >= 1480px) {
-      --repeat: 6;
-      --col-width: 10rem;
-    }
+  @media screen and (width >= 480px) {
+    column-gap: var(--spacing-base);
+    grid-template-columns: var(--layout-columns-sm);
+    row-gap: var(--spacing-xl);
+  }
+
+  @media screen and (width >= 768px) {
+    grid-template-columns: var(--layout-columns-md);
+  }
+
+  @media screen and (width >= 1280px) {
+    grid-template-columns: var(--layout-columns-lg);
+  }
+
+  @media screen and (width >= 1480px) {
+    grid-template-columns: var(--layout-columns-xl);
   }
 }
