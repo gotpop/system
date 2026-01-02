@@ -48,33 +48,35 @@ export function BaselineStatus({
   return (
     <CustomElement tag="baseline-status" className="baseline-status">
       <details data-status={status}>
-        <summary>
-          <div className="title">
-            {normalizedName && (
-              <h4 className="feature-name">{normalizedName}</h4>
-            )}
-          </div>
-          <div className="feature-meta">
-            <BaselineIcon status={status} />
-            <strong>Baseline</strong>
-            <span>{label}</span>
-            {badgeText && <span className="baseline-badge">{badgeText}</span>}
-          </div>
-          <div className="baseline-status-browsers">
-            {browsers.map(({ key, label, support }) => {
-              const Icon =
-                browserIcons[key as keyof typeof browserIcons] || IconChrome
-              return (
-                <span
-                  key={key}
-                  className={`browser-icon browser-${key}`}
-                  title={`${label}: ${support}`}
-                >
-                  <Icon />
-                  <SupportStatusIcon status={support} />
-                </span>
-              )
-            })}
+        <summary className="summary">
+          <div className="summary-content">
+            <div className="title">
+              {normalizedName && (
+                <h4 className="feature-name">{normalizedName}</h4>
+              )}
+            </div>
+            <div className="feature-meta">
+              <BaselineIcon status={status} />
+              <strong>Baseline</strong>
+              <span>{label}</span>
+              {badgeText && <span className="baseline-badge">{badgeText}</span>}
+            </div>
+            <div className="baseline-status-browsers">
+              {browsers.map(({ key, label, support }) => {
+                const Icon =
+                  browserIcons[key as keyof typeof browserIcons] || IconChrome
+                return (
+                  <span
+                    key={key}
+                    className={`browser-icon browser-${key}`}
+                    title={`${label}: ${support}`}
+                  >
+                    <Icon />
+                    <SupportStatusIcon status={support} />
+                  </span>
+                )
+              })}
+            </div>
           </div>
         </summary>
         <div className="content">
