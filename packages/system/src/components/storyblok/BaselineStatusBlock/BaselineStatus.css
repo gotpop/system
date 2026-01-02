@@ -1,47 +1,56 @@
-@scope (baseline-status) {
-  :scope {
-    --baseline-icon-limited-front: #f09409;
-    --baseline-icon-limited-back: #c6c6c6;
-    --baseline-icon-widely-front: #1ea446;
-    --baseline-icon-widely-back: #c4eed0;
-    --baseline-icon-newly-front: #1b6ef3;
-    --baseline-icon-newly-back: #a8c7fa;
-    --baseline-icon-no_data: #909090;
+.baseline-status {
+  --baseline-icon-limited-front: #f09409;
+  --baseline-icon-limited-back: #c6c6c6;
+  --baseline-icon-widely-front: #1ea446;
+  --baseline-icon-widely-back: #c4eed0;
+  --baseline-icon-newly-front: #1b6ef3;
+  --baseline-icon-newly-back: #a8c7fa;
+  --baseline-icon-no_data: #909090;
 
-    width: auto;
-    margin-bottom: var(--spacing-md);
-    grid-column: 1 / -1;
+  width: auto;
+  margin-bottom: var(--spacing-md);
+  grid-column: 1 / -1;
 
-    &:last-child {
-      margin-bottom: 0;
-    }
+  &:last-child {
+    margin-bottom: 0;
   }
 
   details {
     overflow: hidden;
   }
 
-  summary {
+  summary.summary {
     background: var(--light-100);
     cursor: pointer;
     list-style: none;
     padding: var(--spacing-base);
+    display: block;
+    background-color: #f8f8f8;
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &::marker {
+      display: none;
+      content: "";
+    }
+  }
+
+  .summary-content {
     display: grid;
     grid-template-columns: 1fr;
     height: 9rem;
     align-content: center;
     gap: var(--spacing-base);
-    background-color: #f8f8f8;
-    width: 100%;
 
     @media screen and (width >= 768px) {
       gap: var(--spacing-xl);
       height: 3rem;
       grid-template-columns: 1fr auto;
-    }
-
-    &::-webkit-details-marker {
-      display: none;
     }
   }
 
