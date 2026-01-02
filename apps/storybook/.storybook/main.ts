@@ -19,6 +19,18 @@ const config: StorybookConfig = {
     reactDocgen: "react-docgen-typescript",
   },
   staticDirs: ["../public"],
+  webpackFinal: async (config) => {
+    // Remove SWC loader to fix Next.js 16 compatibility
+    if (config.module?.rules) {
+      config.module.rules = config.module.rules.filter((rule) => {
+        if (typeof rule === "object" && rule && "loader" in rule) {
+          return !rule.loader?.toString().includes("next-swc-loader")
+        }
+        return true
+      })
+    }
+    return config
+  },
 }
 
 export default config
