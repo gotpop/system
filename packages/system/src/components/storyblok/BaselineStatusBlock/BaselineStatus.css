@@ -19,7 +19,7 @@
     overflow: hidden;
   }
 
-  summary.summary {
+  .summary {
     background: var(--light-100);
     cursor: pointer;
     list-style: none;
