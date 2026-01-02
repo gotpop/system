@@ -5,7 +5,11 @@ const config: StorybookConfig = {
   addons: [],
   framework: {
     name: "@storybook/nextjs",
-    options: {},
+    options: {
+      builder: {
+        useSWC: false,
+      },
+    },
   },
   features: {
     experimentalRSC: true,
