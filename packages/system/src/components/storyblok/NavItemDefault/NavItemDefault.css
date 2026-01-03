@@ -1,7 +1,10 @@
 @scope (nav-item) {
   & {
     grid-column: var(--grid-column, auto);
-    width: 8rem;
+
+    @media screen and (width >= 1480px) {
+      width: 8rem;
+    }
   }
 
   span:has(svg) {

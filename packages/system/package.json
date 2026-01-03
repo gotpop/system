@@ -1,6 +1,6 @@
 {
   "name": "@gotpop/system",
-  "version": "0.1.283",
+  "version": "0.1.284",
   "description": "React design system components for gotpop",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -42,7 +42,12 @@
       "default": "./dist/lib/*.js"
     }
   },
-  "files": ["dist/**/*", "src/**/*", "package.json", "README.md"],
+  "files": [
+    "dist/**/*",
+    "src/**/*",
+    "package.json",
+    "README.md"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/gotpop/system.git",
