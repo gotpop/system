@@ -49,9 +49,9 @@ function PaginationLink({ slug, title, direction }: PaginationLinkProps) {
       className={`link-pagination pagination-${direction}`}
       onClick={handleClick}
     >
-      {isPrevious && <Icon className="arrow" name="FaChevronLeft" />}
+      {isPrevious && <Icon className="arrow" name="chevron-left" />}
       <span>{title}</span>
-      {!isPrevious && <Icon className="arrow" name="FaChevronRight" />}
+      {!isPrevious && <Icon className="arrow" name="chevron-right" />}
     </Link>
   )
 }

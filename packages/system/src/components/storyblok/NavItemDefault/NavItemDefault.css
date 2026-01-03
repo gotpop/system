@@ -1,6 +1,7 @@
 @scope (nav-item) {
   & {
     grid-column: var(--grid-column, auto);
+    width: 8rem;
   }
 
   span:has(svg) {
@@ -28,7 +29,7 @@
 
   a,
   button {
-    --background-colour: var(--secondary-700);
+    --background-colour: var(--secondary-600);
     --colour: var(--light-100);
     --transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 
