@@ -1,44 +1,46 @@
 import {
-  FaBars,
-  FaChevronLeft,
-  FaChevronRight,
-  FaEnvelope,
-  FaExternalLinkAlt,
-  FaHome,
-  FaLink,
-  FaPhone,
-  FaQuestionCircle,
-  FaSearch,
-  FaStar,
-  FaTimes,
-  FaUser,
-} from "react-icons/fa"
-import { FaSquareGithub } from "react-icons/fa6"
-import { MdArticle } from "react-icons/md"
-import { TfiGithub } from "react-icons/tfi"
+  BriefcaseBusiness,
+  ChevronLeft,
+  ChevronRight,
+  ExternalLink,
+  Github,
+  HelpCircle,
+  Home,
+  Link,
+  Mail,
+  Menu,
+  Newspaper,
+  Phone,
+  Search,
+  Star,
+  User,
+  X,
+} from "lucide-react"
 
 /**
  * Icon registry - single source of truth for available icons.
  * Only icons listed here will be bundled (tree-shaking optimization).
  * Add new icons here and run `yarn sync-icons` to update Storyblok datasource.
+ *
+ * Keys match the CMS datasource values (kebab-case)
  */
 const ICON_REGISTRY = {
-  FaBars,
-  FaChevronLeft,
-  FaChevronRight,
-  FaEnvelope,
-  FaExternalLinkAlt,
-  FaHome,
-  FaLink,
-  FaPhone,
-  FaQuestionCircle,
-  FaSearch,
-  FaSquareGithub,
-  FaStar,
-  FaTimes,
-  FaUser,
-  TfiGithub,
-  MdArticle,
+  mail: Mail,
+  newspaper: Newspaper,
+  github: Github,
+  "briefcase-business": BriefcaseBusiness,
+  "chevron-right": ChevronRight,
+  "chevron-left": ChevronLeft,
+  menu: Menu,
+  "external-link": ExternalLink,
+  home: Home,
+  link: Link,
+  phone: Phone,
+  "help-circle": HelpCircle,
+  search: Search,
+  star: Star,
+  x: X,
+  user: User,
 } as const
 
 // Export for sync scripts and type generation
@@ -71,13 +73,13 @@ export function Icon({
 
   if (!IconComponent) {
     console.log(
-      "Font Awesome icon not found:",
+      "Icon not found:",
       JSON.stringify({ name, availableIcons: AVAILABLE_ICONS }, null, 2)
     )
     // render a safe fallback so consumers still get an icon
     return (
       <span className={className}>
-        <FaQuestionCircle size={size} color={color} />
+        <HelpCircle size={size} color={color} />
       </span>
     )
   }
