@@ -9,10 +9,18 @@ import type {
 import { getMeta } from "../../../utils/card-utils"
 import { CardsControl } from "../../ui/CardsControl/CardsControl"
 import { CustomElement } from "../../ui/CustomElement"
+import type { IconName } from "../../ui/Icon/Icon"
 import { Card, type CardBlokProps } from "../Card/Card"
 import { CardImage } from "../CardImage"
 import { useCardsFilter } from "./use-cards-filter"
 import "./CardsClientFilter.css"
+
+const SORT_ICON_MAP: Record<string, IconName> = {
+  published_desc: "calendar-arrow-down",
+  published_asc: "calendar-arrow-up",
+  name_asc: "arrow-down-az",
+  name_desc: "arrow-up-za",
+}
 
 const SORT_OPTIONS = [
   { value: "published_desc", label: "Newest First" },
@@ -83,6 +91,11 @@ export function CardsClientFilter({
     ...availableTagOptions,
   ]
 
+  const sortOptions = SORT_OPTIONS.map((option) => ({
+    ...option,
+    icon: SORT_ICON_MAP[option.value],
+  }))
+
   const output =
     filteredAndSortedPosts.length > 0 &&
     filteredAndSortedPosts.map((blok) =>
@@ -107,7 +120,7 @@ export function CardsClientFilter({
             label="Sort"
             value={currentSort}
             onChange={handleSortChange}
-            options={SORT_OPTIONS}
+            options={sortOptions}
           />
         </CustomElement>
         <ViewTransition update="reorder-list">

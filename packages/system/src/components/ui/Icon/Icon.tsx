@@ -1,5 +1,11 @@
 import {
+  ArrowDownAZ,
+  ArrowDownZA,
+  ArrowUpAZ,
+  ArrowUpZA,
   BriefcaseBusiness,
+  CalendarArrowDown,
+  CalendarArrowUp,
   ChevronLeft,
   ChevronRight,
   ExternalLink,
@@ -17,13 +23,6 @@ import {
   X,
 } from "lucide-react"
 
-/**
- * Icon registry - single source of truth for available icons.
- * Only icons listed here will be bundled (tree-shaking optimization).
- * Add new icons here and run `yarn sync-icons` to update Storyblok datasource.
- *
- * Keys match the CMS datasource values (kebab-case)
- */
 const ICON_REGISTRY = {
   mail: Mail,
   newspaper: Newspaper,
@@ -41,14 +40,18 @@ const ICON_REGISTRY = {
   star: Star,
   x: X,
   user: User,
+  "arrow-down-az": ArrowDownAZ,
+  "arrow-up-az": ArrowUpAZ,
+  "arrow-down-za": ArrowDownZA,
+  "arrow-up-za": ArrowUpZA,
+  "calendar-arrow-down": CalendarArrowDown,
+  "calendar-arrow-up": CalendarArrowUp,
 } as const
 
-// Export for sync scripts and type generation
 export const AVAILABLE_ICONS = Object.keys(ICON_REGISTRY) as Array<
   keyof typeof ICON_REGISTRY
 >
 
-// Type-safe icon names
 export type IconName = keyof typeof ICON_REGISTRY
 
 interface IconProps {
@@ -76,7 +79,7 @@ export function Icon({
       "Icon not found:",
       JSON.stringify({ name, availableIcons: AVAILABLE_ICONS }, null, 2)
     )
-    // render a safe fallback so consumers still get an icon
+
     return (
       <span className={className}>
         <HelpCircle size={size} color={color} />

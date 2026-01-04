@@ -938,7 +938,7 @@
     "@storyblok/react" "5.4.20"
 
 "@gotpop/system@*", "@gotpop/system@file:/Users/minivan/web/sites/platform/system/packages/system":
-  version "0.1.284"
+  version "0.1.285"
   resolved "file:packages/system"
   dependencies:
     "@next/font" "^14.2.15"
