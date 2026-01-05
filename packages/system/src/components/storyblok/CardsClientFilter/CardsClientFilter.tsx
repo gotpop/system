@@ -22,6 +22,13 @@ const SORT_ICON_MAP: Record<string, IconName> = {
   name_desc: "arrow-up-za",
 }
 
+const TAG_ICON_MAP: Record<string, IconName> = {
+  all: "tag",
+  css: "css",
+  javascript: "javascript",
+  html: "html5",
+}
+
 const SORT_OPTIONS = [
   { value: "published_desc", label: "Newest First" },
   { value: "published_asc", label: "Oldest First" },
@@ -84,10 +91,11 @@ export function CardsClientFilter({
     .map((tag) => ({
       value: tag.value,
       label: tag.name,
+      icon: TAG_ICON_MAP[tag.value.toLowerCase()],
     }))
 
   const tagOptions = [
-    { value: "all", label: "All Posts" },
+    { value: "all", label: "All Posts", icon: TAG_ICON_MAP.all },
     ...availableTagOptions,
   ]
 

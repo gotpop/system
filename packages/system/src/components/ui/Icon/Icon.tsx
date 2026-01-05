@@ -1,3 +1,4 @@
+import { SiCss, SiHtml5, SiJavascript } from "@icons-pack/react-simple-icons"
 import {
   ArrowDownAZ,
   ArrowDownZA,
@@ -19,6 +20,7 @@ import {
   Phone,
   Search,
   Star,
+  Tag,
   User,
   X,
 } from "lucide-react"
@@ -40,12 +42,16 @@ const ICON_REGISTRY = {
   star: Star,
   x: X,
   user: User,
+  tag: Tag,
   "arrow-down-az": ArrowDownAZ,
   "arrow-up-az": ArrowUpAZ,
   "arrow-down-za": ArrowDownZA,
   "arrow-up-za": ArrowUpZA,
   "calendar-arrow-down": CalendarArrowDown,
   "calendar-arrow-up": CalendarArrowUp,
+  css: SiCss,
+  javascript: SiJavascript,
+  html5: SiHtml5,
 } as const
 
 export const AVAILABLE_ICONS = Object.keys(ICON_REGISTRY) as Array<
