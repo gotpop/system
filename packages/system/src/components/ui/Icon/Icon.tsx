@@ -91,6 +91,20 @@ interface IconProps {
   className?: string
 }
 
+const SIMPLE_ICON_NAMES: IconName[] = [
+  "css",
+  "javascript",
+  "html5",
+  "react",
+  "angular",
+  "vuedotjs",
+  "nextdotjs",
+  "nodedotjs",
+  "typescript",
+  "graphql",
+  "cloudflare",
+]
+
 export function Icon({
   name,
   size = 24,
@@ -117,9 +131,15 @@ export function Icon({
     )
   }
 
+  const isSimpleIcon = SIMPLE_ICON_NAMES.includes(name)
+
   return (
     <span className={className}>
-      <IconComponent size={size} color={color} />
+      <IconComponent
+        size={size}
+        color={color}
+        {...(isSimpleIcon && { title: "" })}
+      />
     </span>
   )
 }
