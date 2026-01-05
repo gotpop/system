@@ -2,28 +2,38 @@
   & {
     align-items: center;
     background: var(--light-100);
+    border: 1px solid var(--light-300);
     display: grid;
     grid-column: var(--grid-column, auto);
     grid-template-columns: auto 1fr;
+    height: var(--spacing-lg);
     min-width: var(--round-up);
-    border: 1px solid var(--light-300);
-    height: 3rem;
   }
 
   .select {
+    align-items: center;
     appearance: none;
     background-image: none;
     border-radius: 0px;
+    border: none;
     box-sizing: border-box;
     color: var(--dark-500);
+    cursor: pointer;
+    display: flex;
     font-size: var(--text-xs);
+    height: 46px;
     outline: none;
     padding: 0.5rem 1.5rem;
-    cursor: pointer;
-    border: none;
-    height: 46px;
-    display: flex;
-    align-items: center;
+
+    &::picker-icon {
+      color: var(--dark-500);
+      transition: 0.4s rotate;
+      transition-delay: 0.25s;
+    }
+
+    &:open::picker-icon {
+      rotate: -180deg;
+    }
 
     @supports (appearance: base-select) {
       appearance: base-select;
@@ -32,83 +42,72 @@
 
   .select-label {
     align-items: center;
+    border-right: 1px solid var(--light-300);
     color: var(--dark-800);
-    font-size: var(--text-xs);
+    cursor: pointer;
     display: flex;
+    font-size: var(--text-xs);
     height: max-content;
     justify-content: center;
-    min-height: 2rem;
+    min-height: var(--spacing-md);
     min-width: 5rem;
     width: max-content;
-    cursor: pointer;
-    border-right: 1px solid var(--light-300);
   }
 
   .selected-content {
-    display: flex;
-    min-width: 8rem;
     align-items: end;
-    gap: 1rem;
+    display: flex;
+    gap: var(--spacing-base);
+    min-width: 8rem;
 
     span {
       color: var(--secondary-700);
     }
   }
 
-  select::picker-icon {
-    color: var(--dark-500);
-    transition: 0.4s rotate;
-  }
-
-  select:open::picker-icon {
-    rotate: 180deg;
-  }
-
   ::picker(select) {
-    opacity: 0;
-    transition: all 0.2s allow-discrete;
-    translate: 0 50px;
-    scale: 0.7;
     border: 1px solid var(--light-300);
+    opacity: 0;
+    scale: 0.5;
+    transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) allow-discrete;
+    transform-origin: top center;
 
     &:popover-open {
       opacity: 1;
-      translate: 0 0;
       scale: 1;
 
       @starting-style {
-        translate: 0 50px;
         opacity: 0;
         scale: 0.5;
       }
     }
   }
 
-  option::checkmark {
-    display: none;
-  }
-
-  option:checked {
-    font-weight: bold;
-  }
-
   option {
-    color: var(--dark-500);
-    background-color: var(--light-100);
-    font-size: var(--text-sm);
-    padding: 0 1.5rem;
-    display: flex;
     align-items: center;
-    gap: 1rem;
-    justify-content: start;
-    height: 3rem;
-    font-size: var(--text-xs);
-    transition: color 0.3s ease-in-out;
-    cursor: pointer;
+    background-color: var(--light-100);
     border-bottom: 1px solid var(--light-200);
+    color: var(--dark-500);
+    cursor: pointer;
+    display: flex;
+    font-size: var(--text-sm);
+    font-size: var(--text-xs);
+    gap: var(--spacing-base);
+    height: var(--spacing-lg);
+    justify-content: start;
+    padding: 0 1.5rem;
+    transition: color 0.3s ease-in-out;
+
+    &::checkmark {
+      display: none;
+    }
 
     &:last-child {
       border-bottom: none;
+    }
+
+    &:checked {
+      font-weight: bold;
     }
 
     span {

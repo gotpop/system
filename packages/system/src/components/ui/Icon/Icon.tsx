@@ -1,5 +1,18 @@
-import { SiCss, SiHtml5, SiJavascript } from "@icons-pack/react-simple-icons"
 import {
+  SiAngular,
+  SiCloudflare,
+  SiCss,
+  SiGraphql,
+  SiHtml5,
+  SiJavascript,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiReact,
+  SiTypescript,
+  SiVuedotjs,
+} from "@icons-pack/react-simple-icons"
+import {
+  Accessibility,
   ArrowDownAZ,
   ArrowDownZA,
   ArrowUpAZ,
@@ -9,6 +22,7 @@ import {
   CalendarArrowUp,
   ChevronLeft,
   ChevronRight,
+  Cloud,
   ExternalLink,
   Github,
   HelpCircle,
@@ -52,6 +66,16 @@ const ICON_REGISTRY = {
   css: SiCss,
   javascript: SiJavascript,
   html5: SiHtml5,
+  react: SiReact,
+  angular: SiAngular,
+  vuedotjs: SiVuedotjs,
+  nextdotjs: SiNextdotjs,
+  nodedotjs: SiNodedotjs,
+  typescript: SiTypescript,
+  graphql: SiGraphql,
+  cloudflare: SiCloudflare,
+  accessibility: Accessibility,
+  cloud: Cloud,
 } as const
 
 export const AVAILABLE_ICONS = Object.keys(ICON_REGISTRY) as Array<

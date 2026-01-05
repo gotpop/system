@@ -27,6 +27,18 @@ const TAG_ICON_MAP: Record<string, IconName> = {
   css: "css",
   javascript: "javascript",
   html: "html5",
+  react: "react",
+  angular: "angular",
+  vuejs: "vuedotjs",
+  next: "nextdotjs",
+  nextjs: "nextdotjs",
+  node: "nodedotjs",
+  nodejs: "nodedotjs",
+  typescript: "typescript",
+  graphql: "graphql",
+  cloudflare: "cloudflare",
+  accessibility: "accessibility",
+  aws: "cloud",
 }
 
 const SORT_OPTIONS = [
