@@ -1,7 +1,28 @@
 import {
+  SiAngular,
+  SiCloudflare,
+  SiCss,
+  SiGraphql,
+  SiHtml5,
+  SiJavascript,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiReact,
+  SiTypescript,
+  SiVuedotjs,
+} from "@icons-pack/react-simple-icons"
+import {
+  Accessibility,
+  ArrowDownAZ,
+  ArrowDownZA,
+  ArrowUpAZ,
+  ArrowUpZA,
   BriefcaseBusiness,
+  CalendarArrowDown,
+  CalendarArrowUp,
   ChevronLeft,
   ChevronRight,
+  Cloud,
   ExternalLink,
   Github,
   HelpCircle,
@@ -13,17 +34,11 @@ import {
   Phone,
   Search,
   Star,
+  Tag,
   User,
   X,
 } from "lucide-react"
 
-/**
- * Icon registry - single source of truth for available icons.
- * Only icons listed here will be bundled (tree-shaking optimization).
- * Add new icons here and run `yarn sync-icons` to update Storyblok datasource.
- *
- * Keys match the CMS datasource values (kebab-case)
- */
 const ICON_REGISTRY = {
   mail: Mail,
   newspaper: Newspaper,
@@ -41,14 +56,32 @@ const ICON_REGISTRY = {
   star: Star,
   x: X,
   user: User,
+  tag: Tag,
+  "arrow-down-az": ArrowDownAZ,
+  "arrow-up-az": ArrowUpAZ,
+  "arrow-down-za": ArrowDownZA,
+  "arrow-up-za": ArrowUpZA,
+  "calendar-arrow-down": CalendarArrowDown,
+  "calendar-arrow-up": CalendarArrowUp,
+  css: SiCss,
+  javascript: SiJavascript,
+  html5: SiHtml5,
+  react: SiReact,
+  angular: SiAngular,
+  vuedotjs: SiVuedotjs,
+  nextdotjs: SiNextdotjs,
+  nodedotjs: SiNodedotjs,
+  typescript: SiTypescript,
+  graphql: SiGraphql,
+  cloudflare: SiCloudflare,
+  accessibility: Accessibility,
+  cloud: Cloud,
 } as const
 
-// Export for sync scripts and type generation
 export const AVAILABLE_ICONS = Object.keys(ICON_REGISTRY) as Array<
   keyof typeof ICON_REGISTRY
 >
 
-// Type-safe icon names
 export type IconName = keyof typeof ICON_REGISTRY
 
 interface IconProps {
@@ -76,7 +109,7 @@ export function Icon({
       "Icon not found:",
       JSON.stringify({ name, availableIcons: AVAILABLE_ICONS }, null, 2)
     )
-    // render a safe fallback so consumers still get an icon
+
     return (
       <span className={className}>
         <HelpCircle size={size} color={color} />

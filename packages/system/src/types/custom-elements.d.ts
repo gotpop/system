@@ -48,6 +48,14 @@ declare module "react" {
         React.HTMLAttributes<HTMLElement>,
         HTMLElement
       >
+      "select-option": React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLElement>,
+        HTMLElement
+      >
+      selectedcontent: React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLElement>,
+        HTMLElement
+      >
     }
   }
 }

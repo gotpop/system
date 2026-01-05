@@ -9,10 +9,37 @@ import type {
 import { getMeta } from "../../../utils/card-utils"
 import { CardsControl } from "../../ui/CardsControl/CardsControl"
 import { CustomElement } from "../../ui/CustomElement"
+import type { IconName } from "../../ui/Icon/Icon"
 import { Card, type CardBlokProps } from "../Card/Card"
 import { CardImage } from "../CardImage"
 import { useCardsFilter } from "./use-cards-filter"
 import "./CardsClientFilter.css"
+
+const SORT_ICON_MAP: Record<string, IconName> = {
+  published_desc: "calendar-arrow-down",
+  published_asc: "calendar-arrow-up",
+  name_asc: "arrow-down-az",
+  name_desc: "arrow-up-za",
+}
+
+const TAG_ICON_MAP: Record<string, IconName> = {
+  all: "tag",
+  css: "css",
+  javascript: "javascript",
+  html: "html5",
+  react: "react",
+  angular: "angular",
+  vuejs: "vuedotjs",
+  next: "nextdotjs",
+  nextjs: "nextdotjs",
+  node: "nodedotjs",
+  nodejs: "nodedotjs",
+  typescript: "typescript",
+  graphql: "graphql",
+  cloudflare: "cloudflare",
+  accessibility: "accessibility",
+  aws: "cloud",
+}
 
 const SORT_OPTIONS = [
   { value: "published_desc", label: "Newest First" },
@@ -76,12 +103,18 @@ export function CardsClientFilter({
     .map((tag) => ({
       value: tag.value,
       label: tag.name,
+      icon: TAG_ICON_MAP[tag.value.toLowerCase()],
     }))
 
   const tagOptions = [
-    { value: "all", label: "All Posts" },
+    { value: "all", label: "All Posts", icon: TAG_ICON_MAP.all },
     ...availableTagOptions,
   ]
+
+  const sortOptions = SORT_OPTIONS.map((option) => ({
+    ...option,
+    icon: SORT_ICON_MAP[option.value],
+  }))
 
   const output =
     filteredAndSortedPosts.length > 0 &&
@@ -107,7 +140,7 @@ export function CardsClientFilter({
             label="Sort"
             value={currentSort}
             onChange={handleSortChange}
-            options={SORT_OPTIONS}
+            options={sortOptions}
           />
         </CustomElement>
         <ViewTransition update="reorder-list">

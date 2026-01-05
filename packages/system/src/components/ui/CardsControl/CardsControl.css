@@ -1,42 +1,123 @@
 @scope (select-option) {
   & {
     align-items: center;
-    background: var(--dark-500);
+    background: var(--light-100);
+    border: 1px solid var(--light-300);
     display: grid;
     grid-column: var(--grid-column, auto);
     grid-template-columns: auto 1fr;
+    height: var(--spacing-lg);
     min-width: var(--round-up);
+  }
+
+  .select {
+    align-items: center;
+    appearance: none;
+    background-image: none;
+    border-radius: 0px;
+    border: none;
+    box-sizing: border-box;
+    color: var(--dark-500);
+    cursor: pointer;
+    display: flex;
+    font-size: var(--text-xs);
+    height: 46px;
+    outline: none;
+    padding: 0.5rem 1.5rem;
+
+    &::picker-icon {
+      color: var(--dark-500);
+      transition: 0.4s rotate;
+      transition-delay: 0.25s;
+    }
+
+    &:open::picker-icon {
+      rotate: -180deg;
+    }
+
+    @supports (appearance: base-select) {
+      appearance: base-select;
+    }
   }
 
   .select-label {
     align-items: center;
-    color: white;
+    border-right: 1px solid var(--light-300);
+    color: var(--dark-800);
+    cursor: pointer;
     display: flex;
+    font-size: var(--text-xs);
     height: max-content;
     justify-content: center;
-    min-height: 2rem;
-    min-width: 6rem;
+    min-height: var(--spacing-md);
+    min-width: 5rem;
     width: max-content;
-    padding-inline: 1rem;
   }
 
-  .select {
-    appearance: none;
-    background-image: none;
-    background: var(--light-100);
-    border-radius: 0px;
+  .selected-content {
+    align-items: end;
+    display: flex;
+    gap: var(--spacing-base);
+    min-width: 8rem;
+
+    span {
+      color: var(--secondary-700);
+    }
+  }
+
+  ::picker(select) {
     border: 1px solid var(--light-300);
-    box-sizing: border-box;
+    opacity: 0;
+    scale: 0.5;
+    transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) allow-discrete;
+    transform-origin: top center;
+
+    &:popover-open {
+      opacity: 1;
+      scale: 1;
+
+      @starting-style {
+        opacity: 0;
+        scale: 0.5;
+      }
+    }
+  }
+
+  option {
+    align-items: center;
+    background-color: var(--light-100);
+    border-bottom: 1px solid var(--light-200);
     color: var(--dark-500);
+    cursor: pointer;
     display: flex;
     font-size: var(--text-sm);
-    height: 2rem;
-    line-height: 0.8;
-    outline: none;
-    padding: 0.5rem 0.75rem;
+    font-size: var(--text-xs);
+    gap: var(--spacing-base);
+    height: var(--spacing-lg);
+    justify-content: start;
+    padding: 0 1.5rem;
+    transition: color 0.3s ease-in-out;
 
-    @supports (appearance: base-select) {
-      appearance: base-select;
+    &::checkmark {
+      display: none;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:checked {
+      font-weight: bold;
+    }
+
+    span {
+      display: flex;
+      align-items: center;
+    }
+
+    &:hover,
+    &:focus-visible {
+      color: var(--primary-400);
     }
   }
 }
