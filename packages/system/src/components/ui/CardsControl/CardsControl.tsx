@@ -41,6 +41,9 @@ export function CardsControl({
         onChange={(e) => onChange(e.target.value)}
         className="select"
       >
+        <button type="button" className="selected-button">
+          <selectedcontent className="selected-content"></selectedcontent>
+        </button>
         {options
           .filter((option) => option.value && option.label)
           .map((option) => (
