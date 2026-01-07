@@ -33,7 +33,7 @@
     }
 
     &:hover {
-      background-color: var(--dark-200);
+      background-color: var(--light-200);
     }
 
     &:open::picker-icon {
