@@ -1,9 +1,9 @@
 import type {
-  HeroDefaultStoryblok,
   PageDefaultStoryblok,
   RichTextBlockStoryblok,
 } from "../../../types/storyblok-components"
 import { HeroDefault } from "../HeroDefault"
+import type { HeroDefaultStoryblok } from "../HeroDefault/HeroDefault"
 import { RichTextBlock } from "../RichTextBlock"
 
 // Mock content blocks
@@ -108,7 +108,7 @@ export const mockSimplePageBlok: PageDefaultStoryblok = {
   component: "page_default",
   header: "header-1",
   footer: "footer-1",
-  body: [mockHeroBlock, mockRichTextBlock],
+  body: [mockRichTextBlock],
 }
 
 export const mockContentPageBlok: PageDefaultStoryblok = {
@@ -116,7 +116,7 @@ export const mockContentPageBlok: PageDefaultStoryblok = {
   component: "page_default",
   header: "header-1",
   footer: "footer-1",
-  body: [mockHeroBlock, mockRichTextBlock, mockSecondRichTextBlock],
+  body: [mockRichTextBlock, mockSecondRichTextBlock],
 }
 
 export const mockLandingPageBlok: PageDefaultStoryblok = {
@@ -124,7 +124,7 @@ export const mockLandingPageBlok: PageDefaultStoryblok = {
   component: "page_default",
   header: "header-1",
   footer: "footer-1",
-  body: [mockHeroBlock],
+  body: [],
 }
 
 // Mock React nodes for simple header/footer

@@ -1,8 +1,6 @@
-import type {
-  HeroDefaultStoryblok,
-  RichTextBlockStoryblok,
-} from "../../../types/storyblok-components"
+import type { RichTextBlockStoryblok } from "../../../types/storyblok-components"
 import { HeroDefault } from "../HeroDefault"
+import type { HeroDefaultStoryblok } from "../HeroDefault/HeroDefault"
 import { RichTextBlock } from "../RichTextBlock"
 
 // Mock content blocks for different layout scenarios

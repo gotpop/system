@@ -1,8 +1,18 @@
+import type { SbBlokData } from "@storyblok/react"
 import { useId } from "react"
-import type { HeroDefaultStoryblok } from "../../../types/storyblok-components"
+import type { RichtextStoryblok } from "../../../types/storyblok-components"
 import { CustomElement } from "../../ui/CustomElement"
 import { RichText } from "../RichText/RichText"
 import { Typography } from "../Typography/Typography"
+
+// Legacy component type - not currently in CMS
+export interface HeroDefaultStoryblok extends SbBlokData {
+  component: "hero_default"
+  heading?: string
+  subheading?: RichtextStoryblok
+  _uid: string
+  [k: string]: any
+}
 
 interface HeroDefaultProps {
   blok: HeroDefaultStoryblok

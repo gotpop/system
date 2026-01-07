@@ -1,4 +1,4 @@
-import type { HeroDefaultStoryblok } from "../../../types/storyblok-components"
+import type { HeroDefaultStoryblok } from "./HeroDefault"
 
 // Main hero mock data
 export const mockFullHeroBlok: HeroDefaultStoryblok = {
