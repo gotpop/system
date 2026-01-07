@@ -1,7 +1,7 @@
 @scope (select-option) {
   & {
     align-items: center;
-    background: var(--light-100);
+    background-color: var(--light-100);
     border: 1px solid var(--light-300);
     display: grid;
     grid-column: var(--grid-column, auto);
@@ -24,11 +24,16 @@
     height: 46px;
     outline: none;
     padding: 0.5rem 1.5rem;
+    transition: background-color 0.3s ease-in-out;
 
     &::picker-icon {
       color: var(--dark-500);
       transition: 0.4s rotate;
       transition-delay: 0.25s;
+    }
+
+    &:hover {
+      background-color: var(--dark-200);
     }
 
     &:open::picker-icon {
