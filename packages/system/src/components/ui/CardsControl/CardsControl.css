@@ -24,7 +24,7 @@
     height: 46px;
     outline: none;
     padding: 0.5rem 1.5rem;
-    transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.25s ease-in-out;
 
     &::picker-icon {
       color: var(--dark-500);
