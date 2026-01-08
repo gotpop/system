@@ -938,7 +938,7 @@
     "@storyblok/react" "5.4.20"
 
 "@gotpop/system@*", "@gotpop/system@file:/Users/minivan/web/sites/platform/system/packages/system":
-  version "0.1.296"
+  version "0.1.297"
   resolved "file:packages/system"
   dependencies:
     "@icons-pack/react-simple-icons" "^13.8.0"

@@ -49,13 +49,14 @@ icon-hamburger {
     --rotate: var(--after-rotate);
     --y: var(--after-y);
   }
-}
 
-header:has([popover]:popover-open) icon-hamburger {
-  --after-bottom: calc(50% - var(--line));
-  --after-rotate: -45deg;
-  --after-y: calc(-var(--spacing-md) / 2 + var(--line));
-  --before-rotate: 45deg;
-  --before-y: calc(var(--spacing-md) / 2 - var(--line));
-  --hamburger-bg: transparent;
+  /* Active state when popover is open */
+  &.is-active {
+    --after-bottom: calc(50% - var(--line));
+    --after-rotate: -45deg;
+    --after-y: calc(-var(--spacing-md) / 2 + var(--line));
+    --before-rotate: 45deg;
+    --before-y: calc(var(--spacing-md) / 2 - var(--line));
+    --hamburger-bg: transparent;
+  }
 }
