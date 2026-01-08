@@ -45,6 +45,11 @@ export function useHamburgerState() {
 
     checkPopoverState()
 
+    if (!mediaQuery.matches && popover.hidePopover) {
+      popover.hidePopover()
+      hamburgerIcon.classList.remove("is-active")
+    }
+
     popover.addEventListener("toggle", handleToggle)
     mediaQuery.addEventListener("change", handleBreakpointChange)
 
