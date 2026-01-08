@@ -126,6 +126,10 @@ export function CardsClientFilter({
       )
     )
 
+  console.info(
+    "The minified hydration error you're seeing here is due to the use of nested html in this page's custom select. As this is an experimental project I've decided to use it anyway (it's a problem with Next.js not the broswer) obviously this is not ready for a commerical project."
+  )
+
   return (
     <Suspense fallback={<div>Loading posts...</div>}>
       <div className="filters-with-output">
