@@ -1,3 +1,5 @@
+"use client"
+
 import { useId } from "react"
 import type {
   ConfigStoryblok,
@@ -5,6 +7,7 @@ import type {
 } from "../../../types/storyblok-components"
 import { ButtonToggleMenu } from "../../ui/ButtonToggleMenu"
 import "./NavDefault.css"
+import { useHamburgerState } from "../../../hooks/useHamburgerState"
 import { CustomElement } from "../../ui/CustomElement"
 
 interface NavDefaultProps {
@@ -16,6 +19,7 @@ interface NavDefaultProps {
 
 export function NavDefault({ blok: _blok, blocks }: NavDefaultProps) {
   const navId = useId()
+  useHamburgerState()
 
   return (
     <>

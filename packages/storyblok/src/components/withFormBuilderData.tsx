@@ -1,15 +1,9 @@
 import "server-only"
 
-import type { ConfigStoryblok } from "@gotpop/system"
+import type { ConfigStoryblok, FormBuilderStoryblok } from "@gotpop/system"
 import { StoryblokServerComponent } from "@storyblok/react/rsc"
 import type { ReactNode } from "react"
 import { getConfig } from "../config/runtime-config"
-
-interface FormBuilderBlok {
-  // biome-ignore lint/suspicious/noExplicitAny: Replace with proper type once forms are full integrated
-  inputs?: any[]
-  [key: string]: unknown
-}
 
 interface FormState {
   errors: Record<string, string[]>
@@ -18,8 +12,7 @@ interface FormState {
 }
 
 interface WithFormBuilderDataProps {
-  // biome-ignore lint/suspicious/noExplicitAny: Replace with proper type once forms are full integrated
-  blok: any
+  blok: FormBuilderStoryblok
   content: ReactNode
   config: ConfigStoryblok | null
   onSubmit?: (formData: FormData) => Promise<FormState>
@@ -34,10 +27,9 @@ export function withFormBuilderData(
     blok,
     config: providedConfig,
   }: {
-    blok: FormBuilderBlok
+    blok: FormBuilderStoryblok
     config?: ConfigStoryblok | null
   }) => {
-    // Use provided config or fetch from cache
     const config = providedConfig ?? (await getConfig())
     const { inputs } = blok
 

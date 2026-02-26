@@ -50,8 +50,8 @@ icon-hamburger {
     --y: var(--after-y);
   }
 
-  :has(+ [popover]:popover-open) &,
-  :has(~ [popover]:popover-open) & {
+  /* Active state when popover is open */
+  &.is-active {
     --after-bottom: calc(50% - var(--line));
     --after-rotate: -45deg;
     --after-y: calc(-var(--spacing-md) / 2 + var(--line));
